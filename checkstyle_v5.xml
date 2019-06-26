@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+
+
+<!--
+	
+	亚联安全产品研发中心代码规范checkstyle配置文件.
+
+	@Author zhaocw@asiainfo-linkage.com
+	@Since 2014.3
+	@Version 1.0.1
+ 
+-->
+
+<module name="Checker">
+
+    <property name="severity" value="warning" />
+    <module name="JavadocPackage">
+        <property name="allowLegacy" value="true"/>
+    </module>
+
+    <!-- All Java AST specific tests live under TreeWalker module. -->
+    <module name="TreeWalker">
+         <module name="FileContentsHolder"/>
+
+        <!-- Checks for Javadoc comments.                     -->
+        <!-- See http://checkstyle.sf.net/config_javadoc.html -->
+        <module name="JavadocMethod">
+            <property name="scope" value="public"/>
+
+            <property name="severity" value="warning"/>
+            <property name="allowMissingJavadoc" value="false"/>
+            <property name="allowMissingParamTags" value="true"/>
+            <property name="allowMissingReturnTag" value="true"/>
+            <property name="allowMissingThrowsTags" value="true"/>
+            <property name="allowThrowsTagsForSubclasses" value="true"/>
+            <property name="allowUndeclaredRTE" value="true"/>
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="allowMissingPropertyJavadoc" value="true"/>
+        </module>
+
+
+        <module name="JavadocType">
+            <property name="scope" value="public"/>
+            <property name="authorFormat" value="\S"/>
+            <property name="severity" value="error"/>
+            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF"/>
+        </module>
+
+        <module name="JavadocStyle">
+            <property name="severity" value="warning"/>
+            <property name="checkFirstSentence" value="false"/>
+        </module>
+
+        <!--
+
+        NAMING CHECKS
+
+        -->
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]{1,})*$"/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <module name="TypeNameCheck">
+            <!-- Validates static, final fields against the
+            expression "^[A-Z][a-zA-Z0-9]*$". -->
+            <metadata name="altname" value="TypeName"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="ConstantNameCheck">
+            <!-- Validates non-private, static, final fields against the supplied
+            public/package final fields "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$". -->
+            <metadata name="altname" value="ConstantName"/>
+            <property name="applyToPublic" value="true"/>
+            <property name="applyToProtected" value="true"/>
+            <property name="applyToPackage" value="true"/>
+            <property name="applyToPrivate" value="true"/>
+            <property name="format" value="^([A-Z][A-Z0-9]*(_[A-Z0-9]+)*|FLAG_.*)$"/>
+            <message key="name.invalidPattern"
+                     value="Variable ''{0}'' should be in ALL_CAPS 全部大写 (if it is a constant) or be private (otherwise)."/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <module name="StaticVariableNameCheck">
+            <!-- Validates static, non-final fields against the supplied
+            expression "^[a-z][a-zA-Z0-9]*_?$". -->
+            <metadata name="altname" value="StaticVariableName"/>
+            <property name="applyToPublic" value="true"/>
+            <property name="applyToProtected" value="true"/>
+            <property name="applyToPackage" value="true"/>
+            <property name="applyToPrivate" value="true"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*_?$"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="MemberNameCheck">
+            <!-- Validates non-static members against the supplied expression. -->
+            <metadata name="altname" value="MemberName"/>
+            <property name="applyToPublic" value="true"/>
+            <property name="applyToProtected" value="true"/>
+            <property name="applyToPackage" value="true"/>
+            <property name="applyToPrivate" value="true"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="MethodNameCheck">
+            <!-- Validates identifiers for method names. -->
+            <metadata name="altname" value="MethodName"/>
+            <property name="format" value="^[a-z][a-zA-Z0-9]*(_[a-zA-Z0-9]+)*$"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="ParameterName">
+            <!-- Validates identifiers for method parameters against the
+              expression "^[a-z][a-zA-Z0-9]*$". -->
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="LocalFinalVariableName">
+            <!-- Validates identifiers for local final variables against the
+              expression "^[a-z][a-zA-Z0-9]*$". -->
+            <property name="severity" value="warning"/>
+        </module>
+
+        <module name="LocalVariableName">
+            <!-- Validates identifiers for local variables against the
+              expression "^[a-z][a-zA-Z0-9]*$". -->
+            <property name="severity" value="warning"/>
+        </module>
+
+
+        <!--
+        LENGTH and CODING CHECKS
+        -->
+        <module name="LineLength">
+            <!-- Checks if a line is too long. -->
+            <property name="max" value="120"/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <module name="RightCurly">
+            <property name="option" value="same"/>
+            <property name="severity" value="warning"/>
+        </module>
+
+        <!-- Checks for long methods and constructors. max default 150行. max=300 设置长度300 -->
+        <module name="MethodLength">
+            <property name="max" value="200"/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <!-- if-else嵌套语句个数 最多4层 -->
+        <module name="NestedIfDepth">
+            <property name="max" value="4"/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <!--- 字符串比较必须使用 equals() -->
+        <module name="StringLiteralEquality">
+            <property name="severity" value="warning"/>
+        </module>
+
+        <!-- Checks for braces around if and else blocks -->
+        <module name="NeedBraces">
+            <property name="severity" value="warning"/>
+            <property name="tokens" value="LITERAL_IF, LITERAL_ELSE, LITERAL_FOR, LITERAL_WHILE, LITERAL_DO"/>
+        </module>
+
+        <!--  Checks for illegal instantiations where a factory method is preferred.
+        Rationale: Depending on the project, for some classes it might be preferable to create instances through factory methods rather than calling the constructor.
+        A simple example is the java.lang.Boolean class. In order to save memory and CPU cycles, it is preferable to use the predefined constants TRUE and FALSE. Constructor invocations should be replaced by calls to Boolean.valueOf().
+        Some extremely performance sensitive projects may require the use of factory methods for other classes as well, to enforce the usage of number caches or object pools. -->
+        <module name="IllegalInstantiation">
+            <property name="severity" value="warning"/>
+            <property name="classes" value="java.lang.Boolean"/>
+        </module>
+
+        <!-- Checks the number of parameters of a method or constructor. max default 7个. -->
+        <module name="ParameterNumber">
+            <property name="max" value="8"/>
+            <property name="severity" value="error"/>
+        </module>
+
+        <!--  Checks that switch statement has "default" clause. 检查switch语句是否有‘default’从句
+         Rationale: It's usually a good idea to introduce a default case in every switch statement.
+         Even if the developer is sure that all currently possible cases are covered, this should be expressed in the default branch,
+          e.g. by using an assertion. This way the code is protected aginst later changes, e.g. introduction of new types in an enumeration type. -->
+        <module name="MissingSwitchDefault">
+            <property name="severity" value="warning"/>
+        </module>
+
+
+        <!-- 检查在重写了equals方法后是否重写了hashCode方法 -->
+        <module name="EqualsHashCode">
+            <property name="severity" value="warning"/>
+        </module>
+
+    </module>
+
+    <module name="SuppressionCommentFilter"/>
+</module>
+
