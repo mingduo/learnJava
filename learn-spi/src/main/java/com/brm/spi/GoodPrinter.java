@@ -1,4 +1,4 @@
-package com.ais.brm.study.spi;
+package com.brm.spi;
 
 public class GoodPrinter implements Printer {
     @Override

@@ -1,6 +1,6 @@
-package com.ais.brm.study.brmTest.spi;
+package com.brm;
 
-import com.ais.brm.study.spi.Printer;
+import com.brm.spi.Printer;
 
 import java.util.ServiceLoader;
 
