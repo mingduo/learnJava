@@ -21,6 +21,7 @@
 
         <module>common</module>
         <module>study</module>
+        <module>learn-spark</module>
     </modules>
 
 
