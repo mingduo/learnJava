@@ -24,6 +24,7 @@
         <module>learn-spark</module>
         <module>learn-redis</module>
         <module>learn-spi</module>
+        <module>learn-rxjava</module>
     </modules>
 
 
