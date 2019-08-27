@@ -25,6 +25,7 @@
         <module>learn-redis</module>
         <module>learn-spi</module>
         <module>learn-rxjava</module>
+        <module>learn-juc</module>
     </modules>
 
 
