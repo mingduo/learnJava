@@ -1,4 +1,4 @@
-package concurrency.myThread;
+package concurrency.communication;
 
 import java.util.function.Consumer;
 

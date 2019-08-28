@@ -1,4 +1,4 @@
-package concurrency.myThread;
+package concurrency.communication;
 
 
 import java.util.concurrent.ExecutorService;
@@ -85,6 +85,11 @@ public class LockCondtionCommunication implements SynchronizedCommunication {
         mainCondtion.signal();
     }
 
+    /**
+     * 主 线程操作
+     * @param subCondtion
+     * @param mainCondtion
+     */
     private void mainAction(Condition subCondtion, Condition mainCondtion) {
         while (!subStart) {
             try {
