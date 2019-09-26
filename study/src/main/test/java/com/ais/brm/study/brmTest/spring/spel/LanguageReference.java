@@ -384,6 +384,7 @@ public class LanguageReference {
     }
 
     /**
+     * https://stackoverflow.com/questions/19550323/root-and-this-in-spel
      * <br/>
      * The #this and #root Variables
      * The #this variable is always defined and refers to the current evaluation object

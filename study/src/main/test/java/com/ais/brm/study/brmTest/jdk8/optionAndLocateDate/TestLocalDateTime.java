@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 import java.util.Set;
 
 public class TestLocalDateTime {
@@ -144,4 +145,27 @@ public class TestLocalDateTime {
         System.out.println(ldt.getSecond());
     }
 
+    /**
+     * 、java8 时间类与Date类的相互转化
+     */
+    @Test
+    public void test() {
+        //instant->date
+        Date date = Date.from(Instant.now());
+        System.out.println(date);
+        //locatedatetime ->instant
+        Instant instant = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant();
+        System.out.println(instant);
+        //date->instant
+        Date date1 = new Date();
+        System.out.println(date1.toInstant());
+        //instant->locatedatetime
+        Instant now = Instant.now();
+        System.out.println(LocalDateTime.ofInstant(now, ZoneId.systemDefault()));
+        //locatedate ->locatedatetime
+        System.out.println(LocalDate.now().atStartOfDay());
+
+        System.out.println(LocalDateTime.now().toLocalDate());
+
+    }
 }
