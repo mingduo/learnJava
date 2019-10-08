@@ -60,7 +60,6 @@ object SQLDemo2 {
     sc.stop()
 
 
-    
   }
 }
 

@@ -19,14 +19,14 @@ import java.util.stream.Collectors;
 public class StringJoin {
 
     @Test
-    public void join1(){
+    public void join1() {
         String joinedString = String.join(", ", "How", "To", "Do", "In", "Java");
         System.out.println(joinedString);
     }
 
 
     @Test
-    public void join2(){
+    public void join2() {
         List<String> strList = Arrays.asList("How", "To", "Do", "In", "Java");
 
         String joinedString = String.join(", ", strList);
@@ -35,7 +35,7 @@ public class StringJoin {
     }
 
     @Test
-    public void join3(){
+    public void join3() {
         StringJoiner joiner = new StringJoiner(", ", "[", "]");
 
         joiner.add("How")
@@ -44,16 +44,16 @@ public class StringJoin {
                 .add("In")
                 .add("Java");
 
-        System.out.println("joiner=>"+joiner);
+        System.out.println("joiner=>" + joiner);
     }
 
     @Test
-    public void join4(){
+    public void join4() {
         List<String> numbers = Arrays.asList("How", "To", "Do", "In", "Java");
 
-        String joinedString =   numbers
+        String joinedString = numbers
                 .stream()
-                .collect(Collectors.joining(", ","[","]"));
+                .collect(Collectors.joining(", ", "[", "]"));
 
         System.out.println(joinedString);
     }

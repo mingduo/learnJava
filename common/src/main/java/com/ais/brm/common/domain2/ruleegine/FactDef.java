@@ -34,9 +34,10 @@ public class FactDef {
         return facts;
 
     }
+
     public Facts getFacts(String str) {
         Facts facts = new Facts();
-        facts.put("p",str);
+        facts.put("p", str);
         return facts;
 
     }

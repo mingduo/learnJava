@@ -30,7 +30,7 @@ object GameKPI_V2 {
 
     val lines: RDD[String] = sc.textFile("/Users/zx/Desktop/user.log")
 
-    val splitedData:RDD[Array[String]] = lines.map(_.split("[|]"))
+    val splitedData: RDD[Array[String]] = lines.map(_.split("[|]"))
     //对数据进行过滤
     val filtered = splitedData.filter(fields => {
       //FilterUtils.filterByTime(fields, startTime, endTime)
@@ -41,7 +41,6 @@ object GameKPI_V2 {
     val r = filtered.collect()
 
     println(r.toBuffer)
-
 
 
   }

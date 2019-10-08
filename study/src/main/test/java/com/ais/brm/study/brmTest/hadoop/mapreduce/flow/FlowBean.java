@@ -10,86 +10,86 @@ import java.io.IOException;
  * 本案例的功能：演示自定义数据类型如何实现hadoop的序列化接口
  * 1、该类一定要保留空参构造函数
  * 2、write方法中输出字段二进制数据的顺序  要与  readFields方法读取数据的顺序一致
- * 
- * @author ThinkPad
  *
+ * @author ThinkPad
  */
 public class FlowBean implements Writable {
 
-	private int upFlow;
-	private int dFlow;
-	private String phone;
-	private int amountFlow;
+    private int upFlow;
+    private int dFlow;
+    private String phone;
+    private int amountFlow;
 
-	public FlowBean(){}
-	
-	public FlowBean(String phone, int upFlow, int dFlow) {
-		this.phone = phone;
-		this.upFlow = upFlow;
-		this.dFlow = dFlow;
-		this.amountFlow = upFlow + dFlow;
-	}
+    public FlowBean() {
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public FlowBean(String phone, int upFlow, int dFlow) {
+        this.phone = phone;
+        this.upFlow = upFlow;
+        this.dFlow = dFlow;
+        this.amountFlow = upFlow + dFlow;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public int getUpFlow() {
-		return upFlow;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public void setUpFlow(int upFlow) {
-		this.upFlow = upFlow;
-	}
+    public int getUpFlow() {
+        return upFlow;
+    }
 
-	public int getdFlow() {
-		return dFlow;
-	}
+    public void setUpFlow(int upFlow) {
+        this.upFlow = upFlow;
+    }
 
-	public void setdFlow(int dFlow) {
-		this.dFlow = dFlow;
-	}
+    public int getdFlow() {
+        return dFlow;
+    }
 
-	public int getAmountFlow() {
-		return amountFlow;
-	}
+    public void setdFlow(int dFlow) {
+        this.dFlow = dFlow;
+    }
 
-	public void setAmountFlow(int amountFlow) {
-		this.amountFlow = amountFlow;
-	}
+    public int getAmountFlow() {
+        return amountFlow;
+    }
 
-	/**
-	 * hadoop系统在序列化该类的对象时要调用的方法
-	 */
-	@Override
-	public void write(DataOutput out) throws IOException {
+    public void setAmountFlow(int amountFlow) {
+        this.amountFlow = amountFlow;
+    }
 
-		out.writeInt(upFlow);
-		out.writeUTF(phone);
-		out.writeInt(dFlow);
-		out.writeInt(amountFlow);
+    /**
+     * hadoop系统在序列化该类的对象时要调用的方法
+     */
+    @Override
+    public void write(DataOutput out) throws IOException {
 
-	}
+        out.writeInt(upFlow);
+        out.writeUTF(phone);
+        out.writeInt(dFlow);
+        out.writeInt(amountFlow);
 
-	/**
-	 * hadoop系统在反序列化该类的对象时要调用的方法
-	 */
-	@Override
-	public void readFields(DataInput in) throws IOException {
-		this.upFlow = in.readInt();
-		this.phone = in.readUTF();
-		this.dFlow = in.readInt();
-		this.amountFlow = in.readInt();
-	}
+    }
 
-	@Override
-	public String toString() {
-		 
-		return this.phone + ","+this.upFlow +","+ this.dFlow +"," + this.amountFlow;
-	}
-	
+    /**
+     * hadoop系统在反序列化该类的对象时要调用的方法
+     */
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        this.upFlow = in.readInt();
+        this.phone = in.readUTF();
+        this.dFlow = in.readInt();
+        this.amountFlow = in.readInt();
+    }
+
+    @Override
+    public String toString() {
+
+        return this.phone + "," + this.upFlow + "," + this.dFlow + "," + this.amountFlow;
+    }
+
 }

@@ -5,7 +5,7 @@ import java.io.{FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutp
 /**
   * Created by zx on 2017/6/25.
   */
-class MapTask extends Serializable{
+class MapTask extends Serializable {
 
   //以后重哪里了读取数据
 
@@ -38,7 +38,6 @@ object SerTask {
     oos.writeObject(t)
     oos.flush()
     oos.close()
-
 
 
     val ois1 = new ObjectInputStream(new FileInputStream("./t"))

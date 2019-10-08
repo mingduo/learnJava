@@ -15,11 +15,11 @@ public class PlaceHolderHelper {
 
 
     @Test
-    public void test1(){
+    public void test1() {
         String a = "{name}{age}{sex}";
         String b = "{name{age}{sex}}";
 
-        PropertyPlaceholderHelper propertyPlaceholderHelper =new PropertyPlaceholderHelper("{",
+        PropertyPlaceholderHelper propertyPlaceholderHelper = new PropertyPlaceholderHelper("{",
                 SystemPropertyUtils.PLACEHOLDER_SUFFIX,
                 SystemPropertyUtils.VALUE_SEPARATOR, true);
 
@@ -41,14 +41,13 @@ public class PlaceHolderHelper {
 
 
     @Test
-    public void test2(){
+    public void test2() {
         String a = "${name},${age},${sex},${a:1},${xx}";
 
         Properties properties = createProps();
 
 
-
-        PropertyPlaceholderHelper propertyPlaceholderHelper =new PropertyPlaceholderHelper(SystemPropertyUtils.PLACEHOLDER_PREFIX,
+        PropertyPlaceholderHelper propertyPlaceholderHelper = new PropertyPlaceholderHelper(SystemPropertyUtils.PLACEHOLDER_PREFIX,
                 SystemPropertyUtils.PLACEHOLDER_SUFFIX,
                 SystemPropertyUtils.VALUE_SEPARATOR, true);
 
@@ -63,8 +62,7 @@ public class PlaceHolderHelper {
         System.out.println("====================================================");
 
 
-
-         propertyPlaceholderHelper =new PropertyPlaceholderHelper(SystemPropertyUtils.PLACEHOLDER_PREFIX,
+        propertyPlaceholderHelper = new PropertyPlaceholderHelper(SystemPropertyUtils.PLACEHOLDER_PREFIX,
                 SystemPropertyUtils.PLACEHOLDER_SUFFIX,
                 SystemPropertyUtils.VALUE_SEPARATOR, false);
 
@@ -80,11 +78,11 @@ public class PlaceHolderHelper {
 
 
     private static Properties createProps() {
-        Properties properties=new Properties();
-        properties.setProperty("name","wangzha");
-        properties.setProperty("age","18");
-        properties.setProperty("sex","man");
-        properties.setProperty("name18man","love");
+        Properties properties = new Properties();
+        properties.setProperty("name", "wangzha");
+        properties.setProperty("age", "18");
+        properties.setProperty("sex", "man");
+        properties.setProperty("name18man", "love");
         return properties;
     }
 

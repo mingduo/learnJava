@@ -162,7 +162,6 @@ public class ElasticSearchClient {
                     .sort("save_time", SortOrder.DESC);
 
 
-
             searchRequest.source(searchSourceBuilder);
 
             searchRequest.scroll(new TimeValue(60000));

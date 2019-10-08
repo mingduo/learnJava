@@ -29,7 +29,7 @@ public class RedisTest {
         // 清空抢成功的，与没有成功的
         jedis.del("setsucc", "setfail");
         jedis.close();
-    // 测试一万人同时访问
+        // 测试一万人同时访问
         for (int i = 0; i < 5000; i++) {
             executor.execute(new SecKill());
         }

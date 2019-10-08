@@ -53,7 +53,6 @@ object SQLDemo1 {
     sc.stop()
 
 
-    
   }
 }
 

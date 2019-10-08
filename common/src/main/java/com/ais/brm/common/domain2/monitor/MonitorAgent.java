@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * 监控代理.
  * Created by zhaocaiwen on 2018/1/4.
+ *
  * @author zhaocaiwen
  */
 public class MonitorAgent {
@@ -19,15 +20,15 @@ public class MonitorAgent {
     private List<String> supportedMonitorTypes;
 
 
-	public List<String> getSupportedMonitorTypes() {
-		return supportedMonitorTypes;
-	}
+    public List<String> getSupportedMonitorTypes() {
+        return supportedMonitorTypes;
+    }
 
-	public void setSupportedMonitorTypes(List<String> supportedMonitorTypes) {
-		this.supportedMonitorTypes = supportedMonitorTypes;
-	}
+    public void setSupportedMonitorTypes(List<String> supportedMonitorTypes) {
+        this.supportedMonitorTypes = supportedMonitorTypes;
+    }
 
-	public int getId() {
+    public int getId() {
         return id;
     }
 

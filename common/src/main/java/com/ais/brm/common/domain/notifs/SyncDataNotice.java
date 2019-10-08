@@ -6,6 +6,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 同步数据通知.接收者是sync模块.
  * Created by xuechen on 2016/11/21.
+ *
  * @author xuechen
  */
 public class SyncDataNotice extends GeneralKakfaNotif {
@@ -17,20 +18,19 @@ public class SyncDataNotice extends GeneralKakfaNotif {
     }
 
     public String getModelId() {
-		return modelId;
-	}
+        return modelId;
+    }
 
-	public void setModelId(String modelId) {
-		this.modelId = modelId;
-	}
+    public void setModelId(String modelId) {
+        this.modelId = modelId;
+    }
 
 
-
-	@Override
+    @Override
     public String toString() {
         return "SyncDataNotice{" +
                 "modelId=" + modelId +
-                ", notifId=" + getNotifId()+
+                ", notifId=" + getNotifId() +
                 '}';
     }
 }

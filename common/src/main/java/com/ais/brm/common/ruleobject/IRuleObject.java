@@ -11,11 +11,12 @@ import java.util.Map;
  * </tr>
  * </table>
  *
- *  @author : weizc
+ * @author : weizc
  */
 public interface IRuleObject {
     //检查规则指标是否出现错误
     void checkRuleIndex(int indexValueType) throws Exception;
+
     //硬编码解析map 转化mvel表达式
     String parseRuleParam(Map<String, String> ruleMap, RiskIndexResultHis curHis);
 }

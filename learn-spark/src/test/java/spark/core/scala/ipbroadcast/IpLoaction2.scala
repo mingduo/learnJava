@@ -16,7 +16,7 @@ object IpLoaction2 {
     val sc = new SparkContext(conf)
 
     //取到HDFS中的ip规则
-    val rulesLines:RDD[String] = sc.textFile(args(0))
+    val rulesLines: RDD[String] = sc.textFile(args(0))
     //整理ip规则数据
     val ipRulesRDD: RDD[(Long, Long, String)] = rulesLines.map(line => {
       val fields = line.split("[|]")
@@ -59,7 +59,7 @@ object IpLoaction2 {
 
     //聚合
     //val sum = (x: Int, y: Int) => x + y
-    val reduced: RDD[(String, Int)] = proviceAndOne.reduceByKey(_+_)
+    val reduced: RDD[(String, Int)] = proviceAndOne.reduceByKey(_ + _)
 
     //将结果打印
     //val r = reduced.collect()
@@ -67,41 +67,40 @@ object IpLoaction2 {
 
 
     /**
-    reduced.foreach(tp => {
-      //将数据写入到MySQL中
-      //问？在哪一端获取到MySQL的链接的？
-      //是在Executor中的Task获取的JDBC连接
-      val conn: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?charatorEncoding=utf-8", "root", "123568")
-      //写入大量数据的时候，有没有问题？
-      val pstm = conn.prepareStatement("...")
-      pstm.setString(1, tp._1)
-      pstm.setInt(2, tp._2)
-      pstm.executeUpdate()
-      pstm.close()
-      conn.close()
-    })
+      *reduced.foreach(tp => {
+      * //将数据写入到MySQL中
+      * //问？在哪一端获取到MySQL的链接的？
+      * //是在Executor中的Task获取的JDBC连接
+      * val conn: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?charatorEncoding=utf-8", "root", "123568")
+      * //写入大量数据的时候，有没有问题？
+      * val pstm = conn.prepareStatement("...")
+      *pstm.setString(1, tp._1)
+      *pstm.setInt(2, tp._2)
+      *pstm.executeUpdate()
+      *pstm.close()
+      *conn.close()
+      * })
       */
 
     //一次拿出一个分区(一个分区用一个连接，可以将一个分区中的多条数据写完在释放jdbc连接，这样更节省资源)
-//    reduced.foreachPartition(it => {
-//      val conn: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?characterEncoding=UTF-8", "root", "123568")
-//      //将数据通过Connection写入到数据库
-//      val pstm: PreparedStatement = conn.prepareStatement("INSERT INTO access_log VALUES (?, ?)")
-//      //将一个分区中的每一条数据拿出来
-//      it.foreach(tp => {
-//        pstm.setString(1, tp._1)
-//        pstm.setInt(2, tp._2)
-//        pstm.executeUpdate()
-//      })
-//      pstm.close()
-//      conn.close()
-//    })
+    //    reduced.foreachPartition(it => {
+    //      val conn: Connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bigdata?characterEncoding=UTF-8", "root", "123568")
+    //      //将数据通过Connection写入到数据库
+    //      val pstm: PreparedStatement = conn.prepareStatement("INSERT INTO access_log VALUES (?, ?)")
+    //      //将一个分区中的每一条数据拿出来
+    //      it.foreach(tp => {
+    //        pstm.setString(1, tp._1)
+    //        pstm.setInt(2, tp._2)
+    //        pstm.executeUpdate()
+    //      })
+    //      pstm.close()
+    //      conn.close()
+    //    })
 
     reduced.foreachPartition(it => MyUtils.data2MySQL(it))
 
 
     sc.stop()
-
 
 
   }

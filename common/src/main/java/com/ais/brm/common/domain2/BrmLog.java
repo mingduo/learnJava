@@ -9,9 +9,10 @@ import java.util.Date;
 /**
  * .
  * Created by zhaocw on 2016-7-19.
+ *
  * @author zhaocw
  */
-public class BrmLog implements IMessage{
+public class BrmLog implements IMessage {
     private String module;//哪个模块发的日志
     private String subModule;//具体哪个子模块
     private BrmLogLevel level;//日志级别，引用Constants常量.

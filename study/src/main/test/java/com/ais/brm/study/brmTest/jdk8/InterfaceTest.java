@@ -13,54 +13,57 @@ import java.util.function.Consumer;
  *
  * @author :    weizc
  */
-public class  InterfaceTest {
+public class InterfaceTest {
 
-     interface  A{
-        static void test(){
+    interface A {
+        static void test() {
             System.out.println("1");
         }
-        default void test2(){
+
+        default void test2() {
             System.out.println("A");
         }
     }
-     interface  B{
-        static void test(){
+
+    interface B {
+        static void test() {
             System.out.println("b test...");
         }
-        default void test2(){
+
+        default void test2() {
             System.out.println("B");
         }
     }
-     static class C implements A,B{
+
+    static class C implements A, B {
 
         @Override
         public void test2() {
             A.super.test2();
         }
     }
+
     @FunctionalInterface
-    interface  D{
-         void test();
+    interface D {
+        void test();
 
 
     }
 
     public static void main(String[] args) throws InterruptedException {
-        C c=new C();
+        C c = new C();
         c.test2();
 
-        Consumer<String>consumer= s -> System.out.println("s = [" + s + "]");
+        Consumer<String> consumer = s -> System.out.println("s = [" + s + "]");
         consumer.accept("你是谁？");
 
-        D d= () -> System.out.println(88);
+        D d = () -> System.out.println(88);
         d.test();
 
         B.test();
 
         Instant now = Instant.now();
-        LongAdder adder=new LongAdder();
-
-
+        LongAdder adder = new LongAdder();
 
 
     }

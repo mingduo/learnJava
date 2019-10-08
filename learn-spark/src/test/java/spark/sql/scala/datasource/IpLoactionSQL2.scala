@@ -22,7 +22,7 @@ object IpLoactionSQL2 {
     //取到HDFS中的ip规则
     import spark.implicits._
 
-    val rulesLines:Dataset[String] = spark.read.textFile(args(0))
+    val rulesLines: Dataset[String] = spark.read.textFile(args(0))
     //整理ip规则数据()
     val rluesDataset = rulesLines.map(line => {
       val fields = line.split("[|]")
@@ -62,7 +62,7 @@ object IpLoactionSQL2 {
       //根据IP地址对应的十进制查找省份名称
       val index = MyUtils.binarySearch(ipRulesInExecutor, ipNum)
       var province = "未知"
-      if(index != -1) {
+      if (index != -1) {
         province = ipRulesInExecutor(index)._3
       }
       province
@@ -76,7 +76,6 @@ object IpLoactionSQL2 {
 
 
     spark.stop()
-
 
 
   }

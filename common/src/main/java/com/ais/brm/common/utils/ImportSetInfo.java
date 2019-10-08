@@ -12,54 +12,45 @@ import java.util.Map;
  *
  * @author xuechen
  */
-public class ImportSetInfo
-{
-	private Map<String, List<List<String>>> objsMap = new HashMap<String, List<List<String>>>();
+public class ImportSetInfo {
+    private Map<String, List<List<String>>> objsMap = new HashMap<String, List<List<String>>>();
 
-	private String[] titles = new String[] {};
+    private String[] titles = new String[]{};
 
-	private List<String[]> headNames = new ArrayList<String[]>();
+    private List<String[]> headNames = new ArrayList<String[]>();
 
-	private OutputStream out;
+    private OutputStream out;
 
-	public Map<String, List<List<String>>> getObjsMap()
-	{
-		return objsMap;
-	}
+    public Map<String, List<List<String>>> getObjsMap() {
+        return objsMap;
+    }
 
-	public void setObjsMap(Map<String, List<List<String>>> objsMap)
-	{
-		this.objsMap = objsMap;
-	}
+    public void setObjsMap(Map<String, List<List<String>>> objsMap) {
+        this.objsMap = objsMap;
+    }
 
-	public String[] getTitles()
-	{
-		return titles;
-	}
+    public String[] getTitles() {
+        return titles;
+    }
 
-	public void setTitles(String[] titles)
-	{
-		this.titles = titles;
-	}
+    public void setTitles(String[] titles) {
+        this.titles = titles;
+    }
 
-	public List<String[]> getHeadNames()
-	{
-		return headNames;
-	}
+    public List<String[]> getHeadNames() {
+        return headNames;
+    }
 
-	public void setHeadNames(List<String[]> headNames)
-	{
-		this.headNames = headNames;
-	}
+    public void setHeadNames(List<String[]> headNames) {
+        this.headNames = headNames;
+    }
 
-	public OutputStream getOut()
-	{
-		return out;
-	}
+    public OutputStream getOut() {
+        return out;
+    }
 
-	public void setOut(OutputStream out)
-	{
-		this.out = out;
-	}
+    public void setOut(OutputStream out) {
+        this.out = out;
+    }
 
 }

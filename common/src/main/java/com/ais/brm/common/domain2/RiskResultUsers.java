@@ -3,9 +3,10 @@ package com.ais.brm.common.domain2;
 /**
  * 用户的风险结果.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
-public class RiskResultUsers extends  RiskResultBase{
+public class RiskResultUsers extends RiskResultBase {
     private String userId;
     private String userName;
     private String serialNumber;

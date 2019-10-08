@@ -3,6 +3,7 @@ package com.ais.brm.common.domain.scenes;
 /**
  * .
  * Created by zhaocw on 2016-7-5.
+ *
  * @author zhaocw
  */
 public class ChannelBukaRecord {
@@ -16,7 +17,8 @@ public class ChannelBukaRecord {
         this.servantName = servantName;
     }
 
-    public ChannelBukaRecord() {}
+    public ChannelBukaRecord() {
+    }
 
     public Channel getChannel() {
         return channel;

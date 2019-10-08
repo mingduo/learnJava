@@ -24,7 +24,7 @@ object ScalaWordCount {
     //将单词和一组合
     val wordAndOne: RDD[(String, Int)] = words.map((_, 1))
     //按key进行聚合
-    val reduced:RDD[(String, Int)] = wordAndOne.reduceByKey(_+_)
+    val reduced: RDD[(String, Int)] = wordAndOne.reduceByKey(_ + _)
     //排序
     val sorted: RDD[(String, Int)] = reduced.sortBy(_._2, false)
     //将结果保存到HDFS中

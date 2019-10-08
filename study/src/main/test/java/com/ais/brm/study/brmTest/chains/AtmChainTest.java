@@ -11,6 +11,7 @@ public class AtmChainTest {
 
     /**
      * https://www.baeldung.com/apache-commons-chain
+     *
      * @throws Exception
      */
     @Test
@@ -18,12 +19,11 @@ public class AtmChainTest {
         Context context = new AtmRequestContext();
         context.put("totalAmountToBeWithdrawn", 460);
         context.put("amountLeftToBeWithdrawn", 460);
-         
+
         Catalog catalog = new AtmCatalog();
         Command atmWithdrawalChain = catalog.getCommand("atmWithdrawalChain");
-         
-        atmWithdrawalChain.execute(context);
 
+        atmWithdrawalChain.execute(context);
 
 
         assertEquals(460, (int) context.get("totalAmountToBeWithdrawn"));

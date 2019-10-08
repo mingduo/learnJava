@@ -35,8 +35,7 @@ public class Java8WatchServiceExample {
     /**
      * Register the given directory with the WatchService; This function will be called by FileVisitor
      */
-    private void registerDirectory(Path dir) throws IOException
-    {
+    private void registerDirectory(Path dir) throws IOException {
         WatchKey key = dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
         keys.put(key, dir);
     }
@@ -59,7 +58,7 @@ public class Java8WatchServiceExample {
      * Process all events for keys queued to the watcher
      */
     void processEvents() {
-        for (;;) {
+        for (; ; ) {
 
             // wait for key to be signalled
             WatchKey key;
@@ -81,7 +80,7 @@ public class Java8WatchServiceExample {
 
                 // Context for directory entry event is the file name of entry
                 @SuppressWarnings("unchecked")
-                Path name = ((WatchEvent<Path>)event).context();
+                Path name = ((WatchEvent<Path>) event).context();
                 Path child = dir.resolve(name);
 
                 // print out event

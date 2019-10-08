@@ -13,13 +13,13 @@ import java.util.List;
 /**
  * wrapper for mongoCollection with some health check.
  * Created by zhaocaiwen on 2017/3/2.
- * @param <TDocument> the type of collection.
  *
- * @author  zhaocw@asiainfo-sec.com
+ * @param <TDocument> the type of collection.
+ * @author zhaocw@asiainfo-sec.com
  */
 public class BrmMongoCollection<TDocument> {
     static Logger log = LoggerFactory.getLogger(MongoUtils.class);
-    private final MongoCollection<TDocument>  mongoCollection;
+    private final MongoCollection<TDocument> mongoCollection;
     private final MongoHealthChecker mongoHealthChecker;
 
     public BrmMongoCollection(MongoHealthChecker mongoHealthChecker,
@@ -43,27 +43,27 @@ public class BrmMongoCollection<TDocument> {
 
     // added by lulj
     public void insertOne(TDocument document) {
-    	mongoCollection.insertOne(document);
+        mongoCollection.insertOne(document);
     }
-    
+
     // added by lulj
     public void insertMany(List<? extends TDocument> documents) {
-    	mongoCollection.insertMany(documents);
+        mongoCollection.insertMany(documents);
     }
-    
+
     // add  by lulj
     public DeleteResult deleteOne(Bson filter) {
-    	return mongoCollection.deleteOne(filter);
+        return mongoCollection.deleteOne(filter);
     }
-  
+
     // add  by lulj
     public DeleteResult deleteMany(Bson filter) {
-    	return mongoCollection.deleteMany(filter);
+        return mongoCollection.deleteMany(filter);
     }
-    
+
     /////////------------private area----------------/////////
     private MongoCollection<TDocument> test(MongoCollection<TDocument> mongoCollection) {
-        if(mongoHealthChecker.isMongoOk()) {
+        if (mongoHealthChecker.isMongoOk()) {
             return mongoCollection;
         } else {
             log.info("mongo test failed, try to reconnect...");
@@ -76,10 +76,10 @@ public class BrmMongoCollection<TDocument> {
         throw new RuntimeException("mongodb not available now, retry failed.");
     }
 
-	public AggregateIterable<TDocument> aggregate(List<Bson> pipeline) {
-		// TODO Auto-generated method stub
-		return mongoCollection.aggregate(pipeline);
-	}
+    public AggregateIterable<TDocument> aggregate(List<Bson> pipeline) {
+        // TODO Auto-generated method stub
+        return mongoCollection.aggregate(pipeline);
+    }
 
 
 }

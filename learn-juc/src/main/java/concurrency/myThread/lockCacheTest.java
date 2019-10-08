@@ -28,7 +28,7 @@ public class lockCacheTest {
 
         ThreadLocalRandom r = ThreadLocalRandom.current();
 
-      for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 50; i++) {
             new Thread(() -> cache.read("a"), "read" + i++).start();
 
         }
@@ -40,7 +40,7 @@ public class lockCacheTest {
 
         }
         for (int i = 0; i < 50; i++) {
-            new Thread(() -> cache.getData("a" ), "getData" + i++).start();
+            new Thread(() -> cache.getData("a"), "getData" + i++).start();
         }
     }
 
@@ -133,7 +133,7 @@ class Cache {
 
 
         System.out.println(Thread.currentThread() + "--getData ok，" +
-                 val);
+                val);
     }
 }
 

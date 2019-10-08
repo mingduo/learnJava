@@ -22,8 +22,9 @@ public class Society {
         officers.put("a4", 10);
 
     }
+
     public Void addMembers(List<Inventor> members) {
-         this.members.addAll(members);
+        this.members.addAll(members);
         return null;
     }
 

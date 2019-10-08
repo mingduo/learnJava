@@ -2,9 +2,10 @@ package com.ais.brm.common.domain;
 
 /**
  * Created by zhaocw on 2016/5/5.
+ *
  * @author zhaocw
  */
-public class BrmException extends Exception{
+public class BrmException extends Exception {
     private Exception source;
 
     public BrmException(Exception e) {
@@ -17,7 +18,7 @@ public class BrmException extends Exception{
     }
 
     public BrmException(String s, Exception e) {
-        super(s,e);
+        super(s, e);
         this.source = e;
     }
 

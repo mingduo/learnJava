@@ -23,9 +23,9 @@ import java.util.Optional;
 @Component("RuleInstance110")
 public class NotMatchAvgRule extends RuleObject {
     @Override
-    public void checkRuleIndex( int indexValueType) throws Exception {
+    public void checkRuleIndex(int indexValueType) throws Exception {
         if (indexValueType != IndexValType.NUM_TYPE.getTypeId()) {
-            throw  new Exception("risk_index_type_id must be number");
+            throw new Exception("risk_index_type_id must be number");
         }
     }
 
@@ -43,11 +43,11 @@ public class NotMatchAvgRule extends RuleObject {
         String spike_type = ruleMap.get("avg_spike_type");
         String spike_rate = ruleMap.get("avg_spike_rate");
         String day_range = ruleMap.get("day_range");
-        StringBuffer condtionValue=new StringBuffer("当前指标值[");
+        StringBuffer condtionValue = new StringBuffer("当前指标值[");
         condtionValue.append(curHis.getRiskIndexValue());
         BigDecimal idx_value_avg = new BigDecimal(ruleMap.get("avg_index_value"));
         //低于此值才告警，可以不设置
-        if (checkValueExits(spike_type, spike_rate,day_range)) {
+        if (checkValueExits(spike_type, spike_rate, day_range)) {
             return null;
         }
 
@@ -71,7 +71,7 @@ public class NotMatchAvgRule extends RuleObject {
         condtionValue.append("]的");
 
         condtionValue.append(FormatUtis.toPercent(d));
-        Optional.ofNullable(curHis).ifPresent(t->{
+        Optional.ofNullable(curHis).ifPresent(t -> {
             t.setConditionValue(condtionValue.toString());
         });
         return sb.toString();

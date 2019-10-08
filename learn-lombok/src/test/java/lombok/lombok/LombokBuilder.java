@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.lombok;
+package lombok.lombok;
 
 import com.google.common.collect.ImmutableList;
 import lombok.*;
@@ -57,6 +57,7 @@ public class LombokBuilder {
  * would result in the List<String> jobs
  * field to have 2 strings in it. To get this behaviour,
  * the field/parameter needs to be annotated with @Singular
+ *
  * @param <T>
  */
 @ToString

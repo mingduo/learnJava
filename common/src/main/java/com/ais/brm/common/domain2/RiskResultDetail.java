@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * 风险明细--台账.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class RiskResultDetail {
@@ -24,7 +25,7 @@ public class RiskResultDetail {
     private int returnType;//返销类型
 
     private String intfId;
-    	
+
     public long getId() {
         return id;
     }
@@ -50,22 +51,22 @@ public class RiskResultDetail {
     }
 
     public String getUserTypeCode() {
-		return userTypeCode;
-	}
+        return userTypeCode;
+    }
 
-	public void setUserTypeCode(String userTypeCode) {
-		this.userTypeCode = userTypeCode;
-	}
+    public void setUserTypeCode(String userTypeCode) {
+        this.userTypeCode = userTypeCode;
+    }
 
-	public String getCustomerName() {
-		return customerName;
-	}
+    public String getCustomerName() {
+        return customerName;
+    }
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
-	public String getConnectChannel() {
+    public String getConnectChannel() {
         return connectChannel;
     }
 
@@ -137,12 +138,12 @@ public class RiskResultDetail {
         this.returnType = returnType;
     }
 
-	public String getIntfId() {
-		return intfId;
-	}
+    public String getIntfId() {
+        return intfId;
+    }
 
-	public void setIntfId(String intfId) {
-		this.intfId = intfId;
-	}
-	
+    public void setIntfId(String intfId) {
+        this.intfId = intfId;
+    }
+
 }

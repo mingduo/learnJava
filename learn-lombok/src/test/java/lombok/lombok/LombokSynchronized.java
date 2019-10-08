@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.lombok;
+package lombok.lombok;
 
 import lombok.SneakyThrows;
 import lombok.Synchronized;

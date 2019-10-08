@@ -173,7 +173,7 @@ public class Combining {
                 }
         );*/
 
-        Observable<Integer> obs1=Observable.range(1, 5000);
+        Observable<Integer> obs1 = Observable.range(1, 5000);
         //join
         Observable.just("srcObs-").join(obs1,
                 //接受从源Observable发射来的数据，并返回一个Observable，
@@ -189,7 +189,6 @@ public class Combining {
                 );
 
 
-
         //groupJoin
         Observable.just("srcObs-").groupJoin(obs1,
                 //接受从源Observable发射来的数据，并返回一个Observable，
@@ -199,7 +198,7 @@ public class Combining {
                 // 这个Observable的生命周期决定了目标Observable发射出来数据的有效期
                 s -> Observable.timer(2000, TimeUnit.MILLISECONDS),
                 //接收从源Observable和目标Observable发射来的数据，并返回最终组合完的数据
-                 (s, integerObservable) -> Tuple2.apply(s,integerObservable.blockingLast()))
+                (s, integerObservable) -> Tuple2.apply(s, integerObservable.blockingLast()))
                 .subscribe(
                         o -> System.out.println("groupJoin:" + o)
                 );

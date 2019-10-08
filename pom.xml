@@ -26,6 +26,8 @@
         <module>learn-spi</module>
         <module>learn-rxjava</module>
         <module>learn-juc</module>
+        <module>learn-lombok</module>
+
     </modules>
 
 

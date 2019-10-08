@@ -25,6 +25,6 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     @Override
     public void add(String id, String value) {
-        map.put(id,value);
+        map.put(id, value);
     }
 }

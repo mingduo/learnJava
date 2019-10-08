@@ -4,54 +4,54 @@ import com.ais.brm.web.domain.BaseDomain;
 
 /**
  * 明细采集请求SQL查询字段
- * @author wangyong10
  *
+ * @author wangyong10
  */
-public class DetailCollectRequestCol extends BaseDomain{
-	private Integer id;
-	
-	private String englishName;
-	
-	private String chineseName;
-	
-	private Integer columnOrder;
+public class DetailCollectRequestCol extends BaseDomain {
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    private String englishName;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private String chineseName;
 
-	public String getEnglishName() {
-		return englishName;
-	}
+    private Integer columnOrder;
 
-	public void setEnglishName(String englishName) {
-		this.englishName = englishName;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getChineseName() {
-		return chineseName;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setChineseName(String chineseName) {
-		this.chineseName = chineseName;
-	}
+    public String getEnglishName() {
+        return englishName;
+    }
 
-	public Integer getColumnOrder() {
-		return columnOrder;
-	}
+    public void setEnglishName(String englishName) {
+        this.englishName = englishName;
+    }
 
-	public void setColumnOrder(Integer columnOrder) {
-		this.columnOrder = columnOrder;
-	}
+    public String getChineseName() {
+        return chineseName;
+    }
 
-	@Override
-	public String toString() {
-		return "DetailCollectRequestCol [id=" + id + ", "
-				+ "englishName=" + englishName + ", chineseName=" + chineseName
-				+ ", columnOrder=" + columnOrder + "]";
-	}
+    public void setChineseName(String chineseName) {
+        this.chineseName = chineseName;
+    }
+
+    public Integer getColumnOrder() {
+        return columnOrder;
+    }
+
+    public void setColumnOrder(Integer columnOrder) {
+        this.columnOrder = columnOrder;
+    }
+
+    @Override
+    public String toString() {
+        return "DetailCollectRequestCol [id=" + id + ", "
+                + "englishName=" + englishName + ", chineseName=" + chineseName
+                + ", columnOrder=" + columnOrder + "]";
+    }
 }

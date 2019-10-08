@@ -11,7 +11,7 @@ object TestPow {
 
     //val i = 3
 
-    val r = Math.pow(i, 1.toDouble/10)
+    val r = Math.pow(i, 1.toDouble / 10)
 
     println(r)
 

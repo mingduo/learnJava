@@ -15,14 +15,13 @@ public enum RunType {
 
     private int value = 0;
 
-     private RunType(int value) {
+    private RunType(int value) {
         this.value = value;
     }
 
     public int value() {
         return this.value;
     }
-
 
 
 }

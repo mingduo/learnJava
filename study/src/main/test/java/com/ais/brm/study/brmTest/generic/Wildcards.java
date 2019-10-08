@@ -18,18 +18,19 @@ import java.util.List;
 public class Wildcards {
     //you will use upper bound wildcard using “extends” keyword.
     @Test
-    public void upperBounded(){
+    public void upperBounded() {
         //List of Integers
-        List<Integer> ints = Arrays.asList(1,2,3,4,5);
+        List<Integer> ints = Arrays.asList(1, 2, 3, 4, 5);
         System.out.println(sum(ints));
 
         //List of Doubles
-        List<Double> doubles = Arrays.asList(1.5d,2d,3d);
+        List<Double> doubles = Arrays.asList(1.5d, 2d, 3d);
         System.out.println(sum(doubles));
 
     }
+
     //Method will accept
-    private static Number sum (List<? extends Number> numbers){
+    private static Number sum(List<? extends Number> numbers) {
         double s = 0.0;
         for (Number n : numbers)
             s += n.doubleValue();
@@ -38,7 +39,7 @@ public class Wildcards {
 
     //下限
     @Test
-    public void lowerBounded(){
+    public void lowerBounded() {
         //List of grand children
         List<GrandChildClass> grandChildren = new ArrayList<>();
         grandChildren.add(new GrandChildClass());
@@ -55,19 +56,20 @@ public class Wildcards {
         addGrandChildren(supers);
     }
 
-    public static void addGrandChildren(List<? super GrandChildClass> grandChildren)
-    {
+    public static void addGrandChildren(List<? super GrandChildClass> grandChildren) {
         grandChildren.add(new GrandChildClass());
         System.out.println(grandChildren);
     }
 }
 
-class SuperClass{
+class SuperClass {
 
 }
-class ChildClass extends SuperClass{
+
+class ChildClass extends SuperClass {
 
 }
-class GrandChildClass extends ChildClass{
+
+class GrandChildClass extends ChildClass {
 
 }

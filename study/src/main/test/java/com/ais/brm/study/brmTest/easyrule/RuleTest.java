@@ -29,8 +29,8 @@ public class RuleTest {
 
         // define facts
         Facts facts = new Facts();
-        facts.put("p", "14.0" );
-      //  facts.put("cloudy",true);
+        facts.put("p", "14.0");
+        //  facts.put("cloudy",true);
 
         // define rules
         Rules rules = new Rules();
@@ -45,14 +45,14 @@ public class RuleTest {
 
     @Test
     public void testRules2() throws Exception {
-       IndexExpression idex1=new IndexExpression("IDX_1",null);
-        IndexExpression idex2=new IndexExpression("IDX_2","20");
+        IndexExpression idex1 = new IndexExpression("IDX_1", null);
+        IndexExpression idex2 = new IndexExpression("IDX_2", "20");
         Facts facts = new Facts();
 
         facts.put(idex1.getName(), idex1);
         facts.put(idex2.getName(), idex2);
 
-        String expression ="IDX_1.value < 10 || IDX_2.value<100";
+        String expression = "IDX_1.value < 10 || IDX_2.value<100";
 
         Rule weatherRule = new MVELRule()
                 .name("weather rule")
@@ -64,7 +64,7 @@ public class RuleTest {
 
         System.out.println("result2: " + MVEL.executeExpression((MVEL.compileExpression(expression)), facts.asMap(), Boolean.class));
         System.out.println("result1: " + MVEL.eval(expression, facts.asMap()));
-        System.out.println("result3: " +weatherRule.evaluate(facts) );
+        System.out.println("result3: " + weatherRule.evaluate(facts));
 
         // define facts
         //  facts.put("cloudy",true);
@@ -83,22 +83,22 @@ public class RuleTest {
 
 
         //OptimizerFactory.setDefaultOptimizer("ASM");
-        IndexExpression idex1=new IndexExpression("IDX_1","20");
-        IndexExpression idex2=new IndexExpression("IDX_2","20");
+        IndexExpression idex1 = new IndexExpression("IDX_1", "20");
+        IndexExpression idex2 = new IndexExpression("IDX_2", "20");
 
         Map<String, Object> vars = new HashMap<>();
-        vars.put(idex1.getName(), idex1 );
+        vars.put(idex1.getName(), idex1);
         vars.put(idex2.getName(), idex2);
 
         Serializable compileExpression = MVEL.compileExpression("IDX_1.value>0 && IDX_2<100");
-        ((Boolean)MVEL.executeExpression(compileExpression,vars)).booleanValue();
+        ((Boolean) MVEL.executeExpression(compileExpression, vars)).booleanValue();
 
 
     }
 
 
     @Test
-    public void  testRule4(){
+    public void testRule4() {
 
         Rule weatherRule = new RuleBuilder()
                 .name("weather rule")
@@ -112,19 +112,19 @@ public class RuleTest {
                 .then(facts -> System.out.println("get shop ok!"))
                 .build();
 
-       CompositeRule related=new ActivationRuleGroup("ActivationRuleGroup", "Activation of myRule1 or myRule2");
-    //    CompositeRule related=new UnitRuleGroup("UnitRuleGroup", "unit of myRule1 and myRule2");
+        CompositeRule related = new ActivationRuleGroup("ActivationRuleGroup", "Activation of myRule1 or myRule2");
+        //    CompositeRule related=new UnitRuleGroup("UnitRuleGroup", "unit of myRule1 and myRule2");
         related.addRule(weatherRule);
         related.addRule(shopRule);
 
         Facts facts = new Facts();
         facts.put("rain", false);
-        facts.put("shop",false);
+        facts.put("shop", false);
         // define rules
         Rules rules = new Rules();
         rules.register(related);
 
-        System.out.println("result => "+related.evaluate(facts) );
+        System.out.println("result => " + related.evaluate(facts));
         // fire rules on known facts
         RulesEngine rulesEngine = new DefaultRulesEngine();
         rulesEngine.fire(rules, facts);

@@ -19,7 +19,7 @@ object IpLoactionSQL {
 
     //取到HDFS中的ip规则
     import spark.implicits._
-    val rulesLines:Dataset[String] = spark.read.textFile(args(0))
+    val rulesLines: Dataset[String] = spark.read.textFile(args(0))
     //整理ip规则数据()
     val ruleDataFrame: DataFrame = rulesLines.map(line => {
       val fields = line.split("[|]")
@@ -51,7 +51,6 @@ object IpLoactionSQL {
     r.show()
 
     spark.stop()
-
 
 
   }

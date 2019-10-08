@@ -10,7 +10,6 @@ import java.util.stream.IntStream;
 public interface SynchronizedCommunication {
 
 
-
     void execute() throws InterruptedException;
 
     static void foreachPrint() {

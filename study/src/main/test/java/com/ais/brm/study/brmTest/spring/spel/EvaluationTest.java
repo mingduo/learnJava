@@ -96,7 +96,7 @@ public class EvaluationTest {
         // 也起作用了
         tesla.setName("Newton");
 
-        String value =exp.getValue(tesla,String.class);
+        String value = exp.getValue(tesla, String.class);
         System.out.println(value);
     }
 
@@ -149,7 +149,7 @@ public class EvaluationTest {
         Demo demo = new Demo();
 
         Object o = expression.getValue(demo);
-        System.out.println("o=>"+o);
+        System.out.println("o=>" + o);
 
         System.out.println(demo);
 

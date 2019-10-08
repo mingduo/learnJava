@@ -39,7 +39,7 @@ object GroupFavTeacher4 {
 
     //聚合，聚合是就按照指定的分区器进行分区
     //该RDD一个分区内仅有一个学科的数据
-    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(sbPatitioner, _+_)
+    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(sbPatitioner, _ + _)
 
     //如果一次拿出一个分区(可以操作一个分区中的数据了)
     val sorted: RDD[((String, String), Int)] = reduced.mapPartitions(it => {
@@ -72,7 +72,7 @@ class SubjectParitioner2(sbs: Array[String]) extends Partitioner {
   //用于存放规则的一个map
   val rules = new mutable.HashMap[String, Int]()
   var i = 0
-  for(sb <- sbs) {
+  for (sb <- sbs) {
     //rules(sb) = i
     rules.put(sb, i)
     i += 1

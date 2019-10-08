@@ -39,7 +39,7 @@ object GameKPIV2 {
     val filteredByType = splited.filter(fields => {
       //一个Task中会创建很多的FilterUtils实例，因为每处理一条就会创建一个实例
       val fu = new FilterUtilsV3
-      fu.filterByType(fields,"1")
+      fu.filterByType(fields, "1")
     })
 
     val filtered = filteredByType.filter(fields => {

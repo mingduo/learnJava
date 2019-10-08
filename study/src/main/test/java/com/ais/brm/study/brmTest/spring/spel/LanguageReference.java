@@ -583,7 +583,7 @@ public class LanguageReference {
         // returns ['Smiljan', 'Idvor' ]
         List placesOfBirth = (List) parser.parseExpression("Members.![name]")
                 .getValue(societyContext);
-        System.out.println("names="+placesOfBirth);
+        System.out.println("names=" + placesOfBirth);
 
         /**
          * You can also use a map to drive projection and, in this case,
@@ -591,18 +591,18 @@ public class LanguageReference {
          * (represented as a Java Map.Entry). The result of a projection across a map is a list
          * that consists of the evaluation of the projection expression against each map entry.
          */
-        List  mapKeys = (List) parser.parseExpression("officers.![key]").getValue(societyContext);
-        System.out.println("mapKeys="+mapKeys);
+        List mapKeys = (List) parser.parseExpression("officers.![key]").getValue(societyContext);
+        System.out.println("mapKeys=" + mapKeys);
 
     }
 
 
     /**
-     *  Expression templating
-     *
-     *  Expression templates allow mixing literal text with one or more evaluation blocks.
-     *  Each evaluation block is delimited with prefix
-     *  and suffix characters that you can define. A common choice is to use #{ } as the delimiters,
+     * Expression templating
+     * <p>
+     * Expression templates allow mixing literal text with one or more evaluation blocks.
+     * Each evaluation block is delimited with prefix
+     * and suffix characters that you can define. A common choice is to use #{ } as the delimiters,
      */
     @Test
     public void test18() {
@@ -610,7 +610,7 @@ public class LanguageReference {
                 "random number is #{T(java.lang.Math).random()}",
                 new TemplateParserContext()).getValue(String.class);
 
-    // evaluates to "random number is 0.7038186818312008"
+        // evaluates to "random number is 0.7038186818312008"
         System.out.println(randomPhrase);
     }
 

@@ -11,6 +11,7 @@ import java.util.Random;
 /**
  * 基础的kafka通知，其他模块可以继承此类实现自己的通知逻辑.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class GeneralKakfaNotif implements IKafkaNotif {
@@ -20,7 +21,7 @@ public class GeneralKakfaNotif implements IKafkaNotif {
     private String source;//who send this notify.
     private long sendTime = System.currentTimeMillis();//when send
     private int type; //类型，子类继承后，应该填写此字段，便于consumer消费.
-    private Map<String,String> props;
+    private Map<String, String> props;
     private static Random random = new Random();
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
 

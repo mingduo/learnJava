@@ -14,6 +14,7 @@ import static org.apache.commons.lang.StringUtils.defaultIfEmpty;
 /**
  * 在没有spring的环境使用redis.
  * Created by zhaocw on 2016/6/7.
+ *
  * @author zhaocw
  */
 public final class RedisUtils {
@@ -21,7 +22,7 @@ public final class RedisUtils {
     private String redisHost;
     private String redisPort;
     private String redisPassword;
-    
+
     private JedisPool pool = null;
     private Object lock = new Object();
 
@@ -31,7 +32,7 @@ public final class RedisUtils {
         this.redisPassword = redisConfig.getRedisPassword();
     }
 
-    public RedisUtils(String redisHost,String redisPort) {
+    public RedisUtils(String redisHost, String redisPort) {
         this.redisHost = redisHost;
         this.redisPort = redisPort;
     }
@@ -50,26 +51,26 @@ public final class RedisUtils {
         //config.setMaxWait(Long.parseLong(maxWait));
         config.setTestOnBorrow(true);
         config.setTestOnReturn(true);
-        
+
         setPool(new JedisPool(config, redisHost, Integer.parseInt(redisPort), Protocol.DEFAULT_TIMEOUT,
-        		defaultIfEmpty(redisPassword, null), Protocol.DEFAULT_DATABASE, null));
+                defaultIfEmpty(redisPassword, null), Protocol.DEFAULT_DATABASE, null));
     }
 
     /**
      * .
+     *
      * @return
      */
-    public  Jedis getJedis() {
-        if(pool ==null) {
+    public Jedis getJedis() {
+        if (pool == null) {
             synchronized (lock) {
-                if(pool == null) {
+                if (pool == null) {
                     initialPool();
                 }
             }
         }
         return pool.getResource();
     }
-
 
 
     /**
@@ -80,10 +81,8 @@ public final class RedisUtils {
      * <tr><td>@return java.lang.String</td></tr>
      * <tr><td>@Author:weizc</td></tr>
      * </table>
-     *
-     *
      */
-    public  String getRedisInfo() {
+    public String getRedisInfo() {
 
         Jedis jedis = getJedis();
         try {
@@ -153,11 +152,9 @@ public final class RedisUtils {
     }
 
 
-
-
-
     /**
      * .
+     *
      * @param jedis
      */
     public void releaseJedis(Jedis jedis) {
@@ -224,35 +221,37 @@ public final class RedisUtils {
 
     /**
      * .
+     *
      * @param key
      * @param value
      * @return
      */
-    public boolean lrem(String key,String value) {//remove from list
+    public boolean lrem(String key, String value) {//remove from list
         long res = -1;
         Jedis jedis = null;
         try {
             jedis = getJedis();
-            res = jedis.lrem(key,0,value);
+            res = jedis.lrem(key, 0, value);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         } finally {
             releaseJedis(jedis);
         }
-        return res>0;
+        return res > 0;
     }
 
     /**
      * .
+     *
      * @param key
      * @param start
      * @param end
      */
-    public void ltrim(String key,int start ,int end) {//remove from lis
+    public void ltrim(String key, int start, int end) {//remove from lis
         Jedis jedis = null;
         try {
             jedis = getJedis();
-            jedis.ltrim(key,start,end);
+            jedis.ltrim(key, start, end);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         } finally {
@@ -286,6 +285,7 @@ public final class RedisUtils {
 
     /**
      * .
+     *
      * @param key
      * @param field
      * @param data
@@ -307,6 +307,7 @@ public final class RedisUtils {
 
     /**
      * .
+     *
      * @param key
      * @param field
      * @return
@@ -327,6 +328,7 @@ public final class RedisUtils {
 
     /**
      * .
+     *
      * @param key
      * @param field
      * @return
@@ -348,7 +350,7 @@ public final class RedisUtils {
     /**
      * 添加元素到集合
      *
-     * @param key key
+     * @param key    key
      * @param member 值
      * @return 添加结果（-1为非redis返回结果，表示出现为定义错误）
      */
@@ -368,10 +370,11 @@ public final class RedisUtils {
             releaseJedis(jedis);
         }
     }
+
     /**
      * 删除集合中的指定元素
      *
-     * @param key key
+     * @param key    key
      * @param member 值
      * @return 删除结果（-1为非redis返回结果，表示出现为定义错误）
      */

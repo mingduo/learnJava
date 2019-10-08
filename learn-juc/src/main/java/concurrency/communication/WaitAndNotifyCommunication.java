@@ -44,7 +44,7 @@ public class WaitAndNotifyCommunication implements SynchronizedCommunication {
         });
     }
 
-    private  boolean getCondtion(String name) {
+    private boolean getCondtion(String name) {
         if (name.equals("main")) {
             return mainStart;
         } else {
@@ -54,7 +54,7 @@ public class WaitAndNotifyCommunication implements SynchronizedCommunication {
     }
 
 
-    private  void doMutexLoop(Consumer<Boolean> changeStatus) {
+    private void doMutexLoop(Consumer<Boolean> changeStatus) {
 
         while (true) {
 

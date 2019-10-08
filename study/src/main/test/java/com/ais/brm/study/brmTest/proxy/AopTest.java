@@ -13,23 +13,22 @@ import org.springframework.aop.target.ThreadLocalTargetSource;
 import java.util.stream.Stream;
 
 /**
- * 
+ * @author : weizc
  * @description:
  * @since 2019/5/7
- * @author : weizc 
  */
 public class AopTest {
 
     //Advisor api
     @Test
-    public void test(){
-        String str="test";
-        DelegatingIntroductionInterceptor introductionInterceptor=new DelegatingIntroductionInterceptor(str);
+    public void test() {
+        String str = "test";
+        DelegatingIntroductionInterceptor introductionInterceptor = new DelegatingIntroductionInterceptor(str);
         Class<?>[] interfaces = introductionInterceptor.getInterfaces();
         Stream.of(interfaces).forEach(System.out::println);
 
-        UserService userService=new UserServiceImpl();
-        ProxyFactory proxyFactory=new ProxyFactory();
+        UserService userService = new UserServiceImpl();
+        ProxyFactory proxyFactory = new ProxyFactory();
         proxyFactory.setTarget(userService);
 
         proxyFactory.addAdvice(new PerformanceMonitorInterceptor());
@@ -44,20 +43,20 @@ public class AopTest {
         UserService userServiceProxy = (UserService) proxyFactory.getProxy();
         userServiceProxy.createUser();
 
-        Advised advised=proxyFactory;
+        Advised advised = proxyFactory;
         System.out.println("advised :");
         Stream.of(advised.getAdvisors()).forEach(System.out::println);
 
     }
 
     @Test
-    public void testTargetSource(){
+    public void testTargetSource() {
         // exists to let the target of an AOP proxy be switched while letting callers keep their references to it
-        String str="old";
+        String str = "old";
         HotSwappableTargetSource hotSwappableTargetSource = new HotSwappableTargetSource(str);
         Object old = hotSwappableTargetSource.swap("new");
-        System.out.println("old:"+old);
-        System.out.println("new :"+hotSwappableTargetSource.getTarget());
+        System.out.println("old:" + old);
+        System.out.println("new :" + hotSwappableTargetSource.getTarget());
         //PoolTargetSource
         CommonsPool2TargetSource commonsPool2TargetSource = new CommonsPool2TargetSource();
         commonsPool2TargetSource.setMaxIdle(5);

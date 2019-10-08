@@ -81,14 +81,15 @@ public class KafkaSparkStream {
                         ConsumerStrategies.Subscribe(topics, kafkaParams)
                 );
 
-        *//**
-         *
-         直连方式只有在KafkaDStream的RDD中才能获取偏移量，
-         那么就不能到调用DStream的Transformation
-         所以只能子在kafkaStream调用foreachRDD，获取RDD的偏移量，
-         然后就是对RDD进行操作了
-         依次迭代KafkaDStream中的KafkaRDD
-         *//*
+        */
+
+    /**
+     * 直连方式只有在KafkaDStream的RDD中才能获取偏移量，
+     * 那么就不能到调用DStream的Transformation
+     * 所以只能子在kafkaStream调用foreachRDD，获取RDD的偏移量，
+     * 然后就是对RDD进行操作了
+     * 依次迭代KafkaDStream中的KafkaRDD
+     *//*
         //偏移量的范围
 
         stream.foreachRDD(kafkaRDD -> {
@@ -118,7 +119,6 @@ public class KafkaSparkStream {
         // Wait for the computation to terminate
         streamingContext.awaitTermination();
     }*/
-
     private static JavaStreamingContext getJavaStreamingContext() {
         SparkConf conf = new SparkConf()
                 .setMaster("local[2]")

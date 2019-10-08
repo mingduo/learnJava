@@ -19,9 +19,9 @@ public class GenericMethodEx {
         int count = countAllOccurrences(Arrays.asList("a", "b", "c", "a"), "a");
         System.out.println("count = [" + count + "]");
         //Generics with Wildcards
-        Dimension<?> dimension=new Dimension<>(
+        Dimension<?> dimension = new Dimension<>(
                 "10",
-                "20","50");
+                "20", "50");
         System.out.println("dimension = [" + dimension + "]");
 
     }
@@ -30,12 +30,11 @@ public class GenericMethodEx {
     public static <T> int countAllOccurrences(List<T> list, T item) {
         int count = 0;
         if (item == null) {
-            for ( T listItem : list )
+            for (T listItem : list)
                 if (listItem == null)
                     count++;
-        }
-        else {
-            for ( T listItem : list )
+        } else {
+            for (T listItem : list)
                 if (item.equals(listItem))
                     count++;
         }
@@ -44,15 +43,13 @@ public class GenericMethodEx {
 }
 
 @ToString
-class Dimension<T>
-{
+class Dimension<T> {
     private T length;
     private T width;
     private T height;
 
     //Generic constructor
-    public Dimension(T length, T width, T height)
-    {
+    public Dimension(T length, T width, T height) {
         super();
         this.length = length;
         this.width = width;

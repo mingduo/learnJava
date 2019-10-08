@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * 系统监控规则.
  * Created by zhaocaiwen on 2018/1/4.
+ *
  * @author zhaocaiwen
  */
 public class MonitorRule {
@@ -19,12 +20,14 @@ public class MonitorRule {
     private boolean enabled;
     private List<MonitorTarget> monitorTargetList;
     //每个应用对应唯一targetId
-   private int targetId;
+    private int targetId;
 
 
-    public  int  getTargetId() {
+    public int getTargetId() {
         return targetId;
-    }public void setTargetId(int targetId) {
+    }
+
+    public void setTargetId(int targetId) {
         this.targetId = targetId;
     }
 

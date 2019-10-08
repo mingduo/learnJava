@@ -77,8 +77,7 @@ public class RddTest {
         System.out.println("mapRdd=>" + mapRdd.collect());
 
         //对同一分区统一操作
-        mapRdd.foreachPartition(t->t.forEachRemaining(System.out::println));
-
+        mapRdd.foreachPartition(t -> t.forEachRemaining(System.out::println));
 
 
     }

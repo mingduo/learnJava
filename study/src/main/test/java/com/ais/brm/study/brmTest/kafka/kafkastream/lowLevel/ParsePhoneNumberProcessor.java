@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  * Created by zhaocaiwen on 2017/11/28.
  */
 @Component
-public class ParsePhoneNumberProcessor implements ProcessorSupplier<String,String> {
+public class ParsePhoneNumberProcessor implements ProcessorSupplier<String, String> {
 
     @Override
     public Processor<String, String> get() {
@@ -31,8 +31,8 @@ public class ParsePhoneNumberProcessor implements ProcessorSupplier<String,Strin
             @Override
             public void process(String dummy, String line) {
                 String[] words = line.toLowerCase(Locale.getDefault()).split("@@@");
-                Stream.of(words).forEach(t->
-                        context.forward(t,t)
+                Stream.of(words).forEach(t ->
+                        context.forward(t, t)
                 );
 
                 context.commit();
@@ -44,7 +44,8 @@ public class ParsePhoneNumberProcessor implements ProcessorSupplier<String,Strin
             }
 
             @Override
-            public void close() {}
+            public void close() {
+            }
         };
     }
 }

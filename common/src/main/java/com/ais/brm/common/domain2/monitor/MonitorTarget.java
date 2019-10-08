@@ -5,6 +5,7 @@ import com.ais.brm.common.enumdomain.MonitorTargetCategory;
 /**
  * 系统监控目标.
  * Created by zhaocaiwen on 2018/1/4.
+ *
  * @author zhaocaiwen
  */
 public class MonitorTarget {

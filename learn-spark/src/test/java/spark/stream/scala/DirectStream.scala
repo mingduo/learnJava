@@ -6,6 +6,7 @@ import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.kafka010._
 import org.apache.spark.streaming.{Seconds, StreamingContext}
+
 /**
   * Created by zx on 2017/7/6.
   */
@@ -46,7 +47,7 @@ object DirectStream {
       //获取该RDD对于的偏移量
       val offsetRanges = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
       //拿出对于的数据，foreach是一个aciton
-      rdd.foreach{ line =>
+      rdd.foreach { line =>
         println(line.key() + " " + line.value())
       }
       //更新偏移量

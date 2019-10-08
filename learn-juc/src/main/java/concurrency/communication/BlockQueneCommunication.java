@@ -24,6 +24,7 @@ public class BlockQueneCommunication implements SynchronizedCommunication {
     public static void main(String[] args) throws InterruptedException {
         new BlockQueneCommunication().execute();
     }
+
     @Override
     public void execute() throws InterruptedException {
 
@@ -41,22 +42,20 @@ public class BlockQueneCommunication implements SynchronizedCommunication {
     }
 
     private void useBlockQueueCommunication(BlockingQueue<Integer> mainQueue, BlockingQueue<Integer> subQueue) {
-       while (true) {
-           try {
-               mainQueue.put(1);
+        while (true) {
+            try {
+                mainQueue.put(1);
 
 
-               SynchronizedCommunication.foreachPrint();
+                SynchronizedCommunication.foreachPrint();
 
-               subQueue.take();
+                subQueue.take();
 
-           } catch (InterruptedException e) {
-               e.printStackTrace();
-           }
-       }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
-
 
 
 }

@@ -28,7 +28,7 @@ public class ToStringEx {
 
 @AllArgsConstructor
 @Data(staticConstructor = "of")
-class Car{
+class Car {
     private long Id;
     private String Name;
     private int Price;

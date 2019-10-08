@@ -35,14 +35,15 @@ public class UdafTest {
                 .master("local[2]")
                 .getOrCreate();
     }
+
     @Test
-    public  void test(){
+    public void test() {
         //注册函数
         spark.udf().register("myAverage", new MyAverage());
         String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\";
 
 
-        Dataset<Row> df = spark.read().json(path+"inputJson");
+        Dataset<Row> df = spark.read().json(path + "inputJson");
         df.createOrReplaceTempView("employees");
         df.show();
 
@@ -66,26 +67,31 @@ public class UdafTest {
             bufferFields.add(DataTypes.createStructField("count", DataTypes.LongType, true));
             bufferSchema = DataTypes.createStructType(bufferFields);
         }
+
         //  //输入数据的类型
         // Data types of input arguments of this aggregate function
         public StructType inputSchema() {
             return inputSchema;
         }
+
         //产生中间结果的数据类型
         // Data types of values in the aggregation buffer
         public StructType bufferSchema() {
             return bufferSchema;
         }
-         //最终返回的结果类型
+
+        //最终返回的结果类型
         // The data type of the returned value
         public DataType dataType() {
             return DataTypes.DoubleType;
         }
+
         //确保一致性 一般用true
         // Whether this function always returns the same output on the identical input
         public boolean deterministic() {
             return true;
         }
+
         // Initializes the given aggregation buffer. The buffer itself is a `Row` that in addition to
         // standard methods like retrieving a value at an index (e.g., get(), getBoolean()), provides
         // the opportunity to update its values. Note that arrays and maps inside the buffer are still
@@ -106,6 +112,7 @@ public class UdafTest {
                 buffer.update(1, updatedCount);
             }
         }
+
         //全局聚合
         // Merges two aggregation buffers and stores the updated buffer values back to `buffer1`
         public void merge(MutableAggregationBuffer buffer1, Row buffer2) {
@@ -114,6 +121,7 @@ public class UdafTest {
             buffer1.update(0, mergedSum);
             buffer1.update(1, mergedCount);
         }
+
         // Calculates the final result
         public Double evaluate(Row buffer) {
             return ((double) buffer.getLong(0)) / buffer.getLong(1);

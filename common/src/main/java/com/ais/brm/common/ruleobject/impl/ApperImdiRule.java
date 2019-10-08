@@ -66,22 +66,22 @@ public class ApperImdiRule extends RuleObject {
     }
 
     private void setConditionValue(RiskIndexResultHis curHis, String index_value_all) {
-        StringBuffer condtionValue=new StringBuffer("当前指标值[");
+        StringBuffer condtionValue = new StringBuffer("当前指标值[");
         condtionValue.append(curHis.getRiskIndexValue());
         condtionValue.append("]在当前指标值范围[");
         condtionValue.append(index_value_all);
         condtionValue.append("]中从未见");
-        Optional.ofNullable(curHis).ifPresent(t->{
+        Optional.ofNullable(curHis).ifPresent(t -> {
             t.setConditionValue(condtionValue.toString());
         });
     }
 
     public static void main(String[] args) {
-        String index_value_all="1,2,5,3,4,5,7";
+        String index_value_all = "1,2,5,3,4,5,7";
         final List<String> value_all = Arrays.asList(index_value_all.split(","));
 
-        if(value_all.size()>5){
-            String s1 = value_all.stream().filter(s -> value_all.indexOf(s) < 5).collect(Collectors.joining(","))+"...";
+        if (value_all.size() > 5) {
+            String s1 = value_all.stream().filter(s -> value_all.indexOf(s) < 5).collect(Collectors.joining(",")) + "...";
             System.out.println("args = [" + s1 + "]");
         }
 

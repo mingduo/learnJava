@@ -27,10 +27,11 @@ public class BlackListRule extends RuleObject {
     }
 
     /**
-     *只要指标的值在黑名单内就报警
+     * 只要指标的值在黑名单内就报警
+     *
      * @param ruleMap
      * @param curHis
-     * @return   List<String>
+     * @return List<String>
      */
     @Override
     public String parseRuleParam(Map<String, String> ruleMap, RiskIndexResultHis curHis) {
@@ -38,9 +39,9 @@ public class BlackListRule extends RuleObject {
         if (checkValueExits(black_list)) {
             return null;
         }
-         StringBuffer sb = new StringBuffer();
+        StringBuffer sb = new StringBuffer();
         //以空格分隔
-        Stream.of(black_list.split(SPACE)).forEach(t ->{
+        Stream.of(black_list.split(SPACE)).forEach(t -> {
             if (StringUtils.isNumeric(t)) {
                 sb.append("p").
                         append(EQ).append(t).append(OR);
@@ -50,7 +51,7 @@ public class BlackListRule extends RuleObject {
                         append(POINT).append(OR);
             }
 
-    });
+        });
 
         sb.delete(sb.lastIndexOf(OR), sb.length());
 
@@ -59,12 +60,12 @@ public class BlackListRule extends RuleObject {
     }
 
     private void setConditionValue(RiskIndexResultHis curHis, String black_list) {
-        StringBuffer condtionValue=new StringBuffer("当前指标值[");
+        StringBuffer condtionValue = new StringBuffer("当前指标值[");
         condtionValue.append(curHis.getRiskIndexValue());
         condtionValue.append("]在黑名单[");
         condtionValue.append(black_list);
         condtionValue.append("]内");
-        Optional.ofNullable(curHis).ifPresent(t->{
+        Optional.ofNullable(curHis).ifPresent(t -> {
             t.setConditionValue(condtionValue.toString());
         });
     }

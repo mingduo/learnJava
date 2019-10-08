@@ -24,15 +24,15 @@ object MongoSparkRDD {
 
     val docsRDD: MongoRDD[Document] = MongoSpark.load(sc)
 
-//    val filtered: RDD[Document] = docsRDD.filter(doc => {
-//      val age = doc.get("age")
-//      if (age == null) {
-//        false
-//      } else {
-//        val ageDouble = age.asInstanceOf[Double]
-//        ageDouble >= 31
-//      }
-//    })
+    //    val filtered: RDD[Document] = docsRDD.filter(doc => {
+    //      val age = doc.get("age")
+    //      if (age == null) {
+    //        false
+    //      } else {
+    //        val ageDouble = age.asInstanceOf[Double]
+    //        ageDouble >= 31
+    //      }
+    //    })
 
     //先过滤，filteredRDD，缓存（cache）
 

@@ -25,7 +25,7 @@ public class SparkSubmit {
         SparkConf conf = new SparkConf().setAppName("JavaWordCount").setMaster("spark://node0:7077");
         conf.setJars(new String[]{"F:\\idea\\myLearn\\learn\\out\\artifacts\\study_jar\\study.jar"});
 
-        JavaSparkContext sc=new JavaSparkContext(conf);
+        JavaSparkContext sc = new JavaSparkContext(conf);
 
         List<Integer> list = Arrays.asList(5, 6, 4, 3);
         List<Integer> list2 = Arrays.asList(1, 2, 3, 4);
@@ -44,7 +44,6 @@ public class SparkSubmit {
         System.out.println("distinct=>" + distinct.collect());
         sc.stop();
     }
-
 
 
 }

@@ -24,8 +24,8 @@ import java.util.Arrays;
  */
 public class SparkStreamStatefulWordCount {
 
-    private static final String HOST="10.21.16.143";
-    private  static final int PORT=9999;
+    private static final String HOST = "10.21.16.143";
+    private static final int PORT = 9999;
 
     @Test
     public void testSocket() throws InterruptedException {
@@ -45,7 +45,7 @@ public class SparkStreamStatefulWordCount {
         // Count each word in each batch
         JavaPairDStream<String, Integer> pairs = words.mapToPair(s -> new Tuple2<>(s, 1));
 
-        JavaPairDStream<String, Integer> wordCounts = pairs.updateStateByKey( (values, status) -> {
+        JavaPairDStream<String, Integer> wordCounts = pairs.updateStateByKey((values, status) -> {
             Integer add = status.isPresent() ? status.get() : 0;
 
             Integer sum = values.stream().reduce(0, Integer::sum);
@@ -63,7 +63,6 @@ public class SparkStreamStatefulWordCount {
         // Wait for the computation to terminate
         jssc.awaitTermination();
     }
-
 
 
     private JavaStreamingContext getJavaStreamingContext() {

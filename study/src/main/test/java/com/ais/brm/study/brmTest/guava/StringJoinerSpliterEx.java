@@ -35,7 +35,7 @@ public class StringJoinerSpliterEx {
 
         Iterable<String> words = Splitter.on(" ").split(input);
 
-        for (String word: words) {
+        for (String word : words) {
             System.out.println(word);
         }
     }
@@ -49,7 +49,7 @@ public class StringJoinerSpliterEx {
                 .limit(3)
                 .split(input);
 
-        for (String word: words) {
+        for (String word : words) {
             System.out.println(word);
         }
     }
@@ -62,7 +62,7 @@ public class StringJoinerSpliterEx {
                 .omitEmptyStrings()
                 .split(input);
 
-        for (String word: words) {
+        for (String word : words) {
             System.out.println(word);
         }
     }
@@ -75,7 +75,7 @@ public class StringJoinerSpliterEx {
                 .trimResults(CharMatcher.is('_'))
                 .split(input);
 
-        for (String word: words) {
+        for (String word : words) {
             System.out.println(word);
         }
     }

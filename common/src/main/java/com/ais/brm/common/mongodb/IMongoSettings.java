@@ -9,6 +9,7 @@ package com.ais.brm.common.mongodb;
 public interface IMongoSettings {
     /**
      * YOu must provide the mongodb host ip address.
+     *
      * @return
      */
     String getHostIp();

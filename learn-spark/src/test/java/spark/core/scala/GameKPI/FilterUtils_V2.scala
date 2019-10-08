@@ -13,15 +13,15 @@ class FilterUtils_V2 extends Serializable {
     logTime >= startTime && logTime < endTime
   }
 
-  def filterByType(fields: Array[String], evenType: String) : Boolean = {
+  def filterByType(fields: Array[String], evenType: String): Boolean = {
     val _type = fields(0)
     evenType == _type
   }
 
   def filterByTypes(fields: Array[String], eventTypes: String*): Boolean = {
     val _type = fields(0)
-    for(et <- eventTypes){
-      if(_type == et)
+    for (et <- eventTypes) {
+      if (_type == et)
         return true
     }
     false

@@ -15,20 +15,20 @@ public class RiskCollectorSqlBean {
 
     //数据源类型，方便动态切换校验数据库
     private String datasourceId;
-    
+
     public String getDatasourceId() {
-		return datasourceId;
-	}
+        return datasourceId;
+    }
 
-	public void setDatasourceId(String datasourceId) {
-		this.datasourceId = datasourceId;
-	}
+    public void setDatasourceId(String datasourceId) {
+        this.datasourceId = datasourceId;
+    }
 
-	@Override
+    @Override
     public String toString() {
         return "RiskCollectorSqlBean{" +
                 "theSql='" + theSql + '\'' +
-                ", realSql='" + realSql + '\''+
+                ", realSql='" + realSql + '\'' +
                 '}';
     }
 

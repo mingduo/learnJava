@@ -3,6 +3,7 @@ package com.ais.brm.common.domain2;
 /**
  * 操作类型.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class OperType {

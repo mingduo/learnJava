@@ -2,6 +2,7 @@ package com.ais.brm.common.domain2;
 
 /**
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class Model {
@@ -26,18 +27,19 @@ public class Model {
     }
 
     public boolean isHourly() {
-		return isHourly;
-	}
+        return isHourly;
+    }
 
-	public void setHourly(boolean isHourly) {
-		this.isHourly = isHourly;
-	}
+    public void setHourly(boolean isHourly) {
+        this.isHourly = isHourly;
+    }
 
-	public Model(long modelId) {
+    public Model(long modelId) {
         this.id = modelId;
     }
 
-    public Model() {}
+    public Model() {
+    }
 
 
     public int getRiskObjectTypeId() {

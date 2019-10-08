@@ -5,6 +5,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 咪咕ML的请求.
  * Created by zhaocw on 2017/6/2.
+ *
  * @author zhaocw
  */
 public class MiguMLOfRequestNotif extends GeneralKakfaNotif {

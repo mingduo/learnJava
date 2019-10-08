@@ -8,12 +8,13 @@ import java.util.Map;
 /**
  * 代表一个执行结果.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class Result {
     private int resultCode;
     private String resultMessage;
-    private Map<String,String> props = new HashMap<>();
+    private Map<String, String> props = new HashMap<>();
 
     public Result(int code) {
         this.resultCode = code;
@@ -45,6 +46,7 @@ public class Result {
 
     /**
      * .
+     *
      * @return
      */
     public static Result successResult() {
@@ -53,6 +55,7 @@ public class Result {
 
     /**
      * .
+     *
      * @return
      */
     public static Result failedResult() {
@@ -61,36 +64,40 @@ public class Result {
 
     /**
      * .
+     *
      * @param s
      * @return
      */
     public static Result failedResult(String s) {
-        Result result= new Result(Constants.RESULTCODE_FAILED);
+        Result result = new Result(Constants.RESULTCODE_FAILED);
         result.setResultMessage(s);
         return result;
     }
 
     /**
      * .
+     *
      * @param s
      * @return
      */
     public static Result successResult(String s) {
-        Result result= new Result(Constants.RESULTCODE_SUCCESS);
+        Result result = new Result(Constants.RESULTCODE_SUCCESS);
         result.setResultMessage(s);
         return result;
     }
 
     /**
      * .
+     *
      * @return
      */
     public boolean isSucceed() {
-        return getResultCode()==Constants.RESULTCODE_SUCCESS;
+        return getResultCode() == Constants.RESULTCODE_SUCCESS;
     }
 
     /**
      * .
+     *
      * @return
      */
     @Override

@@ -25,7 +25,7 @@ public class HiveSpark {
 
 
     /**
-     *   在spark提交
+     * 在spark提交
      * . /bin/spark-submit   \
      * --class org.apache.spark.examples.sql.hive.JavaSparkHiveExample  \
      * --master spark://node0:7077  \

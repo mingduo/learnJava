@@ -15,7 +15,7 @@ public class Inventor {
     private PlaceOfBirth placeOfBirth;
 
     public Inventor(String name, String nationality) {
-        GregorianCalendar c= new GregorianCalendar();
+        GregorianCalendar c = new GregorianCalendar();
         this.name = name;
         this.nationality = nationality;
         this.birthdate = c.getTime();

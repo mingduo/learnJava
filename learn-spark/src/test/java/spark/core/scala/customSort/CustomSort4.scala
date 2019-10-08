@@ -15,7 +15,7 @@ object CustomSort4 {
     val sc = new SparkContext(conf)
 
     //排序规则：首先按照颜值的降序，如果颜值相等，再按照年龄的升序
-    val users= Array("laoduan 30 99", "laozhao 29 9999", "laozhang 28 98", "laoyang 28 99")
+    val users = Array("laoduan 30 99", "laozhao 29 9999", "laozhang 28 98", "laoyang 28 99")
 
     //将Driver端的数据并行化变成RDD
     val lines: RDD[String] = sc.parallelize(users)

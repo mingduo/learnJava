@@ -23,7 +23,7 @@ public class CglibTest {
         enhancer.setSuperclass(Dao.class);
         enhancer.setCallback(daoProxy);
 
-        Dao dao = (Dao)enhancer.create();
+        Dao dao = (Dao) enhancer.create();
         dao.update();
         dao.select();
     }
@@ -42,14 +42,14 @@ public class CglibTest {
         enhancer.setCallbacks(new Callback[]{daoProxy, daoAnotherProxy, NoOp.INSTANCE});
         enhancer.setCallbackFilter(new DaoFilter());
 
-        Dao dao = (Dao)enhancer.create();
+        Dao dao = (Dao) enhancer.create();
         dao.update();
         dao.select();
     }
 
 
-
 }
+
 class Dao {
 
 
@@ -86,7 +86,7 @@ class DaoAnotherProxy implements MethodInterceptor {
 
 }
 
- class DaoFilter implements CallbackFilter {
+class DaoFilter implements CallbackFilter {
 
     @Override
     public int accept(Method method) {

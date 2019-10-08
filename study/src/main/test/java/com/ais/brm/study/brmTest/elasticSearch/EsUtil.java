@@ -153,7 +153,7 @@ public final class EsUtil {
             if (response.hasFailures()) {
                 log.error("batch addData failure with error: " + response.buildFailureMessage());
             } else {
-            //    log.info(" this batch added done,response status:{}", response.status().getStatus());
+                //    log.info(" this batch added done,response status:{}", response.status().getStatus());
             }
         }
     }
@@ -171,7 +171,7 @@ public final class EsUtil {
         DeleteResponse response = client.prepareDelete(index, type, id).
                 execute().actionGet();
 
-     //   log.info("deleteDataById response status:{},id:{}", response.status().getStatus(), response.getId());
+        //   log.info("deleteDataById response status:{},id:{}", response.status().getStatus(), response.getId());
     }
 
     /**

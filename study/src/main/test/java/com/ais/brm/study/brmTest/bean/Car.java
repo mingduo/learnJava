@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @ToString
 @Data
-public  class Car{
+public class Car {
     String id;
 
 

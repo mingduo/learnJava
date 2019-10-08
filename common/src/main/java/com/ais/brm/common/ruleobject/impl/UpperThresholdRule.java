@@ -20,9 +20,9 @@ import java.util.Optional;
 @Component("RuleInstance104")
 public class UpperThresholdRule extends RuleObject {
     @Override
-    public void checkRuleIndex( int indexValueType) throws Exception {
+    public void checkRuleIndex(int indexValueType) throws Exception {
         if (indexValueType != IndexValType.NUM_TYPE.getTypeId()) {
-            throw  new Exception("risk_index_type_id must be number");
+            throw new Exception("risk_index_type_id must be number");
         }
     }
 
@@ -44,19 +44,20 @@ public class UpperThresholdRule extends RuleObject {
         StringBuffer sb = new StringBuffer();
         //忽略空值 p==null || (p!=1&&p)
         sb.append("p").append(MQ)
-            .append(value);
+                .append(value);
 
         setConditonValue(curHis, value);
         return sb.toString();
     }
+
     private void setConditonValue(RiskIndexResultHis curHis, String value) {
-        StringBuffer condtionValue=new StringBuffer("当前指标值[");
+        StringBuffer condtionValue = new StringBuffer("当前指标值[");
         condtionValue.append(curHis.getRiskIndexValue());
         condtionValue.append("]高于阀值[");
         condtionValue.append(value);
         condtionValue.append("]");
 
-        Optional.ofNullable(curHis).ifPresent(t->{
+        Optional.ofNullable(curHis).ifPresent(t -> {
             t.setConditionValue(condtionValue.toString());
         });
     }

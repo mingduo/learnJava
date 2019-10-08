@@ -20,7 +20,8 @@ public class JavaWordCount {
 
     public static void main(String[] args) {
 
-        SparkConf conf = new SparkConf().setAppName("JavaWordCount").setMaster("local[2]");;
+        SparkConf conf = new SparkConf().setAppName("JavaWordCount").setMaster("local[2]");
+        ;
         //创建sparkContext
         JavaSparkContext jsc = new JavaSparkContext(conf);
         //指定以后从哪里读取数据
@@ -74,15 +75,14 @@ public class JavaWordCount {
         result.collectAsMap().forEach(new BiConsumer<String, Integer>() {
             @Override
             public void accept(String s, Integer integer) {
-                System.out.println(String.format("k=>%s,v=>%d",s,integer ));
+                System.out.println(String.format("k=>%s,v=>%d", s, integer));
 
             }
         });
-        String outPath="F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\wc\\out";
+        String outPath = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\wc\\out";
         result.saveAsTextFile(outPath);
         //释放资源
         jsc.stop();
-
 
 
     }

@@ -6,88 +6,87 @@ import java.util.Date;
 
 /**
  * 风险分析白名单过滤器定义
- * 
- * @author lulj
  *
+ * @author lulj
  */
 public class WhitelistFilterDef {
 
-	private int whitelistType;
-	
-	private String whitelistName;
-	
-	private String matchRiskObjectTypes;
-	
-	private String filterBean;
-	
-	private Date createTime;
+    private int whitelistType;
 
-	public int getWhitelistType() {
-		return whitelistType;
-	}
+    private String whitelistName;
 
-	public void setWhitelistType(int whitelistType) {
-		this.whitelistType = whitelistType;
-	}
+    private String matchRiskObjectTypes;
 
-	public String getWhitelistName() {
-		return whitelistName;
-	}
+    private String filterBean;
 
-	public void setWhitelistName(String whitelistName) {
-		this.whitelistName = whitelistName;
-	}
+    private Date createTime;
 
-	public String getMatchRiskObjectTypes() {
-		return matchRiskObjectTypes;
-	}
+    public int getWhitelistType() {
+        return whitelistType;
+    }
 
-	public void setMatchRiskObjectTypes(String matchRiskObjectTypes) {
-		this.matchRiskObjectTypes = matchRiskObjectTypes;
-	}
+    public void setWhitelistType(int whitelistType) {
+        this.whitelistType = whitelistType;
+    }
 
-	public int[] matchRiskObjectTypes() {
-		int[] result = new int[0];
-		
-		if (matchRiskObjectTypes != null) {
-			String[] ss = matchRiskObjectTypes.trim().split("[,:; ]");
-			if (ss.length > 0) {
-				result = new int[ss.length];
-				for(int i=0; i < ss.length; i++) {
-					try {
-						result[i] = Integer.parseInt(ss[i]);
-					} catch(NumberFormatException nfe) {
-						//ignore;
-					}
-				}
-			}
-		}
-		
-		return result;
-	}
-	
-	public String getFilterBean() {
-		return filterBean;
-	}
+    public String getWhitelistName() {
+        return whitelistName;
+    }
 
-	public void setFilterBean(String filterBean) {
-		this.filterBean = filterBean;
-	}
+    public void setWhitelistName(String whitelistName) {
+        this.whitelistName = whitelistName;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getMatchRiskObjectTypes() {
+        return matchRiskObjectTypes;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	
-	public WhitelistFilterDef(ResultSet rs) throws SQLException {
-		this.whitelistType = rs.getInt("whitelist_type");
-		this.whitelistName = rs.getString("whitelist_name");
-		this.matchRiskObjectTypes = rs.getString("risk_object_types");
-		this.filterBean = rs.getString("filter_bean");
-		this.createTime = rs.getTimestamp("create_time");
-	}
+    public void setMatchRiskObjectTypes(String matchRiskObjectTypes) {
+        this.matchRiskObjectTypes = matchRiskObjectTypes;
+    }
+
+    public int[] matchRiskObjectTypes() {
+        int[] result = new int[0];
+
+        if (matchRiskObjectTypes != null) {
+            String[] ss = matchRiskObjectTypes.trim().split("[,:; ]");
+            if (ss.length > 0) {
+                result = new int[ss.length];
+                for (int i = 0; i < ss.length; i++) {
+                    try {
+                        result[i] = Integer.parseInt(ss[i]);
+                    } catch (NumberFormatException nfe) {
+                        //ignore;
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public String getFilterBean() {
+        return filterBean;
+    }
+
+    public void setFilterBean(String filterBean) {
+        this.filterBean = filterBean;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public WhitelistFilterDef(ResultSet rs) throws SQLException {
+        this.whitelistType = rs.getInt("whitelist_type");
+        this.whitelistName = rs.getString("whitelist_name");
+        this.matchRiskObjectTypes = rs.getString("risk_object_types");
+        this.filterBean = rs.getString("filter_bean");
+        this.createTime = rs.getTimestamp("create_time");
+    }
 }
 

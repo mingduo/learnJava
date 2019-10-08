@@ -85,9 +85,9 @@ class GeoMean extends UserDefinedAggregateFunction {
   //全局聚合
   override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {
     //每个分区计算的结果进行相乘
-    buffer1(0) =  buffer1.getDouble(0) * buffer2.getDouble(0)
+    buffer1(0) = buffer1.getDouble(0) * buffer2.getDouble(0)
     //每个分区参与预算的中间结果进行相加
-    buffer1(1) =  buffer1.getLong(1) + buffer2.getLong(1)
+    buffer1(1) = buffer1.getLong(1) + buffer2.getLong(1)
   }
 
   //计算最终的结果

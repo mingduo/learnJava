@@ -3,6 +3,7 @@ package com.ais.brm.common.domain2;
 /**
  * 代表一个指标.
  * Created by zhaocaiwen on 2018/3/1.
+ *
  * @author zhaocw
  */
 public class RiskIndex {

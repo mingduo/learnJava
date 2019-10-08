@@ -34,7 +34,7 @@ object GroupFavTeacher2 {
     //val map: RDD[((String, String), Int)] = sbjectAndteacher.map((_, 1))
 
     //聚合，将学科和老师联合当做key
-    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_+_)
+    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_ + _)
 
     //cache到内存
     //val cached = reduced.cache()

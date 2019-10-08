@@ -4,8 +4,8 @@ import java.util.Date;
 
 /**
  * 风险指标
- * @author szg
  *
+ * @author szg
  */
 
 public class TblRiskIndex {
@@ -36,119 +36,119 @@ public class TblRiskIndex {
     private String lastModUser;
 
     private Integer isEnabled;
-    
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Integer getRiskObjectTypeId() {
-		return riskObjectTypeId;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setRiskObjectTypeId(Integer riskObjectTypeId) {
-		this.riskObjectTypeId = riskObjectTypeId;
-	}
+    public Integer getRiskObjectTypeId() {
+        return riskObjectTypeId;
+    }
 
-	public Integer getRiskIndexTypeId() {
-		return riskIndexTypeId;
-	}
+    public void setRiskObjectTypeId(Integer riskObjectTypeId) {
+        this.riskObjectTypeId = riskObjectTypeId;
+    }
 
-	public void setRiskIndexTypeId(Integer riskIndexTypeId) {
-		this.riskIndexTypeId = riskIndexTypeId;
-	}
+    public Integer getRiskIndexTypeId() {
+        return riskIndexTypeId;
+    }
 
-	public String getRiskIndexCode() {
-		return riskIndexCode;
-	}
+    public void setRiskIndexTypeId(Integer riskIndexTypeId) {
+        this.riskIndexTypeId = riskIndexTypeId;
+    }
 
-	public void setRiskIndexCode(String riskIndexCode) {
-		this.riskIndexCode = riskIndexCode;
-	}
+    public String getRiskIndexCode() {
+        return riskIndexCode;
+    }
 
-	public Integer getCollectType() {
-		return collectType;
-	}
+    public void setRiskIndexCode(String riskIndexCode) {
+        this.riskIndexCode = riskIndexCode;
+    }
 
-	public void setCollectType(Integer collectType) {
-		this.collectType = collectType;
-	}
+    public Integer getCollectType() {
+        return collectType;
+    }
 
-	public String getDatasourceType() {
-		return datasourceType;
-	}
+    public void setCollectType(Integer collectType) {
+        this.collectType = collectType;
+    }
 
-	public void setDatasourceType(String datasourceType) {
-		this.datasourceType = datasourceType;
-	}
+    public String getDatasourceType() {
+        return datasourceType;
+    }
 
-	public Integer getIndexValueType() {
-		return indexValueType;
-	}
+    public void setDatasourceType(String datasourceType) {
+        this.datasourceType = datasourceType;
+    }
 
-	public void setIndexValueType(Integer indexValueType) {
-		this.indexValueType = indexValueType;
-	}
+    public Integer getIndexValueType() {
+        return indexValueType;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public void setIndexValueType(Integer indexValueType) {
+        this.indexValueType = indexValueType;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public Date getLastModTime() {
-		return lastModTime;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public void setLastModTime(Date lastModTime) {
-		this.lastModTime = lastModTime;
-	}
+    public Date getLastModTime() {
+        return lastModTime;
+    }
 
-	public String getCreateUser() {
-		return createUser;
-	}
+    public void setLastModTime(Date lastModTime) {
+        this.lastModTime = lastModTime;
+    }
 
-	public void setCreateUser(String createUser) {
-		this.createUser = createUser;
-	}
+    public String getCreateUser() {
+        return createUser;
+    }
 
-	public String getLastModUser() {
-		return lastModUser;
-	}
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
 
-	public void setLastModUser(String lastModUser) {
-		this.lastModUser = lastModUser;
-	}
+    public String getLastModUser() {
+        return lastModUser;
+    }
 
-	public Integer getIsEnabled() {
-		return isEnabled;
-	}
+    public void setLastModUser(String lastModUser) {
+        this.lastModUser = lastModUser;
+    }
 
-	public void setIsEnabled(Integer isEnabled) {
-		this.isEnabled = isEnabled;
-	}
+    public Integer getIsEnabled() {
+        return isEnabled;
+    }
+
+    public void setIsEnabled(Integer isEnabled) {
+        this.isEnabled = isEnabled;
+    }
 
 
 }

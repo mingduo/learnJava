@@ -27,11 +27,12 @@ public class BeanReference implements BeanFactoryAware {
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        this.beanFactory=beanFactory;
+        this.beanFactory = beanFactory;
     }
+
     /**
      * . Bean References
-     *
+     * <p>
      * If the evaluation context has been configured with a bean resolver,
      * you can look up beans from an expression by using the @ symbol
      */
@@ -42,8 +43,8 @@ public class BeanReference implements BeanFactoryAware {
         context.setBeanResolver(new BeanFactoryResolver(beanFactory));
 
 // This will end up calling resolve(context,"something") on MyBeanResolver during evaluation
-        Environment env = parser.parseExpression("@environment").getValue(context,Environment.class);
-        System.out.println( "env="+env);
+        Environment env = parser.parseExpression("@environment").getValue(context, Environment.class);
+        System.out.println("env=" + env);
     }
 
 

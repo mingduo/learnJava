@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * 代表一个单指标监控规则.
  * Created by zhaocaiwen on 2018/3/9.
+ *
  * @author zhaocw.
  */
 public class RiskIndexRule {

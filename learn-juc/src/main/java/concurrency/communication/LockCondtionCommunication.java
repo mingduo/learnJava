@@ -87,6 +87,7 @@ public class LockCondtionCommunication implements SynchronizedCommunication {
 
     /**
      * 主 线程操作
+     *
      * @param subCondtion
      * @param mainCondtion
      */

@@ -36,11 +36,11 @@ object GameKPIV4 {
 
 
     //按日期过过滤
-//    val filteredByType = splited.filter(fields => {
-//      //如果FilterUtilsV4是一个object，把FilterUtilsV4写在函数内部，它是在Executor中被初始化的
-//      //FilterUtilsV4是在一个Executor进程中是单例的
-//      FilterUtilsV4.filterByType(fields, "1")
-//    })
+    //    val filteredByType = splited.filter(fields => {
+    //      //如果FilterUtilsV4是一个object，把FilterUtilsV4写在函数内部，它是在Executor中被初始化的
+    //      //FilterUtilsV4是在一个Executor进程中是单例的
+    //      FilterUtilsV4.filterByType(fields, "1")
+    //    })
 
     val filtered = splited.filter(fields => {
       FilterUtilsV4.filterByTime(fields, startTime, endTime)

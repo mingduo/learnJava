@@ -21,10 +21,10 @@ object FavTeacher {
       val teacher = line.substring(index + 1)
       //val httpHost = line.substring(0, index)
       //val subject = new URL(httpHost).getHost.split("[.]")(0)
-        (teacher, 1)
+      (teacher, 1)
     })
     //聚合
-    val reduced: RDD[(String, Int)] = teacherAndOne.reduceByKey(_+_)
+    val reduced: RDD[(String, Int)] = teacherAndOne.reduceByKey(_ + _)
     //排序
     val sorted: RDD[(String, Int)] = reduced.sortBy(_._2, false)
     //触发Action执行计算
@@ -34,8 +34,6 @@ object FavTeacher {
     println(reslut.toBuffer)
 
     sc.stop()
-
-
 
 
   }

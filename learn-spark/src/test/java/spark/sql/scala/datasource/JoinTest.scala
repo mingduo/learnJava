@@ -37,7 +37,7 @@ object JoinTest {
       (ename, cname)
     })
 
-    val df2 = ndataset.toDF("ename","cname")
+    val df2 = ndataset.toDF("ename", "cname")
 
 
     df2.count()
@@ -53,7 +53,7 @@ object JoinTest {
 
     //
 
-   r.show()
+    r.show()
 
     spark.stop()
 

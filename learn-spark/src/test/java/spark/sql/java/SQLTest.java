@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.apache.spark.sql.functions.col;
+
 /**
  * <table border="1">
  * <tr><th>@Description:</th></tr>
@@ -87,7 +88,7 @@ public class SQLTest {
                     Long id = Long.parseLong(parts[0]);
                     String name = parts[1];
                     Long age = Long.parseLong(parts[2]);
-                    Double fv = Double.parseDouble(parts[3])*100;
+                    Double fv = Double.parseDouble(parts[3]) * 100;
 
                     return RowFactory.create(id, name, age, fv);
                 });
@@ -126,17 +127,17 @@ public class SQLTest {
                 .javaRDD()
                 .map(line -> {
                     String[] fileds = line.split("[|]");
-                    String ipstart=fileds[0];
-                    String ipend=fileds[1];
+                    String ipstart = fileds[0];
+                    String ipend = fileds[1];
 
                     Long startNum = Long.parseLong(fileds[2]);
                     Long endNum = Long.parseLong(fileds[3]);
-                    String province =  fileds[6] ;
-                    String area =  fileds[7]+fileds[8] ;
-                    String carrieroperator =   fileds[9] ;
+                    String province = fileds[6];
+                    String area = fileds[7] + fileds[8];
+                    String carrieroperator = fileds[9];
 
 
-                    return RowFactory.create(ipstart, ipend, startNum, endNum,province,area,carrieroperator);
+                    return RowFactory.create(ipstart, ipend, startNum, endNum, province, area, carrieroperator);
                 });
 
         // Generate the schema based on the string of schema
@@ -150,8 +151,7 @@ public class SQLTest {
         StructField carrieroperator = DataTypes.createStructField("carrieroperator", DataTypes.StringType, true);
 
 
-
-        List<StructField> structFields = Arrays.asList(ip_from, ip_to, treans_from, treans_to,province,area,carrieroperator);
+        List<StructField> structFields = Arrays.asList(ip_from, ip_to, treans_from, treans_to, province, area, carrieroperator);
 
         // fields.add(name);
         StructType schema = DataTypes.createStructType(structFields);

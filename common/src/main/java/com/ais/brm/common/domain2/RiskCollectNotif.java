@@ -6,6 +6,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 风险点的数据采集请求.接收者是risker模块.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class RiskCollectNotif extends GeneralKakfaNotif {

@@ -18,7 +18,7 @@ import java.net.URI;
  * 功能：
  * 1、封装本次job运行时所需要的必要参数
  * 2、跟yarn进行交互，将mapreduce程序成功的启动、运行
- *
+ * <p>
  * 注意 添加hosts 文件 --》class 路径问题
  *
  * @author ThinkPad
@@ -26,7 +26,7 @@ import java.net.URI;
 public class JobSubmitter {
 
     private final static String HDFS_NAME = "hdfs://192.168.16.131:9000";
-  //  private final static String HDFS_NAME = "hdfs://10.21.20.220:9000";
+    //  private final static String HDFS_NAME = "hdfs://10.21.20.220:9000";
 
     public static void main(String[] args) throws Exception {
 

@@ -6,6 +6,7 @@ import com.ais.brm.common.domain.Result;
 /**
  * 代表一个模型更新任务完成.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class SusDoneNotif extends GeneralKakfaNotif {

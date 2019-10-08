@@ -30,7 +30,7 @@ public class JavaMLExample {
 
 
     @Test
-    public  void test() {
+    public void test() {
         SparkSession spark = getSparkSession();
 
 
@@ -73,7 +73,7 @@ public class JavaMLExample {
      * 所有标签和特征值必须是分类的。
      */
     @Test
-    public  void test2() {
+    public void test2() {
         SparkSession spark = getSparkSession();
 
         List<Row> data = Arrays.asList(

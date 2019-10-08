@@ -38,9 +38,9 @@ object GameKPIV3 {
     val fu = new FilterUtilsV3 with Serializable
 
     //按日期过过滤
-//    val filteredByType = splited.filter(fields => {
-//      fu.filterByType(fields, "1")
-//    })
+    //    val filteredByType = splited.filter(fields => {
+    //      fu.filterByType(fields, "1")
+    //    })
 
     val filtered = splited.filter(fields => {
       fu.filterByTime(fields, startTime, endTime)

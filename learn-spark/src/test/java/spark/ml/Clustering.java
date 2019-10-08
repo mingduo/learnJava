@@ -30,7 +30,7 @@ public class Clustering {
 
 
     @Test
-    public void  test(){
+    public void test() {
 /**
  * bin/spark-submit    --class org.apache.spark.examples.mllib.JavaKMeansExample  --master spark://node0:7077
  * ~/spark/examples/jars/spark-examples_2.11-2.3.1.jar
@@ -54,7 +54,7 @@ public class Clustering {
         KMeansModel clusters = KMeans.train(parsedData.rdd(), numClusters, numIterations);
 
         System.out.println("Cluster centers:");
-        for (Vector center: clusters.clusterCenters()) {
+        for (Vector center : clusters.clusterCenters()) {
             System.out.println(" " + center);
         }
         double cost = clusters.computeCost(parsedData.rdd());

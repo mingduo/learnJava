@@ -12,8 +12,8 @@ object MyUtils {
   def ip2Long(ip: String): Long = {
     val fragments = ip.split("[.]")
     var ipNum = 0L
-    for (i <- 0 until fragments.length){
-      ipNum =  fragments(i).toLong | ipNum << 8L
+    for (i <- 0 until fragments.length) {
+      ipNum = fragments(i).toLong | ipNum << 8L
     }
     ipNum
   }
@@ -33,7 +33,7 @@ object MyUtils {
     rules
   }
 
-  def binarySearch(lines: Array[(Long, Long, String)], ip: Long) : Int = {
+  def binarySearch(lines: Array[(Long, Long, String)], ip: Long): Int = {
     var low = 0
     var high = lines.length - 1
     while (low <= high) {
@@ -62,7 +62,7 @@ object MyUtils {
       pstm.executeUpdate()
     })
     //将分区中的数据全部写完之后，在关闭连接
-    if(pstm != null) {
+    if (pstm != null) {
       pstm.close()
     }
     if (conn != null) {

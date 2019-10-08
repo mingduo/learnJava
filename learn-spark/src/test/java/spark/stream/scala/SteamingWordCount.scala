@@ -30,7 +30,7 @@ object SteamingWordCount {
     //单词和一组合在一起
     val wordAndOne: DStream[(String, Int)] = words.map((_, 1))
     //聚合
-    val reduced: DStream[(String, Int)] = wordAndOne.reduceByKey(_+_)
+    val reduced: DStream[(String, Int)] = wordAndOne.reduceByKey(_ + _)
     //打印结果(Action)
     reduced.print()
 

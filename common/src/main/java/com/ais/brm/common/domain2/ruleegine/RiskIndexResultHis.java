@@ -5,21 +5,21 @@ import com.google.gson.annotations.SerializedName;
 import java.sql.Timestamp;
 
 /**
- * @author  weizc
+ * @author weizc
  */
-public class RiskIndexResultHis extends FactDef implements  Cloneable{
+public class RiskIndexResultHis extends FactDef implements Cloneable {
     @SerializedName("risk_index_id")
     private int riskIndexId;
     private int riskObjectTypeId;
     private String riskObjectId;
-    
+
     private String riskIndexValue;
 
     @SerializedName("collect_time")
     private Timestamp collectTime;
     private Timestamp saveTime;
 
-    private  String conditionValue;
+    private String conditionValue;
 
     public int getRiskIndexId() {
         return riskIndexId;
@@ -80,7 +80,7 @@ public class RiskIndexResultHis extends FactDef implements  Cloneable{
     @Override
     public RiskIndexResultHis clone() {
         try {
-            return (RiskIndexResultHis)super.clone();
+            return (RiskIndexResultHis) super.clone();
         } catch (CloneNotSupportedException e) {
             // TODO Auto-generated catch block
             return null;// clone failed

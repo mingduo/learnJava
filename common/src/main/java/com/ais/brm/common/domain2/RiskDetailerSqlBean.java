@@ -14,19 +14,19 @@ public class RiskDetailerSqlBean {
     private String theSql;//数据库完整的the_sql内容，含sql和参数配置
     private String realSql;//前面的sql.
     private List<RiskDetailerSqlParam> params;
-   
+
     //数据源类型
     private String datasourceId;
-    
+
     public String getDatasourceId() {
-		return datasourceId;
-	}
+        return datasourceId;
+    }
 
-	public void setDatasourceId(String datasourceId) {
-		this.datasourceId = datasourceId;
-	}
+    public void setDatasourceId(String datasourceId) {
+        this.datasourceId = datasourceId;
+    }
 
-	@Override
+    @Override
     public String toString() {
 //		String paramsdesc = params == null? "<empty>" :
 //			String.join(", \n", params.stream()
@@ -35,20 +35,20 @@ public class RiskDetailerSqlBean {
 //					.toArray(String[]::new));
 
         String paramsdesc = "";
-        if(params==null) {
+        if (params == null) {
             paramsdesc = "<empty>";
-        }else{
+        } else {
             List<String> paramStrs = new ArrayList<>();
-            for(RiskDetailerSqlParam param : params){
-                if(Objects.nonNull(param)){
+            for (RiskDetailerSqlParam param : params) {
+                if (Objects.nonNull(param)) {
                     paramStrs.add(param.toString());
                 }
             }
-            paramsdesc = String.join(", \n",paramStrs.toArray(new String[paramStrs.size()]));
+            paramsdesc = String.join(", \n", paramStrs.toArray(new String[paramStrs.size()]));
         }
         return "RiskDetailerSqlBean {" +
                 "theSql='" + theSql + '\'' +
-                ", realSql='" + realSql + '\''+
+                ", realSql='" + realSql + '\'' +
                 "'}' with Params [ " + paramsdesc + " ]";
     }
 

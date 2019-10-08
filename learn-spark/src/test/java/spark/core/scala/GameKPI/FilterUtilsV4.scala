@@ -5,7 +5,7 @@ import org.apache.commons.lang3.time.FastDateFormat
 /**
   * Created by zx on 2017/9/2.
   */
-object FilterUtilsV4{
+object FilterUtilsV4 {
 
   //如果object使用了成员变量，那么会出现线程安全问题，因为object是一个单例，多线程可以同时调用这个方法
   //val dateFormat = new SimpleDateFormat("yyyy年MM月dd日,E,HH:mm:ss")

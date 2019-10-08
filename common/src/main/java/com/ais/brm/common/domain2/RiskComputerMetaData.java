@@ -7,15 +7,16 @@ import java.util.Map;
 /**
  * 风险点对应的计算方法描述信息.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class RiskComputerMetaData {
     private long id;
     private long riskId;
     private String className;
-    private Map<String,String> paramValues;
+    private Map<String, String> paramValues;
     private String description;
-    
+
     public long getId() {
         return id;
     }
@@ -47,7 +48,7 @@ public class RiskComputerMetaData {
     public void setParamValues(Map<String, String> paramValues) {
         this.paramValues = paramValues;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -58,6 +59,7 @@ public class RiskComputerMetaData {
 
     /**
      * .
+     *
      * @return
      */
     @Override

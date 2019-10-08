@@ -31,7 +31,7 @@ object GroupFavTeacher3 {
     })
 
     //聚合，将学科和老师联合当做key
-    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_+_)
+    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_ + _)
 
     //计算有多少学科
     val subjects: Array[String] = reduced.map(_._1._1).distinct().collect()
@@ -68,7 +68,7 @@ class SubjectParitioner(sbs: Array[String]) extends Partitioner {
   //用于存放规则的一个map
   val rules = new mutable.HashMap[String, Int]()
   var i = 0
-  for(sb <- sbs) {
+  for (sb <- sbs) {
     //rules(sb) = i
     rules.put(sb, i)
     i += 1

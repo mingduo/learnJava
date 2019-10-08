@@ -18,13 +18,12 @@ object TimeUtils {
   }
 
   //2016-02-01
-  def getCertainDayTime(amount: Int): Long ={
+  def getCertainDayTime(amount: Int): Long = {
     calendar.add(Calendar.DATE, amount)
     val time = calendar.getTimeInMillis
     calendar.add(Calendar.DATE, -amount)
     time
   }
-
 
 
 }

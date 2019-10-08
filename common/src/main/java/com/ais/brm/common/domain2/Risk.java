@@ -3,6 +3,7 @@ package com.ais.brm.common.domain2;
 /**
  * 风险.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class Risk {
@@ -20,17 +21,18 @@ public class Risk {
     private String description;
     private int updateType;
     private int detailType;//明细类型，积分还是台账.
-    
+
     private int riskObjectTypeId;
     private int riskCategoryId;
     private boolean config;
-    
+
     public Risk(long id, long modelId) {
         this.id = id;
         this.modelId = modelId;
     }
 
-    public Risk() {}
+    public Risk() {
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -148,43 +150,43 @@ public class Risk {
         this.detailType = detailType;
     }
 
-	public String getRiskCode() {
-		return riskCode;
-	}
+    public String getRiskCode() {
+        return riskCode;
+    }
 
-	public void setRiskCode(String riskCode) {
-		this.riskCode = riskCode;
-	}
+    public void setRiskCode(String riskCode) {
+        this.riskCode = riskCode;
+    }
 
-	public String getComputerFrequence() {
-		return computerFrequence;
-	}
+    public String getComputerFrequence() {
+        return computerFrequence;
+    }
 
-	public void setComputerFrequence(String computerFrequence) {
-		this.computerFrequence = computerFrequence;
-	}
+    public void setComputerFrequence(String computerFrequence) {
+        this.computerFrequence = computerFrequence;
+    }
 
-	public int getRiskObjectTypeId() {
-		return riskObjectTypeId;
-	}
+    public int getRiskObjectTypeId() {
+        return riskObjectTypeId;
+    }
 
-	public void setRiskObjectTypeId(int riskObjectTypeId) {
-		this.riskObjectTypeId = riskObjectTypeId;
-	}
+    public void setRiskObjectTypeId(int riskObjectTypeId) {
+        this.riskObjectTypeId = riskObjectTypeId;
+    }
 
-	public int getRiskCategoryId() {
-		return riskCategoryId;
-	}
+    public int getRiskCategoryId() {
+        return riskCategoryId;
+    }
 
-	public void setRiskCategoryId(int riskCategoryId) {
-		this.riskCategoryId = riskCategoryId;
-	}
+    public void setRiskCategoryId(int riskCategoryId) {
+        this.riskCategoryId = riskCategoryId;
+    }
 
-	public boolean isConfig() {
-		return config;
-	}
+    public boolean isConfig() {
+        return config;
+    }
 
-	public void setConfig(boolean config) {
-		this.config = config;
-	}    
+    public void setConfig(boolean config) {
+        this.config = config;
+    }
 }

@@ -26,13 +26,13 @@ public class ListLearn {
         list.add("c");
         list.add("d");
         list.add("f");
-          list.add("e");
+        list.add("e");
 
-        list.forEach(t->{
-            if(t.equals("c"))return;
+        list.forEach(t -> {
+            if (t.equals("c")) return;
             System.out.println(t);
         });
-        System.out.println("list=>"+list);
+        System.out.println("list=>" + list);
 
       /*  iterator.forEachRemaining(t->{
             if(t.equals("c"))iterator.remove();

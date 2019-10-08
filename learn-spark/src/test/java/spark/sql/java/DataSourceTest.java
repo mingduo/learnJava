@@ -53,7 +53,7 @@ public class DataSourceTest {
 
         filtered.show();
 
-        Dataset<Row> result = filtered.select(col("name"),col("age"), col("address"));
+        Dataset<Row> result = filtered.select(col("name"), col("age"), col("address"));
         result.show();
 
         Properties props = new Properties();
@@ -67,10 +67,10 @@ public class DataSourceTest {
         //DataFrame保存成text时出错(只能保存一列)
         //    result.write().text("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\json");
 
-          result.write().json(path+"json");
+        result.write().json(path + "json");
         // result.write().csv(path+"csv");
 
-       result.write().parquet(path + "parquet");
+        result.write().parquet(path + "parquet");
     }
 
     //windows 不支持 demo 读写 parquet
@@ -82,7 +82,7 @@ public class DataSourceTest {
 
 
         Dataset<Row> result = spark.read().format("json")
-                .load(path+"inputJson");
+                .load(path + "inputJson");
 
 
         result.show();
@@ -101,7 +101,7 @@ public class DataSourceTest {
         String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\";
 
 
-        Dataset<Row> csvDF = spark.read().csv(path+"csv");
+        Dataset<Row> csvDF = spark.read().csv(path + "csv");
 
         csvDF.printSchema();
 
@@ -111,9 +111,6 @@ public class DataSourceTest {
         result.show();
 
     }
-
-
-
 
 
 }

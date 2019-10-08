@@ -12,7 +12,8 @@ import java.util.Map;
  * <tr><td>@Date:Created in 2018-10-10</td>
  * </tr>
  * </table>
- *https://github.com/google/guava/wiki/ServiceExplained
+ * https://github.com/google/guava/wiki/ServiceExplained
+ *
  * @author :    weizc
  */
 public class InitializeCollectionEx {
@@ -27,7 +28,7 @@ public class InitializeCollectionEx {
         List<String> fruits = Lists.newArrayList("orange", "banana", "kiwi",
                 "mandarin", "date", "quince");
 
-        for (String fruit: fruits) {
+        for (String fruit : fruits) {
             System.out.println(fruit);
         }
     }

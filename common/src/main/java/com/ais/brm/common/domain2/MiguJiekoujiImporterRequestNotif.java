@@ -5,6 +5,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 咪咕接口机的文件导入请求.
  * Created by zhaocw on 2017/6/2.
+ *
  * @author zhaocw
  */
 public class MiguJiekoujiImporterRequestNotif extends GeneralKakfaNotif {

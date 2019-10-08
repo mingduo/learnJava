@@ -4,17 +4,16 @@ import com.google.common.base.Preconditions;
 import org.junit.Test;
 
 /**
- * 
+ * @author : weizc
  * @description: https://github.com/google/guava/wiki/PreconditionsExplained
  * @since 2019/1/22
- * @author : weizc 
  */
 public class PreconditionsTest {
 
     @Test
-    public void  test(){
+    public void test() {
         System.out.println("checkArgument");
-        int i=15;
+        int i = 15;
         Preconditions.checkArgument(i >= 10, "Argument was %s but expected nonnegative", i);
 
         System.out.println("checkNotNull");
@@ -28,13 +27,13 @@ public class PreconditionsTest {
 
         int checkElementIndex = Preconditions.checkElementIndex(3, 5);
 
-        System.out.println("checkElementIndex:"+checkElementIndex);
+        System.out.println("checkElementIndex:" + checkElementIndex);
 
 
         System.out.println("checkPositionIndexes");
 
-        int start=0,end=5,size=5;
-        Preconditions.checkPositionIndexes(start,end,size);
+        int start = 0, end = 5, size = 5;
+        Preconditions.checkPositionIndexes(start, end, size);
 
     }
 }

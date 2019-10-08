@@ -7,29 +7,28 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
- * 
+ * @author : weizc
+ * RxJava2 五大重要角色介绍
+ * https://blog.csdn.net/weixin_36709064/article/details/82911270#3.1%E3%80%81Single%E7%AE%80%E4%BB%8B
  * @description:
  * @since 2018/12/31
- * @author : weizc
- *RxJava2 五大重要角色介绍
- * https://blog.csdn.net/weixin_36709064/article/details/82911270#3.1%E3%80%81Single%E7%AE%80%E4%BB%8B
  */
 @Slf4j
 public class HelloWorld {
 
     @Test
-    public  void helloworld(){
+    public void helloworld() {
         Flowable.just("Hello world").subscribe(System.out::println);
 
         System.out.println("---------------------");
 
-        Flowable.fromArray("hello","world").subscribe( s -> System.out.println("Hello " + s + "!"));
+        Flowable.fromArray("hello", "world").subscribe(s -> System.out.println("Hello " + s + "!"));
 
     }
 
     //流主动发射 数据，错误或完成信号时的状态
     @Test
-    public void runtime(){
+    public void runtime() {
         Observable.create(emitter -> {
             while (!emitter.isDisposed()) {
                 long time = System.currentTimeMillis();
@@ -40,13 +39,13 @@ public class HelloWorld {
                 }
             }
         })
-                .subscribe(t->log.info(t.toString()), Throwable::printStackTrace);
+                .subscribe(t -> log.info(t.toString()), Throwable::printStackTrace);
     }
 
 
     //
     @Test
-    public  void backgroundComputation() throws InterruptedException {
+    public void backgroundComputation() throws InterruptedException {
         Flowable.fromCallable(() -> {
             log.info("wait...");
             Thread.sleep(1000); //  imitate expensive computation
@@ -60,11 +59,11 @@ public class HelloWorld {
     }
 
     @Test
-    public void ConcurrencywithinAflow(){
+    public void ConcurrencywithinAflow() {
         Flowable.range(1, 10)
                 .observeOn(Schedulers.computation())
                 .map(v -> v * v)
-                .blockingSubscribe(t->log.info(t.toString()));
+                .blockingSubscribe(t -> log.info(t.toString()));
 
 
         System.out.println("------------并行执行------------");
@@ -91,7 +90,6 @@ public class HelloWorld {
 
 
     }
-
 
 
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 /**
  * 风险点对应的可配置明细采集方法的参数信息,取自tbl_dm_sql_params表.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class RiskDetailerParamMetaData {

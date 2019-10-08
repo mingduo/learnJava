@@ -18,13 +18,12 @@ import java.util.stream.IntStream;
  */
 public class BlockQueneTest {
 
-    private  BlockingQueue mainQ=new ArrayBlockingQueue(1);
-    private BlockingQueue subQ=new ArrayBlockingQueue(1);
+    private BlockingQueue mainQ = new ArrayBlockingQueue(1);
+    private BlockingQueue subQ = new ArrayBlockingQueue(1);
 
     {
         subQ.add(new Object());
     }
-
 
 
     //非公平锁
@@ -53,7 +52,7 @@ public class BlockQueneTest {
     }
 
 
-      void sub(int k) {
+    void sub(int k) {
         try {
             subQ.put(new Object());
 
@@ -69,8 +68,7 @@ public class BlockQueneTest {
     }
 
 
-
-     void main(int k) {
+    void main(int k) {
         try {
             mainQ.put(new Object());
 

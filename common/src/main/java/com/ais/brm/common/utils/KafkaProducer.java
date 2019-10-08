@@ -15,6 +15,7 @@ import java.util.Properties;
  * kafka生产者.
  * 使用方法：参考：datacollector模块的DataCollectService
  * Created by zhaocw on 2016/5/5.
+ *
  * @author zhaocw
  */
 public final class KafkaProducer {
@@ -32,12 +33,13 @@ public final class KafkaProducer {
 
     /**
      * .
+     *
      * @param topic
      * @param message
      * @return
      */
-    public boolean produce(String topic,IMessage message) {
-        if(producer==null) {
+    public boolean produce(String topic, IMessage message) {
+        if (producer == null) {
             init();
         }
         try {
@@ -45,28 +47,28 @@ public final class KafkaProducer {
                     new Callback() {
                         @Override
                         public void onCompletion(RecordMetadata recordMetadata, Exception e) {
-                            if(e!=null) {
-                                logger.error("kafka message: topic="+topic+",message="+message+" sent failed",e);
-                                kafkaProducerRetrier.addTodo(topic,message);
+                            if (e != null) {
+                                logger.error("kafka message: topic=" + topic + ",message=" + message + " sent failed", e);
+                                kafkaProducerRetrier.addTodo(topic, message);
                                 try {
-                                    if(producer!=null) {
+                                    if (producer != null) {
                                         producer.close();
                                         producer = null;
                                     }
-                                }catch (Exception ex) {
-                                    logger.error("",ex);
+                                } catch (Exception ex) {
+                                    logger.error("", ex);
                                 }
-                            }else {
-                                logger.debug("kafka message:topic="+topic+",message:"+message+" sent successfully.");
-                                kafkaProducerRetrier.removeTodo(topic,message);
+                            } else {
+                                logger.debug("kafka message:topic=" + topic + ",message:" + message + " sent successfully.");
+                                kafkaProducerRetrier.removeTodo(topic, message);
                             }
                         }
                     });
             producer.flush();
             return true;
         } catch (Exception e) {
-            logger.error("",e);
-            if(producer!=null) {
+            logger.error("", e);
+            if (producer != null) {
                 producer.close();
                 producer = null;//下次调用的时候会重新初始化.
             }
@@ -84,19 +86,19 @@ public final class KafkaProducer {
         props.put("retries", kafkaProducerConfig.getRetries());
         props.put("batch.size", kafkaProducerConfig.getBatchSize());
         props.put("linger.ms", 1);
-        props.put("request.timeout.ms",10*60*1000);//在客户端producer缓存的最大时长
-        props.put("metadata.fetch.timeout.ms",35*1000);
+        props.put("request.timeout.ms", 10 * 60 * 1000);//在客户端producer缓存的最大时长
+        props.put("metadata.fetch.timeout.ms", 35 * 1000);
         props.put("buffer.memory", kafkaProducerConfig.getBufferMemory());
-        
-      //增加组超时时间 另外手动发消息需要修改server.property group.max.session.timeout.ms
-   //     props.put("group.max.session.timeout.ms", kafkaProducerConfig.getGroupMaxSessionTimeoutMs());
-    //    props.put("group.min.session.timeout.ms",0);
 
-        
+        //增加组超时时间 另外手动发消息需要修改server.property group.max.session.timeout.ms
+        //     props.put("group.max.session.timeout.ms", kafkaProducerConfig.getGroupMaxSessionTimeoutMs());
+        //    props.put("group.min.session.timeout.ms",0);
+
+
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
-        producer = new org.apache.kafka.clients.producer.KafkaProducer<String,String>(props);
+        producer = new org.apache.kafka.clients.producer.KafkaProducer<String, String>(props);
 
     }
 
@@ -104,7 +106,7 @@ public final class KafkaProducer {
      * .
      */
     public void close() {
-        if(producer!=null) {
+        if (producer != null) {
             producer.close();
         }
     }

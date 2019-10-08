@@ -48,12 +48,12 @@ public class CommonFriendsTwo {
         protected void reduce(Text key, Iterable<Text> users, Context context)
                 throws IOException, InterruptedException {
 
-            StringBuilder stringBuilder=new StringBuilder();
-            for (Text text:users){
+            StringBuilder stringBuilder = new StringBuilder();
+            for (Text text : users) {
                 stringBuilder.append(text).append(",");
             }
-            stringBuilder.deleteCharAt(stringBuilder.length()-1);
-            context.write(key,new Text(stringBuilder.toString()));
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            context.write(key, new Text(stringBuilder.toString()));
         }
 
     }

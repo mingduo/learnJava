@@ -18,7 +18,7 @@ object JsonDataSource {
     //指定以后读取json类型的数据(有表头)
     val jsons: DataFrame = spark.read.json("/Users/zx/Desktop/json")
 
-    val filtered: DataFrame = jsons.where($"age" <=500)
+    val filtered: DataFrame = jsons.where($"age" <= 500)
 
 
     filtered.printSchema()

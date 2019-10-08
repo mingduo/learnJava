@@ -3,6 +3,7 @@ package com.ais.brm.common.domain2;
 /**
  * 风险结果的基类.
  * Created by zhaocw on 2016-7-21.
+ *
  * @author zhaocw
  */
 public class RiskResultBase {
@@ -18,7 +19,7 @@ public class RiskResultBase {
     private int riskObjectTypeId;//2.0 added by zhaocw
 
     private String riskObjectName;// added by lulj
-    
+
     public String getRiskObjectId() {
         return riskObjectId;
     }
@@ -75,22 +76,22 @@ public class RiskResultBase {
         this.theMonth = theMonth;
     }
 
-	public String getRiskObjectName() {
-		return riskObjectName;
-	}
+    public String getRiskObjectName() {
+        return riskObjectName;
+    }
 
-	public void setRiskObjectName(String riskObjectName) {
-		this.riskObjectName = riskObjectName;
-	}
-	
+    public void setRiskObjectName(String riskObjectName) {
+        this.riskObjectName = riskObjectName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
-			return true;
-		}
+            return true;
+        }
         if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
+            return false;
+        }
 
         RiskResultBase that = (RiskResultBase) o;
 

@@ -16,31 +16,31 @@ object GameKPI {
 
     val filterUtils = new FilterUtils_V2
 
-//    //切分之后的数据
+    //    //切分之后的数据
     val splitedLogs = sc.textFile("user.log").map(_.split("\\|"))
-//    //过滤后并缓冲
+    //    //过滤后并缓冲
     val filteredLogs = splitedLogs.filter(fields => {
       filterUtils.filterByTime(fields, beginTime, endTime)
     }).cache()
 
     //日新增用户数，Daily New Users 缩写 DNU
-//    val dnu = filteredLogs.filter(fields => {
-//      filterUtils.filterByType(fields, EventType.REGISTER)
-//    }).count()
-//
-//
-//
-//    //日活跃用户数 DAU （Daily Active Users）
-//    val dau = filteredLogs.filter(fields => {
-//      filterUtils.filterByTypes(fields, EventType.REGISTER, EventType.LOGIN)
-//    })
-//      .map(_ (3))
-//      .distinct()
-//      .count()
-//
-//
-//    println(dnu)
-//    println(dau)
+    //    val dnu = filteredLogs.filter(fields => {
+    //      filterUtils.filterByType(fields, EventType.REGISTER)
+    //    }).count()
+    //
+    //
+    //
+    //    //日活跃用户数 DAU （Daily Active Users）
+    //    val dau = filteredLogs.filter(fields => {
+    //      filterUtils.filterByTypes(fields, EventType.REGISTER, EventType.LOGIN)
+    //    })
+    //      .map(_ (3))
+    //      .distinct()
+    //      .count()
+    //
+    //
+    //    println(dnu)
+    //    println(dau)
 
     //  留存率：某段时间的新增用户数记为A，经过一段时间后，仍然使用的用户占新增用户A的比例即为留存率
     //  次日留存率（Day 1 Retention Ratio） Retention [rɪ'tenʃ(ə)n] Ratio ['reɪʃɪəʊ]
@@ -61,4 +61,5 @@ object GameKPI {
     sc.stop()
   }
 }
+
 // create table GameKPI (id, gamename, zone, datetime, dnu, dau, d1rr, d7rr ... )

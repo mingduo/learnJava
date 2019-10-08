@@ -58,9 +58,6 @@ public class JdbcRddTest {
     }
 
 
-
-
-
     private static JavaSparkContext getSparkSc() {
         SparkConf conf = new SparkConf().setAppName("JavaWordCount").setMaster("local[2]");
         //创建sparkContext

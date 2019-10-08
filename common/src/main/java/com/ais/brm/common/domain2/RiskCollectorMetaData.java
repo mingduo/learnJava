@@ -7,28 +7,29 @@ import java.util.Map;
 /**
  * 风险点对应的采集方法描述信息.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class RiskCollectorMetaData {
     private long id;
     private long riskId;
     private String className;
-    private Map<String,String> paramValues;
+    private Map<String, String> paramValues;
     private String description;
     private String theSql;
     private int riskObjectTypeId;
     private int riskCategoryId;
     private String datasourceTypeId;
-    
+
     public String getDatasourceTypeId() {
-		return datasourceTypeId;
-	}
+        return datasourceTypeId;
+    }
 
-	public void setDatasourceTypeId(String datasourceTypeId) {
-		this.datasourceTypeId = datasourceTypeId;
-	}
+    public void setDatasourceTypeId(String datasourceTypeId) {
+        this.datasourceTypeId = datasourceTypeId;
+    }
 
-	public long getId() {
+    public long getId() {
         return id;
     }
 
@@ -59,7 +60,7 @@ public class RiskCollectorMetaData {
     public void setParamValues(Map<String, String> paramValues) {
         this.paramValues = paramValues;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -94,6 +95,7 @@ public class RiskCollectorMetaData {
 
     /**
      * .
+     *
      * @return
      */
     @Override

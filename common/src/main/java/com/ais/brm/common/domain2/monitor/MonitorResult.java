@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * 系统监控结果.
  * Created by zhaocaiwen on 2018/1/4.
+ *
  * @author zhaocaiwen
  */
 public class MonitorResult {

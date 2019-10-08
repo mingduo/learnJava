@@ -24,12 +24,12 @@ public class Launcher {
                 .priority(1)
                 .when("person.age > 18")
                 .then("person.setAdult(true);");
-       // Rule alcoholRule = MVELRuleFactory.createRuleFrom(new FileReader("alcohol-rule.yml"));
+        // Rule alcoholRule = MVELRuleFactory.createRuleFrom(new FileReader("alcohol-rule.yml"));
 
         // create a rule set
         Rules rules = new Rules();
         rules.register(ageRule);
-      //  rules.register(alcoholRule);
+        //  rules.register(alcoholRule);
 
         //create a default rules engine and fire rules on known facts
         RulesEngine rulesEngine = new DefaultRulesEngine();

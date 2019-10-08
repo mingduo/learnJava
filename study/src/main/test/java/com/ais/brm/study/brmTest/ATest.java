@@ -143,7 +143,7 @@ public class ATest {
         if (!f.exists()) {
             f.createNewFile();
         }
-        FileUtils.writeStringToFile(f, "我是大树", "UTF-8",true);
+        FileUtils.writeStringToFile(f, "我是大树", "UTF-8", true);
         RandomAccessFile raf = new RandomAccessFile(f, "r");
         raf.seek(20);
         String line = raf.readLine();
@@ -159,7 +159,7 @@ public class ATest {
     public void test10() throws Exception {
         try {
             System.out.println("begin");
-            new Thread(()->{
+            new Thread(() -> {
                 try {
                     System.out.println("thread start");
                     Thread.sleep(3000);
@@ -168,9 +168,9 @@ public class ATest {
                     e.printStackTrace();
                 }
             }).start();
-        }finally {
+        } finally {
             System.out.println("finally");
         }
-      //  Thread.sleep(20*3600);
+        //  Thread.sleep(20*3600);
     }
 }

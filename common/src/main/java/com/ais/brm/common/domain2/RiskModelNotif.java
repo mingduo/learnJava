@@ -6,6 +6,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 风险点的模型请求.接收者是risker模块.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class RiskModelNotif extends GeneralKakfaNotif {
@@ -29,7 +30,7 @@ public class RiskModelNotif extends GeneralKakfaNotif {
     public String toString() {
         return "RiskModelNotif{" +
                 "modelId=" + modelId +
-                ", notifId=" + getNotifId()+
+                ", notifId=" + getNotifId() +
                 '}';
     }
 }

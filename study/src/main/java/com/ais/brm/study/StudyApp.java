@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * RuleEngine app.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author weizc
  */
 @ComponentScan("com.ais.brm")
@@ -14,9 +15,10 @@ import org.springframework.context.annotation.ComponentScan;
 public class StudyApp {
     /**
      * .
+     *
      * @param args
      */
-    
+
     public static void main(String[] args) {
         SpringApplication.run(StudyApp.class, args);
     }

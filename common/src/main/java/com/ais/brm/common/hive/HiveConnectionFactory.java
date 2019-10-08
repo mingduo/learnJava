@@ -18,6 +18,7 @@ import javax.sql.DataSource;
 /**
  * hive connection factory.
  * Created by zhaocw on 2016-8-17.
+ *
  * @author zhaocw
  */
 
@@ -30,12 +31,13 @@ public class HiveConnectionFactory {
 //    @Autowired
 //    @Qualifier("dsHive")
 //    private DataSource hiveDatasource;
-    
+
     @Autowired
     ApplicationContext appContext;
-    
+
     /**
      * 每次返回一个新的连接.
+     *
      * @return
      */
     public Connection getConnection(IHiveSettings hiveSettings) throws SQLException, ClassNotFoundException {
@@ -44,7 +46,7 @@ public class HiveConnectionFactory {
         //        hiveSettings.getHiveUserName(), hiveSettings.getHivePasswd());
 
 //    	return hiveDatasource.getConnection();
-    	return ((DataSource)(appContext.getBean("dsHive"))).getConnection();
+        return ((DataSource) (appContext.getBean("dsHive"))).getConnection();
         //20170503 临时注释掉连接池代码，因为hikaricp 和hive低版本的jdbc驱动还不兼容，会报错method not supported.
 
 //        synchronized (lock) {

@@ -21,7 +21,7 @@ public class genericTest {
 
     }
 
-    public static <T> T getName(T t){
-            return t;
+    public static <T> T getName(T t) {
+        return t;
     }
 }

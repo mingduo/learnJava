@@ -9,10 +9,11 @@ import org.junit.Test;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- *  rxjava 依赖问题
+ * rxjava 依赖问题
+ *
+ * @author : weizc
  * @description:
  * @since 2018/12/31
- * @author : weizc 
  */
 @Slf4j
 public class TestDependents {
@@ -21,7 +22,7 @@ public class TestDependents {
     public void Dependent() throws InterruptedException {
         Observable<Integer> integerObservable = Observable.range(1, 3).map(t -> t * 3).map(t -> t * t).doOnNext(System.out::println)
                 .doOnNext(System.out::println);
-        integerObservable.subscribe(t->log.info("stop"));
+        integerObservable.subscribe(t -> log.info("stop"));
 
         System.out.println("--------Dependent--------------");
 
@@ -32,7 +33,7 @@ public class TestDependents {
     //无依赖  忽略A的运行
     @Test
     public void NDependent() throws InterruptedException {
-        Observable continued = Observable.just(1, 3).flatMapSingle(ignored ->Single.just(ignored*2));
+        Observable continued = Observable.just(1, 3).flatMapSingle(ignored -> Single.just(ignored * 2));
 
         continued.map(v -> v.toString())
                 .subscribe(System.out::println);
@@ -40,7 +41,7 @@ public class TestDependents {
 
         Observable.just(1, 3)
                 .ignoreElements()           // returns Completable
-                .andThen(Observable.just(4,6))
+                .andThen(Observable.just(4, 6))
                 .map(v -> v.toString()).subscribe(log::info);
     }
 
@@ -54,11 +55,10 @@ public class TestDependents {
                 .doOnNext(ignored -> count.incrementAndGet())
                 .ignoreElements()
                 .andThen(Single.just(count.get()))
-                .subscribe(t->log.info(t.toString()));
+                .subscribe(t -> log.info(t.toString()));
 
 
         System.out.println("--------postive example   1--------------");
-
 
 
         AtomicInteger count2 = new AtomicInteger();
@@ -79,7 +79,6 @@ public class TestDependents {
                 .ignoreElements()
                 .andThen(Single.fromCallable(() -> count3.get()))
                 .subscribe(System.out::println);
-
 
 
     }

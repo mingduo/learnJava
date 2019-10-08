@@ -3,6 +3,7 @@ package com.ais.brm.common.domain.scenes;
 /**
  * 渠道业务：修改密码
  * Created by zhaocw on 2016-7-5.
+ *
  * @author zhaocw
  */
 public class ChannelChangePwdRecord {
@@ -16,7 +17,8 @@ public class ChannelChangePwdRecord {
         this.servantName = servantName;
     }
 
-    public ChannelChangePwdRecord() {}
+    public ChannelChangePwdRecord() {
+    }
 
     public Channel getChannel() {
         return channel;

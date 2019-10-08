@@ -33,7 +33,7 @@ public class JavaLambdaWordCount {
         //调整顺序
         JavaPairRDD<String, Integer> result = sorted.mapToPair(tp -> tp.swap());
         //将结果保存到hdfs
-       result.saveAsTextFile("hdfs://10.21.20.220:9000/spark/wc/out/");
+        result.saveAsTextFile("hdfs://10.21.20.220:9000/spark/wc/out/");
         //
 
         //释放资源

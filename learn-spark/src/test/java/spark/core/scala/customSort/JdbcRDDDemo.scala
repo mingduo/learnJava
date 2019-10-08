@@ -24,7 +24,7 @@ object JdbcRddDemo {
     //创建RDD，这个RDD会记录以后从MySQL中读数据
 
     //new 了RDD，里面没有真正要计算的数据，而是告诉这个RDD，以后触发Action时到哪里读取数据
-    val jdbcRDD: RDD[(Int, String, String)]  = new JdbcRDD(
+    val jdbcRDD: RDD[(Int, String, String)] = new JdbcRDD(
       sc,
       getConn,
       "select id,MODULE_NAME,CREATE_USER from sys_logs  WHERE id >= ? AND id < ? ",
@@ -36,7 +36,7 @@ object JdbcRddDemo {
         val name = rs.getString(2)
         val username = rs.getString(3)
 
-        (id, name,username)
+        (id, name, username)
       }
     )
 
@@ -46,7 +46,7 @@ object JdbcRddDemo {
     //触发Action
     val r = jdbcRDD.collect()
 
-    println("out-->"+r.toBuffer)
+    println("out-->" + r.toBuffer)
 
     sc.stop()
 

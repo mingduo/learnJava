@@ -9,12 +9,12 @@ import java.util.stream.IntStream;
  * <tr><td>@Date:Created in 2018-9-17</td>
  * </tr>
  * </table>
- *两个线程通信
+ * 两个线程通信
  *
  * @author :    weizc
  */
 public class waitNotifyTest {
-    private  volatile boolean wait_flag = false;
+    private volatile boolean wait_flag = false;
 
 
     public static void main(String[] args) throws InterruptedException {

@@ -2,6 +2,7 @@ package com.ais.brm.common.domain2.monitor;
 
 /**
  * Created by zhaocaiwen on 2018/1/4.
+ *
  * @author zhaocaiwen
  */
 public class MonitorAlert {
@@ -15,42 +16,42 @@ public class MonitorAlert {
     private Integer targetId;
     //add by  zhangyy
     private Long theTime;
-    
+
 
     public Long getTheTime() {
-		return theTime;
-	}
+        return theTime;
+    }
 
-	public void setTheTime(Long theTime) {
-		this.theTime = theTime;
-	}
+    public void setTheTime(Long theTime) {
+        this.theTime = theTime;
+    }
 
-	public int getAlertLevel() {
-		return alertLevel;
-	}
+    public int getAlertLevel() {
+        return alertLevel;
+    }
 
-	public void setAlertLevel(int alertLevel) {
-		this.alertLevel = alertLevel;
-	}
+    public void setAlertLevel(int alertLevel) {
+        this.alertLevel = alertLevel;
+    }
 
 
-	public int getIsRead() {
-		return isRead;
-	}
+    public int getIsRead() {
+        return isRead;
+    }
 
-	public void setIsRead(int isRead) {
-		this.isRead = isRead;
-	}
+    public void setIsRead(int isRead) {
+        this.isRead = isRead;
+    }
 
-	public String getNotifyId() {
-		return notifyId;
-	}
+    public String getNotifyId() {
+        return notifyId;
+    }
 
-	public void setNotifyId(String notifyId) {
-		this.notifyId = notifyId;
-	}
+    public void setNotifyId(String notifyId) {
+        this.notifyId = notifyId;
+    }
 
-	public int getRuleId() {
+    public int getRuleId() {
         return ruleId;
     }
 

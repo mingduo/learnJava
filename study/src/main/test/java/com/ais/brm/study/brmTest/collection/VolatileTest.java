@@ -11,25 +11,25 @@ import org.junit.Test;
  *
  * @author :    weizc
  */
-public class VolatileTest{
+public class VolatileTest {
 
-    int a=1;
-    int b=2;
+    int a = 1;
+    int b = 2;
 
     //赋值操作
-    public  void change(){
-        a=3;
-        b=a;
+    public void change() {
+        a = 3;
+        b = a;
     }
 
     //打印操作
-    public  void print(){
-        System.out.println("b:"+b+",a:"+a);
+    public void print() {
+        System.out.println("b:" + b + ",a:" + a);
     }
 
     @Test
-    public void testNorMal(){
-        VolatileTest vt=new VolatileTest();
+    public void testNorMal() {
+        VolatileTest vt = new VolatileTest();
 
         for (int i = 0; i < 1000; i++) {
             new Thread(() -> {

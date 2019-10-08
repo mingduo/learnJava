@@ -16,41 +16,43 @@ import java.util.List;
 
 public class LoadInputStreamTest {
 
-	/**getClassLoader
-	 *
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	@Test
-	public void contextLoads() throws IOException, URISyntaxException {
-		URL url = this.getClass().getClassLoader().getResource("application.properties");
+    /**
+     * getClassLoader
+     *
+     * @throws IOException
+     * @throws URISyntaxException
+     */
+    @Test
+    public void contextLoads() throws IOException, URISyntaxException {
+        URL url = this.getClass().getClassLoader().getResource("application.properties");
 
-		Path path = Paths.get(url.toURI());
+        Path path = Paths.get(url.toURI());
 
-		List<String> lines = Files.readAllLines(path);
+        List<String> lines = Files.readAllLines(path);
 
-		System.out.println(lines);
+        System.out.println(lines);
 
-	}
+    }
 
 
-	/**
-	 * ResourceLoader 方式
-	 * @throws IOException
-	 * @throws URISyntaxException
-	 */
-	@Test
-	public void contextLoads2() throws IOException, URISyntaxException {
+    /**
+     * ResourceLoader 方式
+     *
+     * @throws IOException
+     * @throws URISyntaxException
+     */
+    @Test
+    public void contextLoads2() throws IOException, URISyntaxException {
 
-		ResourceLoader resourceLoader = new DefaultResourceLoader();
-		Resource resource  = resourceLoader.getResource("classpath:application.properties");
+        ResourceLoader resourceLoader = new DefaultResourceLoader();
+        Resource resource = resourceLoader.getResource("classpath:application.properties");
 
-		Path path = Paths.get(resource.getURI());
+        Path path = Paths.get(resource.getURI());
 
-		List<String> lines = Files.readAllLines(path);
+        List<String> lines = Files.readAllLines(path);
 
-		System.out.println(lines);
+        System.out.println(lines);
 
-	}
+    }
 
 }

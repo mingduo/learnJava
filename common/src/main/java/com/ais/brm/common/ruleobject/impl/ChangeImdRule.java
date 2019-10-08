@@ -26,9 +26,9 @@ import java.util.stream.Collectors;
 @Component("RuleInstance108")
 public class ChangeImdRule extends RuleObject {
     @Override
-    public void checkRuleIndex(int indexValueType) throws  Exception {
+    public void checkRuleIndex(int indexValueType) throws Exception {
         if (indexValueType != IndexValType.NUM_TYPE.getTypeId()) {
-            throw  new Exception("risk_index_type_id must be number");
+            throw new Exception("risk_index_type_id must be number");
         }
     }
 
@@ -58,7 +58,7 @@ public class ChangeImdRule extends RuleObject {
                 .filter((t) -> t.getKey().startsWith("index_value"))
                 .collect(Collectors.toList());
         StringBuffer sb = new StringBuffer();
-        StringBuffer condtionValue=new StringBuffer("当前指标值[");
+        StringBuffer condtionValue = new StringBuffer("当前指标值[");
         condtionValue.append(curHis.getRiskIndexValue());
 
         BigDecimal index_value = new BigDecimal(ruleMap.get("index_value"));
@@ -82,7 +82,7 @@ public class ChangeImdRule extends RuleObject {
 
         sb = sb.append(d).append(MQ).append(spike_rate);
         if (StringUtils.isNotBlank(min_threshold)) {
-            String s=String.format(",或指标值低于最低阀值[%s]",min_threshold);
+            String s = String.format(",或指标值低于最低阀值[%s]", min_threshold);
             condtionValue.append(s);
             sb.append(OR).append(curHis.getRiskIndexValue()).append(LESS)
                     .append(min_threshold);
@@ -90,10 +90,10 @@ public class ChangeImdRule extends RuleObject {
         if (StringUtils.isNotBlank(max_threshold)) {
             sb.append(OR).append(curHis.getRiskIndexValue()).append(MORE)
                     .append(max_threshold);
-            String s=String.format(",或指标值高于最高阀值[%s]",max_threshold);
+            String s = String.format(",或指标值高于最高阀值[%s]", max_threshold);
             condtionValue.append(s);
         }
-        Optional.ofNullable(curHis).ifPresent(t->{
+        Optional.ofNullable(curHis).ifPresent(t -> {
             t.setConditionValue(condtionValue.toString());
         });
 

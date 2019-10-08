@@ -22,7 +22,8 @@ import java.util.*;
 @Component
 public class HiveUtils {
     static Logger log = LoggerFactory.getLogger(HiveUtils.class);
-    @Autowired @Lazy
+    @Autowired
+    @Lazy
     private HiveConnectionFactory hiveConnectionFactory;
 
     /**
@@ -52,7 +53,7 @@ public class HiveUtils {
                     }
                 }
             }
-        }else {
+        } else {
             log.warn("conn is null");
         }
     }
@@ -78,7 +79,7 @@ public class HiveUtils {
                     result.add(map);
                 }
             }
-        }else {
+        } else {
             log.warn("conn is null");
         }
     }
@@ -91,13 +92,13 @@ public class HiveUtils {
     public Map<String, Object> queryForObject(IHiveSettings hiveSettings,
                                               String sql, String... columnNames) throws Exception {
         try (Connection conn = hiveConnectionFactory.getConnection(hiveSettings)) {
-            return queryForObject(conn,sql,columnNames);
+            return queryForObject(conn, sql, columnNames);
         }
     }
 
     public Map<String, Object> queryForObject(Connection connection,
                                               String sql, String... columnNames) throws Exception {
-        if(!isConnectionOk(connection)) {
+        if (!isConnectionOk(connection)) {
             throw new IllegalArgumentException("bad connection param.");
         }
         Map<String, Object> result = null;
@@ -111,8 +112,8 @@ public class HiveUtils {
             processConn(connection, sql, list, columnNames, true);
             if (list.size() > 0) {
                 result = list.get(0);
-            }else {
-                log.warn("no data found after execute sql {}",sql);
+            } else {
+                log.warn("no data found after execute sql {}", sql);
             }
         }
         return result;
@@ -128,13 +129,13 @@ public class HiveUtils {
     public List<Map<String, Object>> queryForObjects(
             IHiveSettings hiveSettings, String sql, String... columnNames) throws Exception {
         try (Connection conn = hiveConnectionFactory.getConnection(hiveSettings)) {
-            return queryForObjects(conn,sql,columnNames);
+            return queryForObjects(conn, sql, columnNames);
         }
     }
 
     public List<Map<String, Object>> queryForObjects(
             Connection connection, String sql, String... columnNames) throws Exception {
-        if(!isConnectionOk(connection)) {
+        if (!isConnectionOk(connection)) {
             throw new IllegalArgumentException("bad connection param.");
         }
         List<Map<String, Object>> result = new ArrayList<>();
@@ -178,7 +179,7 @@ public class HiveUtils {
             String sql, List<Object> paramValues, List<String> columnNames)
             throws Exception {
         try (Connection conn = hiveConnectionFactory.getConnection(hiveSettings)) {
-            return queryForPreparedObjects(conn,sql,paramValues,columnNames);
+            return queryForPreparedObjects(conn, sql, paramValues, columnNames);
         }
     }
 
@@ -186,7 +187,7 @@ public class HiveUtils {
             Connection connection,
             String sql, List<Object> paramValues, List<String> columnNames)
             throws Exception {
-        if(!isConnectionOk(connection)) {
+        if (!isConnectionOk(connection)) {
             throw new IllegalArgumentException("bad connection param.");
         }
         List<Map<String, Object>> result = new ArrayList<>();
@@ -249,10 +250,9 @@ public class HiveUtils {
             } else if (pv instanceof Long) {
                 stmt.setLong(pos, (Long) pv);
             } else if (pv instanceof Object[]) {
-                Array array = stmt.getConnection().createArrayOf("VARCHAR",(Object[])pv);
-                stmt.setArray(pos,array);
-            }
-            else {
+                Array array = stmt.getConnection().createArrayOf("VARCHAR", (Object[]) pv);
+                stmt.setArray(pos, array);
+            } else {
                 stmt.setString(pos, pv.toString());
             }
         }
@@ -268,8 +268,8 @@ public class HiveUtils {
             Connection connection,
             String sql, List<Object> paramValues)
             throws Exception {
-    	log.debug("@@queryForPreparedObjects");
-        if(!isConnectionOk(connection)) {
+        log.debug("@@queryForPreparedObjects");
+        if (!isConnectionOk(connection)) {
             throw new IllegalArgumentException("bad connection param");
         }
         List<Map<String, Object>> result = new ArrayList<>();
@@ -291,7 +291,7 @@ public class HiveUtils {
     }
 
     private boolean isConnectionOk(Connection connection) throws SQLException {
-        return connection!=null/*&&!connection.isClosed()*/;
+        return connection != null/*&&!connection.isClosed()*/;
     }
 
 
@@ -305,16 +305,16 @@ public class HiveUtils {
             IHiveSettings hiveSettings,
             String sql, List<Object> paramValues)
             throws Exception {
-    	log.debug("url:"+hiveSettings.getHiveJdbcUrl()+
-    			",username:"+hiveSettings.getHiveUserName()+
-    			",password:"+hiveSettings.getHivePasswd());
+        log.debug("url:" + hiveSettings.getHiveJdbcUrl() +
+                ",username:" + hiveSettings.getHiveUserName() +
+                ",password:" + hiveSettings.getHivePasswd());
         try (Connection conn = hiveConnectionFactory.getConnection(hiveSettings)) {
-        	log.debug("##queryForPreparedObjects");
-            return queryForPreparedObjects(conn,sql,paramValues);
-        }catch (Exception e) {
-        	log.debug("hiveConnectionFactory.getConnection=>exception:"+e.getMessage());
-        	return null;
-		}
+            log.debug("##queryForPreparedObjects");
+            return queryForPreparedObjects(conn, sql, paramValues);
+        } catch (Exception e) {
+            log.debug("hiveConnectionFactory.getConnection=>exception:" + e.getMessage());
+            return null;
+        }
     }
 
     private void constructRow(Map<String, Object> result,

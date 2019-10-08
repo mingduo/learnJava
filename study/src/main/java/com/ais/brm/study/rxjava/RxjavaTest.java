@@ -7,10 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import static java.lang.Thread.sleep;
 
 /**
- * 
+ * @author : weizc
  * @description:
  * @since 2018/12/31
- * @author : weizc 
  */
 @Slf4j
 public class RxjavaTest {

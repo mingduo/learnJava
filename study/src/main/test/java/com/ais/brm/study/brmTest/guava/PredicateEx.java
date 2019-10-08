@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class PredicateEx {
     @Test
-    public void test1(){
+    public void test1() {
         List<Integer> values = Lists.newArrayList(
                 3, null, 4, 7,
                 8, null, 7);
@@ -29,20 +29,20 @@ public class PredicateEx {
                 Predicates.notNull());
 
 
-        for (Integer i: filtered) {
+        for (Integer i : filtered) {
             System.out.println(i);
         }
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         List<String> items = Lists.newArrayList(
                 "coin", "book",
                 "cup", "purse", "bottle");
-        Collection<String> result  = Collections2.filter(items,
+        Collection<String> result = Collections2.filter(items,
                 Predicates.containsPattern("o"));
 
-        for (String item: result) {
+        for (String item : result) {
             System.out.println(item);
         }
     }

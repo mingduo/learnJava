@@ -9,27 +9,27 @@ import java.util.TimerTask;
 
 public class BackupCleanTask extends TimerTask {
 
-	@Override
-	public void run() {
+    @Override
+    public void run() {
 
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH");
-		long now = new Date().getTime();
-		try {
-			// 探测本地备份目录
-			File backupBaseDir = new File("d:/logs/backup/");
-			File[] dayBackDir = backupBaseDir.listFiles();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH");
+        long now = new Date().getTime();
+        try {
+            // 探测本地备份目录
+            File backupBaseDir = new File("d:/logs/backup/");
+            File[] dayBackDir = backupBaseDir.listFiles();
 
-			// 判断备份日期子目录是否已超24小时
-			for (File dir : dayBackDir) {
-				long time = sdf.parse(dir.getName()).getTime();
-				if(now-time>24*60*60*1000L){
-					FileUtils.deleteDirectory(dir);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            // 判断备份日期子目录是否已超24小时
+            for (File dir : dayBackDir) {
+                long time = sdf.parse(dir.getName()).getTime();
+                if (now - time > 24 * 60 * 60 * 1000L) {
+                    FileUtils.deleteDirectory(dir);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-	}
+    }
 
 }

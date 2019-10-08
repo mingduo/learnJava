@@ -15,7 +15,7 @@ import org.spark_project.guava.collect.Range;
  */
 public class RangeEx {
     @Test
-    public void  test(){
+    public void test() {
         Range<Integer> range1 = Range.closed(3, 8);
         System.out.println(range1);
 
@@ -27,7 +27,7 @@ public class RangeEx {
     }
 
     @Test
-    public void  operate(){
+    public void operate() {
         Range.closed(1, 3).contains(2);
         // returns true
         Range.closed(1, 3).contains(4);

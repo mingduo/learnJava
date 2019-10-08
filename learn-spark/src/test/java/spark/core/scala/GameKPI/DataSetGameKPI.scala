@@ -41,7 +41,7 @@ object DataSetGameKPI {
       //转换成元组
       //转换成Row
       //关联Scheama（定义CaseClass、StructType）
-      (fields(0), fields(1), fields(2), fields(3),fields(4), fields(5), fields(6), fields(7), fields(8))
+      (fields(0), fields(1), fields(2), fields(3), fields(4), fields(5), fields(6), fields(7), fields(8))
     }).toDF("type", "time", "ip", "username", "job", "gender", "level", "money", "gold")
 
     dnuFf.createTempView("dnu")

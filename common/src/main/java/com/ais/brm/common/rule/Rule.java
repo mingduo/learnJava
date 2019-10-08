@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * 代表一条风控规则，具体设计请参看《架构设计》.doc
  * Created by zhaocw on 2016/6/16.
+ *
  * @author zhaocw
  */
 public class Rule {

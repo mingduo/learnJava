@@ -16,14 +16,14 @@
 
 <module name="Checker">
 
-    <property name="severity" value="warning" />
+    <property name="severity" value="warning"/>
     <module name="JavadocPackage">
         <property name="allowLegacy" value="true"/>
     </module>
 
     <!-- All Java AST specific tests live under TreeWalker module. -->
     <module name="TreeWalker">
-         <module name="FileContentsHolder"/>
+        <module name="FileContentsHolder"/>
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->

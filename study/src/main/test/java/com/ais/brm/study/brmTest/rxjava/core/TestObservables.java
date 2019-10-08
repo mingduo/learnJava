@@ -51,7 +51,8 @@ public class TestObservables {
     }
 
 
-    /**数据源操作
+    /**
+     * 数据源操作
      * from   just
      * 从现有数据格式创建 Observable
      *
@@ -82,18 +83,19 @@ public class TestObservables {
     }
 
 
-    /**转换操作
-     *
-     *  skip 跳过
-     *  take  获取5个
-     *  map 转换
+    /**
+     * 转换操作
+     * <p>
+     * skip 跳过
+     * take  获取5个
+     * map 转换
      *
      * @throws InterruptedException
      */
     @Test
     public void testObservablesTransform() throws InterruptedException {
-        Observable<Integer> o = Observable.range(1,100);
-        o.skip(10).take(5).map(t->t*3).blockingSubscribe(System.out::println);
+        Observable<Integer> o = Observable.range(1, 100);
+        o.skip(10).take(5).map(t -> t * 3).blockingSubscribe(System.out::println);
     }
 
 }

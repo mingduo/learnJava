@@ -5,6 +5,7 @@ import com.ais.brm.common.Constants;
 /**
  * 一个新的读取数据请求.接收者是datareader模块.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class NewDataReadNotif extends GeneralKakfaNotif {

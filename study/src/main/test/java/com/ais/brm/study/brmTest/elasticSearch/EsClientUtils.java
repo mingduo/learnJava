@@ -58,7 +58,7 @@ public final class EsClientUtils {
      * @param response
      * @return
      */
-    public static  boolean hasHits(SearchResponse response) {
+    public static boolean hasHits(SearchResponse response) {
         // 出错！
         if (response.status() != RestStatus.OK) {
             logger.error("@Elasticsearch@ 查询失败！[status = {}]", response.status());

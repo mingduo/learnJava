@@ -24,7 +24,8 @@ public class ChangeRule extends RuleObject {
     public void checkRuleIndex(int indexValueType) {
     }
 
-    /**只要指标的值和上次比较有变化就报警
+    /**
+     * 只要指标的值和上次比较有变化就报警
      *
      * @param ruleMap
      * @param curHis
@@ -39,27 +40,27 @@ public class ChangeRule extends RuleObject {
         Boolean ignore_null = Boolean.parseBoolean(ignore);
 
         StringBuffer sb = new StringBuffer();
-            String index_value = ruleMap.get("index_value" );
-            String index_value_last = ruleMap.get("index_value_last");
-            //忽略空值 index_value ==null 不报警
-            if (StringUtils.isBlank(index_value) && ignore_null) {
-                sb = sb.append(index_value).append(NOT_EQ).append(EMPTY);
-            } else {
-                sb = sb.append(index_value).append(NOT_EQ).
-                        append(index_value_last);
-            }
+        String index_value = ruleMap.get("index_value");
+        String index_value_last = ruleMap.get("index_value_last");
+        //忽略空值 index_value ==null 不报警
+        if (StringUtils.isBlank(index_value) && ignore_null) {
+            sb = sb.append(index_value).append(NOT_EQ).append(EMPTY);
+        } else {
+            sb = sb.append(index_value).append(NOT_EQ).
+                    append(index_value_last);
+        }
         setConditionValue(curHis, index_value, index_value_last);
         return sb.toString();
     }
 
     private void setConditionValue(RiskIndexResultHis curHis, String index_value, String index_value_last) {
-        StringBuffer condtionValue=new StringBuffer("当前指标值[");
+        StringBuffer condtionValue = new StringBuffer("当前指标值[");
         condtionValue.append(index_value);
         condtionValue.append("]和上次[");
         condtionValue.append(index_value_last);
         condtionValue.append("]有变化");
 
-        Optional.ofNullable(curHis).ifPresent(t->{
+        Optional.ofNullable(curHis).ifPresent(t -> {
             t.setConditionValue(condtionValue.toString());
         });
     }

@@ -13,13 +13,13 @@ object TestSplit {
     val line = "http://bigdata.edu360.cn/laozhao"
 
     //学科，老师
-//    val splits: Array[String] = line.split("/")
-//
-//    val subject = splits(2).split("[.]")(0)
-//
-//    val teacher = splits(3)
-//
-//    println(subject + " " + teacher)
+    //    val splits: Array[String] = line.split("/")
+    //
+    //    val subject = splits(2).split("[.]")(0)
+    //
+    //    val teacher = splits(3)
+    //
+    //    println(subject + " " + teacher)
 
     val index = line.lastIndexOf("/")
 
@@ -30,8 +30,6 @@ object TestSplit {
     val subject = new URL(httpHost).getHost.split("[.]")(0)
 
     println(teacher + ", " + subject)
-
-
 
 
   }

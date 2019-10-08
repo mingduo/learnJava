@@ -5,6 +5,7 @@ import java.util.Date;
 /**
  * 风险明细--调账.
  * Created by zhaocw on 2016-7-18.
+ *
  * @author zhaocw
  */
 public class RiskResultDetailAdjust {
@@ -24,6 +25,7 @@ public class RiskResultDetailAdjust {
     private String adjustEparchyName;//地市名称.
     private int cancelTag;
     private String userTypeCode;
+
     public long getId() {
         return id;
     }
@@ -144,12 +146,12 @@ public class RiskResultDetailAdjust {
         this.cancelTag = cancelTag;
     }
 
-	public String getUserTypeCode() {
-		return userTypeCode;
-	}
+    public String getUserTypeCode() {
+        return userTypeCode;
+    }
 
-	public void setUserTypeCode(String userTypeCode) {
-		this.userTypeCode = userTypeCode;
-	}
-    
+    public void setUserTypeCode(String userTypeCode) {
+        this.userTypeCode = userTypeCode;
+    }
+
 }

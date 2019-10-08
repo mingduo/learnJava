@@ -22,7 +22,7 @@ public class Example {
 
         Inventor inventor4 = new Inventor("劳斯拉斯", cal.getTime(), "fuzyy");
 
-        inventions.addAll( Arrays.asList(inventor, inventor2, inventor3, inventor4));
+        inventions.addAll(Arrays.asList(inventor, inventor2, inventor3, inventor4));
 
     }
 

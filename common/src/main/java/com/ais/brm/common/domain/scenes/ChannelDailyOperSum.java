@@ -3,6 +3,7 @@ package com.ais.brm.common.domain.scenes;
 /**
  * 当天渠道操作量.
  * Created by zhaocw on 2016-7-5.
+ *
  * @author zhaocw
  */
 public class ChannelDailyOperSum {

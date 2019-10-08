@@ -11,7 +11,7 @@ import javax.jms.*;
  */
 public class ActiveMQDemo {
 
-    public static final String BROKER_URL="tcp://172.26.3.244:61616";
+    public static final String BROKER_URL = "tcp://172.26.3.244:61616";
 
 
     public static void main(String[] args) throws Exception {

@@ -3,6 +3,7 @@ package com.ais.brm.common.rule;
 /**
  * 风控模型.
  * Created by zhaocw on 2016/6/16.
+ *
  * @author zhaocw
  */
 public class Model {

@@ -5,6 +5,7 @@ import com.ais.brm.common.Constants;
 /**
  * 一个新的数据采集请求.接收者是datacollector模块.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class NewCollectDataNotif extends GeneralKakfaNotif {

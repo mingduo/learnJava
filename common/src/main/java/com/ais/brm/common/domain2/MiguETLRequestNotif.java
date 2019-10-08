@@ -5,6 +5,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 风险点的数据计算请求.接收者是risker模块.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class MiguETLRequestNotif extends GeneralKakfaNotif {
@@ -37,11 +38,11 @@ public class MiguETLRequestNotif extends GeneralKakfaNotif {
         this.theDay = theDay;
     }
 
-	public String getTheHour() {
-		return theHour;
-	}
+    public String getTheHour() {
+        return theHour;
+    }
 
-	public void setTheHour(String theHour) {
-		this.theHour = theHour;
-	}
+    public void setTheHour(String theHour) {
+        this.theHour = theHour;
+    }
 }

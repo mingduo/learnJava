@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  * 风险点的数据计算请求.接收者是risker模块.
  * Created by zhaocw on 2016/6/1.
+ *
  * @author zhaocw
  */
 public class RiskComputeNotif extends GeneralKakfaNotif {
@@ -59,9 +60,9 @@ public class RiskComputeNotif extends GeneralKakfaNotif {
         riskComputeNotif.setModelId(23928392L);
         riskComputeNotif.setRiskId(23232);
         riskComputeNotif.setModelNotifId("modelNotifId1212");
-        Map<String,String> props = new HashMap<>();
-        props.put("the_day","20170608");
-        props.put("test","12323");
+        Map<String, String> props = new HashMap<>();
+        props.put("the_day", "20170608");
+        props.put("test", "12323");
         riskComputeNotif.setProps(props);
         System.out.println(gson.toJson(riskComputeNotif));
     }

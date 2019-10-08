@@ -51,7 +51,7 @@ object IpLoaction1 {
 
     //聚合
     //val sum = (x: Int, y: Int) => x + y
-    val reduced: RDD[(String, Int)] = proviceAndOne.reduceByKey(_+_)
+    val reduced: RDD[(String, Int)] = proviceAndOne.reduceByKey(_ + _)
 
     //将结果打印
     val r = reduced.collect()
@@ -59,7 +59,6 @@ object IpLoaction1 {
     println(r.toBuffer)
 
     sc.stop()
-
 
 
   }

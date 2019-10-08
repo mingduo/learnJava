@@ -5,10 +5,9 @@ import org.junit.Test;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * 
+ * @author : weizc
  * @description:
  * @since 2019/1/2
- * @author : weizc 
  */
 public class CompletableFutureTest {
     /**
@@ -20,10 +19,10 @@ public class CompletableFutureTest {
      * 它实现了Future和CompletionStage接口
      */
     @Test
-    public void test(){
+    public void test() {
         //thenApply相当于回调函数（callback）
 
-        CompletableFuture.supplyAsync(()->1).thenApply(i->i+1).thenApply(i->i * 5).whenComplete((i, throwable) -> System.out.println(i));
+        CompletableFuture.supplyAsync(() -> 1).thenApply(i -> i + 1).thenApply(i -> i * 5).whenComplete((i, throwable) -> System.out.println(i));
 
     }
 
@@ -31,18 +30,18 @@ public class CompletableFutureTest {
      * 可以看到，thenAccept和thenRun都是无返回值的。
      * 如果说thenApply是不停的输入输出的进行生产，那么thenAccept和thenRun就是在进行消耗。它们是整个计算的最后两个阶段。
      * 同样是执行指定的动作，同样是消耗，二者也有区别：
-     *
-     * thenAccept接收上一阶段的输出作为本阶段的输入 　　
-     *
+     * <p>
+     * thenAccept接收上一阶段的输出作为本阶段的输入
+     * <p>
      * thenRun根本不关心前一阶段的输出，根本不不关心前一阶段的计算结果，因为它不需要输入参数
      * thenCombine整合两个计算结果
      */
     @Test
-    public void test2(){
+    public void test2() {
         //thenApply相当于回调函数（callback）
 
-        CompletableFuture.supplyAsync(()->1).thenApply(i->i+1).thenApply(i->i * 5)
-                .thenCombineAsync(CompletableFuture.completedFuture("combine"),(s,s2)->s+s2)
+        CompletableFuture.supplyAsync(() -> 1).thenApply(i -> i + 1).thenApply(i -> i * 5)
+                .thenCombineAsync(CompletableFuture.completedFuture("combine"), (s, s2) -> s + s2)
                 .thenAcceptAsync(System.out::println);
 
     }

@@ -29,10 +29,10 @@ object JdbcDataSource {
 
     //logs.show()
 
-//    val filtered: Dataset[Row] = logs.filter(r => {
-//      r.getAs[Int]("age") <= 13
-//    })
-//    filtered.show()
+    //    val filtered: Dataset[Row] = logs.filter(r => {
+    //      r.getAs[Int]("age") <= 13
+    //    })
+    //    filtered.show()
 
     //lambda表达式
     val r = logs.filter($"age" <= 13)

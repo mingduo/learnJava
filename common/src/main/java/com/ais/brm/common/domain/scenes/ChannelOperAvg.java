@@ -3,6 +3,7 @@ package com.ais.brm.common.domain.scenes;
 /**
  * 渠道业务平均值.
  * Created by zhaocw on 2016-7-5.
+ *
  * @author zhaocw
  */
 public class ChannelOperAvg {

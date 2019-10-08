@@ -12,13 +12,14 @@ public class MD5Encoder {
     private static MessageDigest mDigest = null;
     private static MD5Encoder instance = null;
 
-    /** 
+    /**
      * ��ȡʵ��.
+     *
      * @return MD5Encoder instance
      * @throws Exception Exception
      */
     public static MD5Encoder getInstance() throws Exception {
-        if (instance == null){
+        if (instance == null) {
             instance = new MD5Encoder();
         }
         return instance;
@@ -26,6 +27,7 @@ public class MD5Encoder {
 
     /**
      * ˽�еĹ��췽��.
+     *
      * @throws Exception Exception
      */
     private MD5Encoder() throws Exception {
@@ -34,6 +36,7 @@ public class MD5Encoder {
 
     /**
      * �����ַ��MD5ֵ.
+     *
      * @param s String
      * @return md5 of the string
      * @throws Exception Exception
@@ -65,15 +68,15 @@ public class MD5Encoder {
  */
 class BASE64Encoder {
 
-    private static char[] codecTable = { 'A', 'B', 'C', 'D', 'E', 'F', 'G',
+    private static char[] codecTable = {'A', 'B', 'C', 'D', 'E', 'F', 'G',
             'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
             'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
             'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
             'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6',
-            '7', '8', '9', '+', '/' };
+            '7', '8', '9', '+', '/'};
 
     /**
-     * 
+     *
      */
     public BASE64Encoder() {
 
@@ -91,73 +94,70 @@ class BASE64Encoder {
         while (curPos < totalBits) {
             int bytePos = curPos / 8;
             switch (curPos % 8) {
-            case 0:
-                toReturn.append(codecTable[(a[bytePos] & 0xfc) >> 2]);
-                break;
-            case 2:
+                case 0:
+                    toReturn.append(codecTable[(a[bytePos] & 0xfc) >> 2]);
+                    break;
+                case 2:
 
-                toReturn.append(codecTable[(a[bytePos] & 0x3f)]);
-                break;
-            case 4:
-                if (bytePos == a.length - 1) {
-                    toReturn
-                            .append(codecTable[((a[bytePos] & 0x0f) << 2) & 0x3f]);
-                } else {
-                    int pos = (((a[bytePos] & 0x0f) << 2) | ((a[bytePos + 1] & 0xc0) >> 6)) & 0x3f;
-                    toReturn.append(codecTable[pos]);
-                }
-                break;
-            case 6:
-                if (bytePos == a.length - 1) {
-                    toReturn
-                            .append(codecTable[((a[bytePos] & 0x03) << 4) & 0x3f]);
-                } else {
-                    int pos = (((a[bytePos] & 0x03) << 4) | ((a[bytePos + 1] & 0xf0) >> 4)) & 0x3f;
-                    toReturn.append(codecTable[pos]);
-                }
-                break;
-            default:
-                //never hanppen
-                break;
+                    toReturn.append(codecTable[(a[bytePos] & 0x3f)]);
+                    break;
+                case 4:
+                    if (bytePos == a.length - 1) {
+                        toReturn
+                                .append(codecTable[((a[bytePos] & 0x0f) << 2) & 0x3f]);
+                    } else {
+                        int pos = (((a[bytePos] & 0x0f) << 2) | ((a[bytePos + 1] & 0xc0) >> 6)) & 0x3f;
+                        toReturn.append(codecTable[pos]);
+                    }
+                    break;
+                case 6:
+                    if (bytePos == a.length - 1) {
+                        toReturn
+                                .append(codecTable[((a[bytePos] & 0x03) << 4) & 0x3f]);
+                    } else {
+                        int pos = (((a[bytePos] & 0x03) << 4) | ((a[bytePos + 1] & 0xf0) >> 4)) & 0x3f;
+                        toReturn.append(codecTable[pos]);
+                    }
+                    break;
+                default:
+                    //never hanppen
+                    break;
             }
-            curPos+=6;
+            curPos += 6;
         }
-        if(nn==2)
-        {
+        if (nn == 2) {
             toReturn.append("==");
-        }
-        else if(nn==4)
-        {
+        } else if (nn == 4) {
             toReturn.append("=");
         }
         return toReturn.toString();
 
     }
-    
+
 
     /**
      * @param args
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        
 
-        BASE64Encoder encoder=new BASE64Encoder();
-        sun.misc.BASE64Encoder sunEncoder=new sun.misc.BASE64Encoder();
-        byte[] testBytes="hello".getBytes();
-        long start=System.currentTimeMillis();
-      
-            System.out.println(sunEncoder.encode(testBytes));
-        
-        
-        System.out.println("[sun encoder]use time :"+(System.currentTimeMillis()-start));
-        
-        start=System.currentTimeMillis();
-       
-            System.out.println(encoder.encode(testBytes));
-      
-        
-        System.out.println("[our encoder]use time :"+(System.currentTimeMillis()-start));
+
+        BASE64Encoder encoder = new BASE64Encoder();
+        sun.misc.BASE64Encoder sunEncoder = new sun.misc.BASE64Encoder();
+        byte[] testBytes = "hello".getBytes();
+        long start = System.currentTimeMillis();
+
+        System.out.println(sunEncoder.encode(testBytes));
+
+
+        System.out.println("[sun encoder]use time :" + (System.currentTimeMillis() - start));
+
+        start = System.currentTimeMillis();
+
+        System.out.println(encoder.encode(testBytes));
+
+
+        System.out.println("[our encoder]use time :" + (System.currentTimeMillis() - start));
 
     }
 

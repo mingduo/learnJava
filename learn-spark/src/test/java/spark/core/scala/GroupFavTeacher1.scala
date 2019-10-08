@@ -32,7 +32,7 @@ object GroupFavTeacher1 {
     //val map: RDD[((String, String), Int)] = sbjectAndteacher.map((_, 1))
 
     //聚合，将学科和老师联合当做key
-    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_+_)
+    val reduced: RDD[((String, String), Int)] = sbjectTeacherAndOne.reduceByKey(_ + _)
 
     //分组排序（按学科进行分组）
     //[学科，该学科对应的老师的数据]

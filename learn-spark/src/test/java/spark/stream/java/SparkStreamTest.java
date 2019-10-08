@@ -22,9 +22,9 @@ import java.util.Arrays;
  */
 public class SparkStreamTest {
 
-    private static final String HOST="10.21.16.143";
-    private  static final int PORT=9999;
-private final  String path="F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\hive\\input\\";
+    private static final String HOST = "10.21.16.143";
+    private static final int PORT = 9999;
+    private final String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\hive\\input\\";
 
     @Test
     public void testSocket() throws InterruptedException {
@@ -53,6 +53,7 @@ private final  String path="F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\
 
     /**
      * ll files directly under such a path will be processed as they are discovered.
+     *
      * @throws InterruptedException
      */
     @Test
@@ -95,18 +96,18 @@ private final  String path="F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\
 
         // Count each word in each batch
         JavaPairDStream<String, Integer> pairs = words.mapToPair(s -> new Tuple2<>(s, 1));
-        JavaPairDStream<String, Integer> windowedWordCounts  = pairs.reduceByKeyAndWindow((i1, i2) -> (i1 + i2)
+        JavaPairDStream<String, Integer> windowedWordCounts = pairs.reduceByKeyAndWindow((i1, i2) -> (i1 + i2)
                 , Durations.seconds(5), Durations.seconds(5));
 
         // Print the first ten elements of each RDD generated in this DStream to the console
         windowedWordCounts.print();
 
-      windowedWordCounts.foreachRDD(rdd->{
+        windowedWordCounts.foreachRDD(rdd -> {
 
             rdd.foreachPartition(partitionOfRecords -> {
                 //do what like connection
-                partitionOfRecords.forEachRemaining(t->
-                        System.out.println("t==>"+t));
+                partitionOfRecords.forEachRemaining(t ->
+                        System.out.println("t==>" + t));
 
             });
         });

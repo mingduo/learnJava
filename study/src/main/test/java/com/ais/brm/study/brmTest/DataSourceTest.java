@@ -13,13 +13,13 @@ import org.junit.Test;
  */
 public class DataSourceTest {
     @Test
-    public  void testSelect(){
+    public void testSelect() {
 
     }
 
     @Test
-    public  void testInsert(){
-            System.out.println(System.getenv("HADOOP_HOME"));
+    public void testInsert() {
+        System.out.println(System.getenv("HADOOP_HOME"));
         System.out.println(System.getenv("M2_HOME"));
 
     }

@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.lombok;
+package lombok.lombok;
 
 import lombok.*;
 
@@ -24,7 +24,7 @@ public class LombokTest {
     public void testCleanUp() {
         try {
             @Cleanup ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            baos.write(new byte[] {'Y','e','s'});
+            baos.write(new byte[]{'Y', 'e', 's'});
             System.out.println(baos.toString());
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,6 +53,7 @@ class Person {
     public String name;
     public int age;
 }
+
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = {"address", "city", "state", "zip"})

@@ -46,7 +46,7 @@ public class HbaseExample {
         }
     }
 
-    public static void modifySchema (Configuration config) throws IOException {
+    public static void modifySchema(Configuration config) throws IOException {
         try (Connection connection = ConnectionFactory.createConnection(config);
              Admin admin = connection.getAdmin()) {
 

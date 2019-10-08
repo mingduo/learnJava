@@ -3,6 +3,7 @@ package com.ais.brm.common.domain.scenes;
 /**
  * .
  * Created by zhaocw on 2016-7-5.
+ *
  * @author zhaocw
  */
 public class ChannelServantHourlyOperRecord {
@@ -11,7 +12,7 @@ public class ChannelServantHourlyOperRecord {
     private int count;
     private int hour;//0~23
 
-    public ChannelServantHourlyOperRecord(Channel channel, String servantName, int count,int hour) {
+    public ChannelServantHourlyOperRecord(Channel channel, String servantName, int count, int hour) {
         this.channel = channel;
         this.servantName = servantName;
         this.count = count;
@@ -25,7 +26,9 @@ public class ChannelServantHourlyOperRecord {
     public void setCount(int count) {
         this.count = count;
     }
-    public ChannelServantHourlyOperRecord() {}
+
+    public ChannelServantHourlyOperRecord() {
+    }
 
     public Channel getChannel() {
         return channel;

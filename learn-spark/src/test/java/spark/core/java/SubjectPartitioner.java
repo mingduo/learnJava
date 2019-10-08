@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 //学科分区
-public  class SubjectPartitioner extends Partitioner {
+public class SubjectPartitioner extends Partitioner {
 
     List<String> subject;
     Map<String, Integer> numPartionMap;
@@ -30,7 +30,7 @@ public  class SubjectPartitioner extends Partitioner {
     @Override
     public int getPartition(Object key) {
         String sub = (String) key;
-        String in =sub.split("_")[0];
+        String in = sub.split("_")[0];
         Integer out = numPartionMap.get(in);
         return out;
     }

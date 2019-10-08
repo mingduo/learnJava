@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * 风险明细--积分.
- * 
+ *
  * @author zhaocw
  * @since 2016-7-18
  */
@@ -13,7 +13,7 @@ public class RiskResultDetailJifen {
     private String tradeId;
     private String serialNumber;
     private String customerUserTypeCode;
-	private String customerName;
+    private String customerName;
     private Date operTime;
     private OperType operType;
     private String operTypeCode;
@@ -21,7 +21,7 @@ public class RiskResultDetailJifen {
     private String bakSerialNumber;
     private String bakCustomerUserTypeCode;
     private String bakCustomerName;
-    
+
 
     public long getId() {
         return id;
@@ -48,12 +48,12 @@ public class RiskResultDetailJifen {
     }
 
     public String getCustomerName() {
-		return customerName;
-	}
+        return customerName;
+    }
 
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
     public Date getOperTime() {
         return operTime;
@@ -72,14 +72,14 @@ public class RiskResultDetailJifen {
     }
 
     public String getOperTypeCode() {
-		return operTypeCode;
-	}
+        return operTypeCode;
+    }
 
-	public void setOperTypeCode(String operTypeCode) {
-		this.operTypeCode = operTypeCode;
-	}
+    public void setOperTypeCode(String operTypeCode) {
+        this.operTypeCode = operTypeCode;
+    }
 
-	public long getJifenCount() {
+    public long getJifenCount() {
         return jifenCount;
     }
 
@@ -102,20 +102,20 @@ public class RiskResultDetailJifen {
     public void setBakCustomerName(String bakCustomerName) {
         this.bakCustomerName = bakCustomerName;
     }
-    
+
     public String getCustomerUserTypeCode() {
-		return customerUserTypeCode;
-	}
+        return customerUserTypeCode;
+    }
 
-	public void setCustomerUserTypeCode(String customerUserTypeCode) {
-		this.customerUserTypeCode = customerUserTypeCode;
-	}
+    public void setCustomerUserTypeCode(String customerUserTypeCode) {
+        this.customerUserTypeCode = customerUserTypeCode;
+    }
 
-	public String getBakCustomerUserTypeCode() {
-		return bakCustomerUserTypeCode;
-	}
+    public String getBakCustomerUserTypeCode() {
+        return bakCustomerUserTypeCode;
+    }
 
-	public void setBakCustomerUserTypeCode(String bakCustomerUserTypeCode) {
-		this.bakCustomerUserTypeCode = bakCustomerUserTypeCode;
-	}
+    public void setBakCustomerUserTypeCode(String bakCustomerUserTypeCode) {
+        this.bakCustomerUserTypeCode = bakCustomerUserTypeCode;
+    }
 }

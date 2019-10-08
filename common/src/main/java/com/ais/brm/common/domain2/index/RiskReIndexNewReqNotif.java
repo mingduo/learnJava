@@ -11,7 +11,8 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
  */
 public class RiskReIndexNewReqNotif extends GeneralKakfaNotif {
     private long requestId;
-	public RiskReIndexNewReqNotif() {
+
+    public RiskReIndexNewReqNotif() {
         super();
         setType(Constants.KAFKA_NOTIF_TYPE_RISKREINDEX);
     }

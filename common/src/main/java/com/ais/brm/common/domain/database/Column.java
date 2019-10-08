@@ -6,112 +6,111 @@ package com.ais.brm.common.domain.database;
  *
  * @author xuechen
  */
-public class Column implements Comparable<Column>
-{
-	private int columnId;
-	private int metaTableId;
-	private String metaTableName;
-	private String columnName;
-	private String columnNameCn;
-	private Integer columnSeq;
-	private String columnType;
-	private Integer columnLength;
-	private Integer isNullable;
-	private Integer isPrimaryKey;
-	private Integer isPartition;
-	
-	public Integer getIsPartition() {
-		return isPartition;
-	}
+public class Column implements Comparable<Column> {
+    private int columnId;
+    private int metaTableId;
+    private String metaTableName;
+    private String columnName;
+    private String columnNameCn;
+    private Integer columnSeq;
+    private String columnType;
+    private Integer columnLength;
+    private Integer isNullable;
+    private Integer isPrimaryKey;
+    private Integer isPartition;
 
-	public void setIsPartition(Integer isPartition) {
-		this.isPartition = isPartition;
-	}
+    public Integer getIsPartition() {
+        return isPartition;
+    }
 
-	@Override
-	public int compareTo(Column o) {
-		return columnSeq > o.columnSeq ? 1 : (columnSeq < o.columnSeq ? -1 : 0);
-	}
+    public void setIsPartition(Integer isPartition) {
+        this.isPartition = isPartition;
+    }
 
-	public int getColumnId() {
-		return columnId;
-	}
+    @Override
+    public int compareTo(Column o) {
+        return columnSeq > o.columnSeq ? 1 : (columnSeq < o.columnSeq ? -1 : 0);
+    }
 
-	public void setColumnId(int columnId) {
-		this.columnId = columnId;
-	}
+    public int getColumnId() {
+        return columnId;
+    }
 
-	public int getMetaTableId() {
-		return metaTableId;
-	}
+    public void setColumnId(int columnId) {
+        this.columnId = columnId;
+    }
 
-	public void setMetaTableId(int metaTableId) {
-		this.metaTableId = metaTableId;
-	}
+    public int getMetaTableId() {
+        return metaTableId;
+    }
 
-	public String getMetaTableName() {
-		return metaTableName;
-	}
+    public void setMetaTableId(int metaTableId) {
+        this.metaTableId = metaTableId;
+    }
 
-	public void setMetaTableName(String metaTableName) {
-		this.metaTableName = metaTableName;
-	}
+    public String getMetaTableName() {
+        return metaTableName;
+    }
 
-	public String getColumnName() {
-		return columnName;
-	}
+    public void setMetaTableName(String metaTableName) {
+        this.metaTableName = metaTableName;
+    }
 
-	public void setColumnName(String columnName) {
-		this.columnName = columnName;
-	}
+    public String getColumnName() {
+        return columnName;
+    }
 
-	public String getColumnNameCn() {
-		return columnNameCn;
-	}
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
+    }
 
-	public void setColumnNameCn(String columnNameCn) {
-		this.columnNameCn = columnNameCn;
-	}
+    public String getColumnNameCn() {
+        return columnNameCn;
+    }
 
-	public Integer getColumnSeq() {
-		return columnSeq;
-	}
+    public void setColumnNameCn(String columnNameCn) {
+        this.columnNameCn = columnNameCn;
+    }
 
-	public void setColumnSeq(Integer columnSeq) {
-		this.columnSeq = columnSeq;
-	}
+    public Integer getColumnSeq() {
+        return columnSeq;
+    }
 
-	public String getColumnType() {
-		return columnType;
-	}
+    public void setColumnSeq(Integer columnSeq) {
+        this.columnSeq = columnSeq;
+    }
 
-	public void setColumnType(String columnType) {
-		this.columnType = columnType;
-	}
+    public String getColumnType() {
+        return columnType;
+    }
 
-	public Integer getColumnLength() {
-		return columnLength;
-	}
+    public void setColumnType(String columnType) {
+        this.columnType = columnType;
+    }
 
-	public void setColumnLength(Integer columnLength) {
-		this.columnLength = columnLength;
-	}
+    public Integer getColumnLength() {
+        return columnLength;
+    }
 
-	public Integer getIsNullable() {
-		return isNullable;
-	}
+    public void setColumnLength(Integer columnLength) {
+        this.columnLength = columnLength;
+    }
 
-	public void setIsNullable(Integer isNullable) {
-		this.isNullable = isNullable;
-	}
+    public Integer getIsNullable() {
+        return isNullable;
+    }
 
-	public Integer getIsPrimaryKey() {
-		return isPrimaryKey;
-	}
+    public void setIsNullable(Integer isNullable) {
+        this.isNullable = isNullable;
+    }
 
-	public void setIsPrimaryKey(Integer isPrimaryKey) {
-		this.isPrimaryKey = isPrimaryKey;
-	}
+    public Integer getIsPrimaryKey() {
+        return isPrimaryKey;
+    }
 
-	
+    public void setIsPrimaryKey(Integer isPrimaryKey) {
+        this.isPrimaryKey = isPrimaryKey;
+    }
+
+
 }

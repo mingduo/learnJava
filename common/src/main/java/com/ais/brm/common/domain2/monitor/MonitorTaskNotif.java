@@ -6,6 +6,7 @@ import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
 /**
  * 代表一个监控任务
  * Created by zhaocaiwen on 2017/11/21.
+ *
  * @author zhaocaiwen
  */
 public class MonitorTaskNotif extends GeneralKakfaNotif {

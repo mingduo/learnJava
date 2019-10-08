@@ -21,9 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class WordCountDSL {
 
 
-
-
-    public  void doWordCountByWindow() {
+    public void doWordCountByWindow() {
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streams-wordcount-dsl");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "10.21.20.224:9092");
@@ -46,13 +44,13 @@ public class WordCountDSL {
         //设置时间窗口
 
         window1.foreach((Windowed<String> window, Long value) -> {
-            Date d=new Date();
-            Date d2=new Date();
+            Date d = new Date();
+            Date d2 = new Date();
             d.setTime(window.window().start());
             d2.setTime(window.window().end());
             String start = DateUtils.formatTime(d);
-            String end =DateUtils.formatTime(d2);
-            System.out.printf("key=%s, value=%s, start=%s, end=%s\n",window.key(), value, start, end);
+            String end = DateUtils.formatTime(d2);
+            System.out.printf("key=%s, value=%s, start=%s, end=%s\n", window.key(), value, start, end);
 
         });
 
@@ -82,7 +80,7 @@ public class WordCountDSL {
     }
 
 
-    public   void doWordCountBySessionWin() {
+    public void doWordCountBySessionWin() {
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "streams-wordcount-dsl");
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "10.21.20.224:9092");
@@ -106,13 +104,13 @@ public class WordCountDSL {
         //设置时间窗口
 
         window1.foreach((Windowed<String> window, Long value) -> {
-            Date d=new Date();
-            Date d2=new Date();
+            Date d = new Date();
+            Date d2 = new Date();
             d.setTime(window.window().start());
             d2.setTime(window.window().end());
             String start = DateUtils.formatTime(d);
-            String end =DateUtils.formatTime(d2);
-            System.out.printf("key=%s, value=%s, start=%s, end=%s\n",window.key(), value, start, end);
+            String end = DateUtils.formatTime(d2);
+            System.out.printf("key=%s, value=%s, start=%s, end=%s\n", window.key(), value, start, end);
 
         });
 

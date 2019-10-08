@@ -15,7 +15,7 @@ object CustomSort1 {
     val sc = new SparkContext(conf)
 
     //排序规则：首先按照颜值的降序，如果颜值相等，再按照年龄的升序
-    val users= Array("laoduan 30 99", "laozhao 29 9999", "laozhang 28 98", "laoyang 28 99")
+    val users = Array("laoduan 30 99", "laozhao 29 9999", "laozhang 28 98", "laoyang 28 99")
 
     //将Driver端的数据并行化变成RDD
     val lines: RDD[String] = sc.parallelize(users)
@@ -50,7 +50,7 @@ object CustomSort1 {
 class User(val name: String, val age: Int, val fv: Int) extends Ordered[User] with Serializable {
 
   override def compare(that: User): Int = {
-    if(this.fv == that.fv) {
+    if (this.fv == that.fv) {
       this.age - that.age
     } else {
       -(this.fv - that.fv)

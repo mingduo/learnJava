@@ -6,7 +6,7 @@ public class PlaceOfBirth {
     private String country;
 
     public PlaceOfBirth(String city) {
-        this.city=city;
+        this.city = city;
     }
 
     public PlaceOfBirth(String city, String country) {
