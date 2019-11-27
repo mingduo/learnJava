@@ -27,6 +27,7 @@
         <module>learn-rxjava</module>
         <module>learn-juc</module>
         <module>learn-lombok</module>
+        <module>learn-cpu-check</module>
 
     </modules>
 
