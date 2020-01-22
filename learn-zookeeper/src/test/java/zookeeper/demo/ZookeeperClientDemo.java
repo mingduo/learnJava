@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.zookeeper.demo;
+package zookeeper.demo;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;

@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.elasticSearch;
+package es.elasticSearch;
 
 
 import org.elasticsearch.action.bulk.BulkRequest;

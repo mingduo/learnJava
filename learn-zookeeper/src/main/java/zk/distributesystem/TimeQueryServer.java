@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.zookeeper.distributesystem;
+package zk.distributesystem;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooDefs.Ids;

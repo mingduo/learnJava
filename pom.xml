@@ -29,6 +29,9 @@
         <module>learn-lombok</module>
         <module>learn-cpu-check</module>
 
+
+        <module>learn-elasticsearch</module>
+        <module>learn-zookeeper</module>
     </modules>
 
 

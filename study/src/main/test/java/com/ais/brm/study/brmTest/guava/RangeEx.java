@@ -1,8 +1,8 @@
 package com.ais.brm.study.brmTest.guava;
 
+import com.google.common.collect.Range;
 import com.google.common.primitives.Ints;
 import org.junit.Test;
-import org.spark_project.guava.collect.Range;
 
 /**
  * <table border="1">

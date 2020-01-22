@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.zookeeper.distributesystem;
+package zk.distributesystem;
 
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;

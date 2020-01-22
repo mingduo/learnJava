@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.zookeeper.distributesystem;
+package zk.distributesystem;
 
 import java.io.IOException;
 import java.io.InputStream;

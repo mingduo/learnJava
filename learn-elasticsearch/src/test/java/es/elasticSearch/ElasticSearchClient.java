@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.elasticSearch;
+package es.elasticSearch;
 
 import com.ais.brm.common.domain2.ruleegine.RiskIndexResultHis;
 import com.ais.brm.common.utils.MiscUtils;
