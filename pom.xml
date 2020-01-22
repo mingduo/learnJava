@@ -24,10 +24,24 @@
         <module>learn-spark</module>
         <module>learn-redis</module>
         <module>learn-spi</module>
+
+        <module>learn-guava</module>
+
         <module>learn-rxjava</module>
+
+
         <module>learn-juc</module>
         <module>learn-lombok</module>
+
         <module>learn-cpu-check</module>
+
+        <module>learn-hadoop</module>
+        <module>learn-hive</module>
+        <module>learn-hbase</module>
+
+        <module>learn-commons-utils</module>
+
+        <module>learn-mq</module>
 
 
         <module>learn-elasticsearch</module>
@@ -57,33 +71,33 @@
                     <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
 
-            <!--<plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.17</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.puppycrawl.tools</groupId>
-                            <artifactId>checkstyle</artifactId>
-                            <version>6.12</version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <configLocation>/checkstyle_v5.xml</configLocation>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>checkstyle</id>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                            <configuration>
-                                <failOnViolation>true</failOnViolation>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>-->
+                <!--<plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>2.17</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.puppycrawl.tools</groupId>
+                                <artifactId>checkstyle</artifactId>
+                                <version>6.12</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <configLocation>/checkstyle_v5.xml</configLocation>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>checkstyle</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <configuration>
+                                    <failOnViolation>true</failOnViolation>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>-->
 
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
