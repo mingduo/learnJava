@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mingduo</groupId>
-    <artifactId>learn-concurrency</artifactId>
+    <artifactId>learn-juc</artifactId>
 
     <dependencies>
         <dependency>
