@@ -34,6 +34,8 @@
         <module>learn-lombok</module>
 
         <module>learn-cpu-check</module>
+        <module>learn-io</module>
+        <module>learn-interview</module>
 
         <module>learn-hadoop</module>
         <module>learn-hive</module>
