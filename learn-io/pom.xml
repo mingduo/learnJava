@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mingduo</groupId>
-    <artifactId>learn-juc</artifactId>
+    <artifactId>learn-io</artifactId>
 
     <dependencies>
         <dependency>
@@ -24,6 +23,8 @@
             <artifactId>guava</artifactId>
             <version>26.0-jre</version>
         </dependency>
+
+
     </dependencies>
 
 
