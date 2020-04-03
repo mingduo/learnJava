@@ -83,7 +83,8 @@ public class ElasticSearchClient {
                     .types("risk_index_result_info");
 
             SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-            searchSourceBuilder.query(QueryBuilders.termQuery("risk_index_id", 10)).postFilter(rangeQuery("collect_time")
+            searchSourceBuilder.query(QueryBuilders.termQuery("risk_index_id", 10))
+                    .postFilter(rangeQuery("collect_time")
                     .gte("2018051700").lt("2018052100")
                     .format("yyyyMMddHH"));
             ;
