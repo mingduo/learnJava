@@ -18,6 +18,7 @@
 
     <modules>
 
+        <module>learn-leecode</module>
 
         <module>common</module>
         <module>study</module>
