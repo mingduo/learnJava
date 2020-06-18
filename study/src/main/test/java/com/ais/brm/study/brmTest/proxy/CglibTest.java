@@ -20,6 +20,7 @@ public class CglibTest {
         DaoProxy daoProxy = new DaoProxy();
 
         Enhancer enhancer = new Enhancer();
+
         enhancer.setSuperclass(Dao.class);
         enhancer.setCallback(daoProxy);
 
