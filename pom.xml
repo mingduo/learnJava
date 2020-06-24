@@ -43,7 +43,7 @@
         <module>learn-hbase</module>
 
         <module>learn-commons-utils</module>
-
+        <module>learn-commons-collections</module>
         <module>learn-mq</module>
 
 
