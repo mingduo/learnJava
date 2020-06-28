@@ -21,11 +21,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.mingduo</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
 
 
         <!--mysql start-->
@@ -94,6 +89,11 @@
             <groupId>org.mongodb.spark</groupId>
             <artifactId>mongo-spark-connector_2.11</artifactId>
             <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

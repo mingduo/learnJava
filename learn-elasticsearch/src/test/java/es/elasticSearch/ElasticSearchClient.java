@@ -1,7 +1,6 @@
 package es.elasticSearch;
 
-import com.ais.brm.common.domain2.ruleegine.RiskIndexResultHis;
-import com.ais.brm.common.utils.MiscUtils;
+import es.elasticSearch.domain.RiskIndexResultHis;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.message.BasicHeader;

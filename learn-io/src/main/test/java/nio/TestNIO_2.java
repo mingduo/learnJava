@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.channels.SeekableByteChannel;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.DosFileAttributeView;
@@ -36,9 +35,9 @@ public class TestNIO_2 {
 	 */
 	@Test
 	public void test7() throws IOException{
-		SeekableByteChannel newByteChannel = Files.newByteChannel(Paths.get("1.jpg"), StandardOpenOption.READ);
+		//SeekableByteChannel newByteChannel = Files.newByteChannel(Paths.get("1.jpg"), StandardOpenOption.READ);
 		
-		DirectoryStream<Path> newDirectoryStream = Files.newDirectoryStream(Paths.get("e:/"));
+		DirectoryStream<Path> newDirectoryStream = Files.newDirectoryStream(Paths.get("d:/"));
 		
 		for (Path path : newDirectoryStream) {
 			System.out.println(path);

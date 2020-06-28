@@ -13,6 +13,7 @@ import static java.lang.Thread.sleep;
  */
 @Slf4j
 public class RxjavaTest {
+
     public static void main(String[] args) throws InterruptedException {
         Flowable<String> source = Flowable.fromCallable(() -> {
             sleep(1000); //  imitate expensive computation

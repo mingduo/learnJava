@@ -26,11 +26,6 @@
             <version>3.4.14</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.mingduo</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
     </dependencies>
 
 </project>

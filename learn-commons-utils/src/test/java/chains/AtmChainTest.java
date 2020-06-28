@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.chains;
+package chains;
 
 import org.apache.commons.chain.Catalog;
 import org.apache.commons.chain.Command;

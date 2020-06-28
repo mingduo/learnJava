@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.chains;
+package chains;
 
 import lombok.Data;
 import org.apache.commons.chain.impl.ContextBase;

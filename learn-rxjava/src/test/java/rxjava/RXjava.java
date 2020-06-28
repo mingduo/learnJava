@@ -1,6 +1,5 @@
 package rxjava;
 
-import com.ais.brm.common.utils.CollectionUtils;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
@@ -364,13 +363,7 @@ public class RXjava {
     }
 
 
-    @Test
-    public void Tu() {
-        List<Integer> integerList = IntStream.range(0, 101).boxed().collect(Collectors.toList());
-        System.out.println(integerList);
-        List<List> lists = CollectionUtils.split2parts(integerList, 20);
-        System.out.println(lists);
-    }
+
 
 
 }

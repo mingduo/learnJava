@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.chains.commands;
+package chains.commands;
 
 import org.apache.commons.chain.Context;
 import org.apache.commons.chain.Filter;

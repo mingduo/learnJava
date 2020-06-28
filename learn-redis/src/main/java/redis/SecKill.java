@@ -1,6 +1,6 @@
 package redis;
 
-import com.ais.brm.common.utils.CollectionUtils;
+import org.apache.commons.collections.CollectionUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 

@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.chains;
+package chains;
 
 import com.ais.brm.study.brmTest.chains.commands.AuditFilter;
 import com.ais.brm.study.brmTest.chains.commands.FiftyDenominationDispenser;
