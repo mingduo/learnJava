@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.rabbmitmq;
+package rabbmitmq;
 
 import com.rabbitmq.client.*;
 import lombok.Cleanup;

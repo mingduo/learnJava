@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.kafka.kafkastream.lowLevel;
+package kafkastream.lowLevel;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serdes;

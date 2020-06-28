@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.kafka.kafkastream.lowLevel;
+package kafkastream.lowLevel;
 
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;

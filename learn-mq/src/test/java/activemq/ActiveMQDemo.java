@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.activemq;
+package activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
