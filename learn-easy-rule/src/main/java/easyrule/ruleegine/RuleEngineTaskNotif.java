@@ -1,7 +1,7 @@
 package easyrule.ruleegine;
 
-import com.ais.brm.common.Constants;
-import com.ais.brm.common.domain.notifs.GeneralKakfaNotif;
+
+import easyrule.notifs.GeneralKakfaNotif;
 
 /**
  * 代表一个监控任务

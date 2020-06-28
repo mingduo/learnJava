@@ -1,9 +1,9 @@
 package chains;
 
-import com.ais.brm.study.brmTest.chains.commands.AuditFilter;
-import com.ais.brm.study.brmTest.chains.commands.FiftyDenominationDispenser;
-import com.ais.brm.study.brmTest.chains.commands.HundredDenominationDispenser;
-import com.ais.brm.study.brmTest.chains.commands.TenDenominationDispenser;
+import chains.commands.AuditFilter;
+import chains.commands.FiftyDenominationDispenser;
+import chains.commands.HundredDenominationDispenser;
+import chains.commands.TenDenominationDispenser;
 import org.apache.commons.chain.impl.ChainBase;
 
 

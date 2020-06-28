@@ -1,6 +1,5 @@
-package com.ais.brm.study.brmTest.kafka.kafkastream.lowLevel;
+package kafkastream.lowLevel;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.processor.Processor;
 import org.apache.kafka.streams.processor.ProcessorContext;
@@ -8,6 +7,7 @@ import org.apache.kafka.streams.processor.ProcessorSupplier;
 import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.Optional;
@@ -39,7 +39,7 @@ public class WordCountProcessor implements ProcessorSupplier<String, String> {
                 String phoneNumber = line;
 
 
-                if (StringUtils.isNotEmpty(phoneNumber)) {
+                if (StringUtils.hasText(phoneNumber)) {
                     Integer count = Optional.ofNullable
                             (this.kvStore.get(phoneNumber))
                             .map(t -> t + 1).orElse(1);

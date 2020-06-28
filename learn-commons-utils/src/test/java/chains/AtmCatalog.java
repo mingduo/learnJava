@@ -6,6 +6,6 @@ public class AtmCatalog extends CatalogBase {
 
     public AtmCatalog() {
         super();
-        addCommand("atmWithdrawalChain", new com.ais.brm.study.brmTest.chains.AtmWithdrawalChain());
+        addCommand("atmWithdrawalChain", new AtmWithdrawalChain());
     }
 }

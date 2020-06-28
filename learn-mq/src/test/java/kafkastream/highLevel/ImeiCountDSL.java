@@ -1,6 +1,6 @@
-package com.ais.brm.study.brmTest.kafka.kafkastream.highLevel;
+package kafkastream.highLevel;
 
-import com.ais.brm.common.utils.DateUtils;
+import kafka.DateUtils;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;

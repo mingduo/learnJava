@@ -14,7 +14,6 @@ import org.elasticsearch.search.SearchModule;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.*;
@@ -32,7 +31,6 @@ public class EsRepository {
     private EsUtil esUtil;
     private final RestHighLevelClient esClient;
 
-    @Autowired
     public EsRepository(RestHighLevelClient esClient) {
 
 //        this.esUtil = new EsUtil(transportClient);
