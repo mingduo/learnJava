@@ -24,7 +24,7 @@ public class BIOServer {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
-        try (ServerSocket serverSocket = new ServerSocket(6666)) {
+        try (ServerSocket serverSocket = new ServerSocket(6000)) {
 
             System.out.printf("服务器[%s]已启动\n", serverSocket.getLocalSocketAddress());
 
@@ -32,14 +32,17 @@ public class BIOServer {
                 //监听，等待客户端连接
                 Socket socket = serverSocket.accept();
                 executorService.execute(() -> handlerClientSocket(socket));
+                System.in.read();
             }
         }
+
+
+
     }
 
     //telnet localhost 6666 
     private static void handlerClientSocket(Socket socket) {
-        try (
-                //通过socket 获取输入流
+        try (//通过socket 获取输入流
                 InputStream inputStream = socket.getInputStream()) {
 
             System.out.println(String.format("监听到客户端[%s] 的连接...\n", socket.getRemoteSocketAddress()));
