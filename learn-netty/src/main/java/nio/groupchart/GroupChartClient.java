@@ -6,10 +6,9 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -42,14 +41,14 @@ public class GroupChartClient {
     }
 
     private void process() throws InterruptedException {
-        executorService.execute(()-> {
+        executorService.execute(() -> {
             try {
                 processSocketChannelRead();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
-        executorService.execute(()-> {
+        executorService.execute(() -> {
             try {
                 processSocketChannelWrite();
             } catch (IOException e) {
@@ -62,9 +61,9 @@ public class GroupChartClient {
 
     private void processSocketChannelRead() throws IOException {
         ByteBuffer buffer = ByteBuffer.allocate(1024);
-        while (socketChannel.read(buffer) !=-1) {
+        while (socketChannel.read(buffer) != -1) {
             buffer.flip();
-            if(buffer.hasRemaining()) {
+            if (buffer.hasRemaining()) {
                 CharBuffer charBuffer = StandardCharsets.UTF_8.decode(buffer);
 
                 System.out.println(charBuffer.toString());
@@ -74,13 +73,20 @@ public class GroupChartClient {
     }
 
     private void processSocketChannelWrite() throws IOException {
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
-        ReadableByteChannel readableByteChannel = Channels.newChannel(System.in);
-        while (readableByteChannel.read(buffer)!=-1){
-            buffer.flip();
-            socketChannel.write(buffer);
-            buffer.rewind();
+         /*   ReadableByteChannel readableByteChannel = Channels.newChannel(System.in);
+                while (readableByteChannel.read(buffer)!=-1){
+                buffer.flip();
+                socketChannel.write(buffer);
+                buffer.rewind();
+            }*/
+        Scanner scanner = new Scanner(System.in);
+
+        while (scanner.hasNextLine()) {
+            String message = scanner.nextLine();
+            socketChannel.write(ByteBuffer.wrap(message.getBytes()));
         }
+
+
     }
 
 
