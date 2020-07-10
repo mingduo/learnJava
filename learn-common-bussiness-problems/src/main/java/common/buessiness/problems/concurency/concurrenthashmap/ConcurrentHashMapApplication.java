@@ -1,4 +1,4 @@
-package common.buessiness.problems.current.concurrenthashmap;
+package common.buessiness.problems.concurency.concurrenthashmap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

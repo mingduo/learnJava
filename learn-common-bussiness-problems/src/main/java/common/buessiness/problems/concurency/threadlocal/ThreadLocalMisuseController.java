@@ -1,4 +1,4 @@
-package common.buessiness.problems.current.threadlocal;
+package common.buessiness.problems.concurency.threadlocal;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package common.buessiness.problems.current.copyonwritelistmisuse;
+package common.buessiness.problems.concurency.copyonwritelistmisuse;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;

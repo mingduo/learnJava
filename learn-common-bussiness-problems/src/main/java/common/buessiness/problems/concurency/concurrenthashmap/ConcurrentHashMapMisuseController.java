@@ -1,4 +1,4 @@
-package common.buessiness.problems.current.concurrenthashmap;
+package common.buessiness.problems.concurency.concurrenthashmap;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
