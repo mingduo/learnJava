@@ -28,7 +28,7 @@ public class NIOFileChannel03 {
         //FileChannel fileChannel = fileInputStream.getChannel();
 
         try (FileChannel sourceFileChannel = FileChannel.open(sourcePath, StandardOpenOption.READ);
-        FileChannel targetFileChannelnnel = FileChannel.open(targetPath, StandardOpenOption.CREATE,StandardOpenOption.WRITE)
+             FileChannel targetFileChannelnnel = FileChannel.open(targetPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE)
         ) {
             //创建缓冲区
             ByteBuffer buffer = ByteBuffer.allocate(64);

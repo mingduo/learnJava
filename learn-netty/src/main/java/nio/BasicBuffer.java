@@ -3,10 +3,8 @@ package nio;
 import java.nio.IntBuffer;
 
 /**
- * 
- *  
+ * @author : weizc
  * @since 2020/6/29
- * @author : weizc 
  */
 public class BasicBuffer {
 
@@ -22,8 +20,8 @@ public class BasicBuffer {
 //        intBuffer.put(13);
 //        intBuffer.put(14);
 
-        for(int i=0;i<intBuffer.capacity();i++){
-            intBuffer.put(i*2);
+        for (int i = 0; i < intBuffer.capacity(); i++) {
+            intBuffer.put(i * 2);
         }
 
         //如何从buffer读取数据
@@ -43,7 +41,7 @@ public class BasicBuffer {
 
         intBuffer.limit(3);
 
-        while (intBuffer.hasRemaining()){
+        while (intBuffer.hasRemaining()) {
             System.out.println(intBuffer.get());
         }
     }

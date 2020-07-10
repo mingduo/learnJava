@@ -3,10 +3,8 @@ package nio;
 import java.nio.ByteBuffer;
 
 /**
- * 
- *  
+ * @author : weizc
  * @since 2020/6/30
- * @author : weizc 
  */
 public class NIOByteBufferPutGet {
 

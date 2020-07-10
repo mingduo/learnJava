@@ -18,7 +18,7 @@ public class MappedByteBufferTest {
  */
     @SneakyThrows
     public static void main(String[] args) {
-        RandomAccessFile file=new RandomAccessFile("learn-netty/src/main/resources/nio/MappedByteBufferTest.txt", "rw");
+        RandomAccessFile file = new RandomAccessFile("learn-netty/src/main/resources/nio/MappedByteBufferTest.txt", "rw");
         FileChannel fileChannel = file.getChannel();
 
         /**

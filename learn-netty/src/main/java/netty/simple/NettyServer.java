@@ -41,7 +41,7 @@ public class NettyServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     //设置保持活动连接状态
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
-                    .handler(null) // 该 handler对应 bossGroup , childHandler 对应 workerGroup
+                    //.handler(null) // 该 handler对应 bossGroup , childHandler 对应 workerGroup
                     .childHandler(new ChannelInitializer<NioSocketChannel>() {//创建一个通道初始化对象(匿名对象)
                         //给pipeline 设置处理器
                         @Override
@@ -56,6 +56,15 @@ public class NettyServer {
             //绑定一个端口并且同步, 生成了一个 ChannelFuture 对象
             //启动服务器(并绑定端口)
             ChannelFuture channelFuture = serverBootstrap.bind(6666).sync();
+
+            //给cf 注册监听器，监控我们关心的事件
+            channelFuture.addListener(future -> {
+                if (future.isSuccess()) {
+                    log.info("服务器发布成功");
+                } else {
+                    log.info("服务器发布失败");
+                }
+            });
             //对关闭通道进行监听
             channelFuture.channel().closeFuture().sync();
         } catch (Exception e) {

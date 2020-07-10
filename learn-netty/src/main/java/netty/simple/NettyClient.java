@@ -9,19 +9,17 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 
- *  
+ * @author : weizc
  * @since 2020/7/3
- * @author : weizc 
  */
 @Slf4j
 public class NettyClient {
 
     public static void main(String[] args) {
-        EventLoopGroup group=new NioEventLoopGroup();
+        EventLoopGroup group = new NioEventLoopGroup();
 
         try {
-            Bootstrap bootstrap=new Bootstrap()
+            Bootstrap bootstrap = new Bootstrap()
                     .group(group)
                     .channel(NioSocketChannel.class)
                     .handler(new ChannelInitializer<NioSocketChannel>() {
@@ -36,9 +34,9 @@ public class NettyClient {
             log.info("客户端启动成功");
 
             channelFuture.channel().closeFuture().sync();
-        }catch (Exception e){
-            log.error("",e);
-        }finally {
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
             group.shutdownGracefully();
         }
     }

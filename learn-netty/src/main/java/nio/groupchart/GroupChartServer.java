@@ -31,7 +31,7 @@ public class GroupChartServer {
     //初始化工作
     public GroupChartServer() throws IOException {
         //初始化 serversocketchannel
-        this.socketChannel=initializeServerSocketChannel();
+        this.socketChannel = initializeServerSocketChannel();
         //得到选择器
         this.selector = Selector.open();
         //将该listenChannel 注册到selector
@@ -122,7 +122,7 @@ public class GroupChartServer {
             if (targetChannel instanceof SocketChannel) {
                 //排除自己
                 if (targetChannel != self) {
-                    SocketChannel sendChannel=(SocketChannel) targetChannel;
+                    SocketChannel sendChannel = (SocketChannel) targetChannel;
                     String sendMsg = String.format("%s：%s", sendChannel.getRemoteAddress(), message);
                     System.out.println(sendMsg);
                     sendChannel.write(ByteBuffer.wrap(sendMsg.getBytes()));
@@ -135,14 +135,12 @@ public class GroupChartServer {
         ServerSocketChannel ssc = (ServerSocketChannel) selectionKey.channel();
         SocketChannel socketChannel = ssc.accept();
         //将该 sc 注册到seletor
-        System.out.printf("接收到客户端[%s]的连接...\n",socketChannel.getRemoteAddress());
+        System.out.printf("接收到客户端[%s]的连接...\n", socketChannel.getRemoteAddress());
         socketChannel.configureBlocking(false);
         socketChannel.register(selector, SelectionKey.OP_READ, ByteBuffer.allocate(1024));
 
-        System.out.printf("客户端[%s]上线\n",socketChannel.getRemoteAddress());
+        System.out.printf("客户端[%s]上线\n", socketChannel.getRemoteAddress());
     }
-
-
 
 
     private ServerSocketChannel initializeServerSocketChannel() throws IOException {

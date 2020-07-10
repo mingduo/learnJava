@@ -7,24 +7,23 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 
+ * @author : weizc
  * @apiNode:
  * @since 2020/4/12
- * @author : weizc 
  */
 public class CountAddDemo {
- //  static int count=0;
-    static AtomicInteger count=new AtomicInteger(0);
+    //  static int count=0;
+    static AtomicInteger count = new AtomicInteger(0);
 
     public static void main(String[] args) throws InterruptedException {
 
-        int num=5000;
+        int num = 5000;
         ExecutorService executorService = Executors.newCachedThreadPool();
 
 
-        for(int i=0;i<num;i++){
-            executorService.execute(()->{
-               add();
+        for (int i = 0; i < num; i++) {
+            executorService.execute(() -> {
+                add();
                 //
             });
         }
@@ -34,12 +33,12 @@ public class CountAddDemo {
         executorService.shutdown();
 
         //System.out.println("count = " +count.get());
-        System.out.println("count = " +count);
+        System.out.println("count = " + count);
 
     }
 
-    private static void add(){
-       // count++;
+    private static void add() {
+        // count++;
         count.incrementAndGet();
     }
 }

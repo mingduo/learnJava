@@ -52,6 +52,8 @@
         <module>learn-jdk8</module>
         <module>learn-elasticsearch</module>
         <module>learn-zookeeper</module>
+
+        <module>learn-common-bussiness-problems</module>
     </modules>
 
 

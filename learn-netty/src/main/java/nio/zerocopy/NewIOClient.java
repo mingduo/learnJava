@@ -16,6 +16,7 @@ import java.nio.file.StandardOpenOption;
 public class NewIOClient {
     /**
      * 使用 0 拷贝 传递一个大的文件
+     *
      * @param args
      * @throws IOException
      */
@@ -24,11 +25,11 @@ public class NewIOClient {
 
         try (
                 SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress(7001));
-                FileChannel fileChannel = FileChannel.open(path, StandardOpenOption.WRITE,StandardOpenOption.READ);
+                FileChannel fileChannel = FileChannel.open(path, StandardOpenOption.WRITE, StandardOpenOption.READ);
 
         ) {
             //准备发送
-            long startTime=System.currentTimeMillis();
+            long startTime = System.currentTimeMillis();
             //在linux下一个transferTo 方法就可以完成传输
             //在windows 下 一次调用 transferTo 只能发送8m , 就需要分段传输文件, 而且要主要
             //传输时的位置 =》 课后思考...

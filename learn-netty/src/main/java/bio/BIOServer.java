@@ -37,13 +37,12 @@ public class BIOServer {
         }
 
 
-
     }
 
     //telnet localhost 6666 
     private static void handlerClientSocket(Socket socket) {
         try (//通过socket 获取输入流
-                InputStream inputStream = socket.getInputStream()) {
+             InputStream inputStream = socket.getInputStream()) {
 
             System.out.println(String.format("监听到客户端[%s] 的连接...\n", socket.getRemoteSocketAddress()));
 

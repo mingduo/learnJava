@@ -92,11 +92,11 @@ public class NIOServer {
                                 }
                             } catch (IOException e) {
                                 try {
-                                    System.err.printf("远程主机[%s]强迫关闭了一个现有的连接%n",socketChannel.getRemoteAddress());
+                                    System.err.printf("远程主机[%s]强迫关闭了一个现有的连接%n", socketChannel.getRemoteAddress());
                                     selectionKey.cancel();
                                     socketChannel.close();
 
-                                }catch (Exception e1){
+                                } catch (Exception e1) {
                                     e.printStackTrace();
                                 }
 
