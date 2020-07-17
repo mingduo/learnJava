@@ -1,15 +1,13 @@
-package common.buessiness.problems.concurency.concurrenthashmap;
+package common.buessiness.problems.lock.lockscope;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class ConcurrentHashMapApplication {
+public class CommonMistakesApplication {
 
     public static void main(String[] args) {
-
-        SpringApplication.run(ConcurrentHashMapApplication.class, args);
+        SpringApplication.run(CommonMistakesApplication.class, args);
     }
 }
 
