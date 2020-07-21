@@ -62,7 +62,7 @@ public class DataSourceTest {
         result.write().mode(SaveMode.Append)
                 .jdbc("jdbc:mysql://localhost:3306/mingduo?characterEncoding=UTF-8",
                         "person_tmp", props);
-        String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\";
+        String path = "mrdata/spark/sql";
 
         //DataFrame保存成text时出错(只能保存一列)
         //    result.write().text("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\json");
@@ -78,7 +78,7 @@ public class DataSourceTest {
     public void JsonDataSource() {
         // Note: JDBC loading and saving can be achieved via either the load/save or jdbc methods
         // Loading data from a JDBC source
-        String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\";
+        String path = "mrdata/spark/sql";
 
 
         Dataset<Row> result = spark.read().format("json")
@@ -98,7 +98,7 @@ public class DataSourceTest {
     public void csvDataSource() {
         // Note: JDBC loading and saving can be achieved via either the load/save or jdbc methods
         // Loading data from a JDBC source
-        String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\";
+        String path = "mrdata/spark/sql";
 
 
         Dataset<Row> csvDF = spark.read().csv(path + "csv");

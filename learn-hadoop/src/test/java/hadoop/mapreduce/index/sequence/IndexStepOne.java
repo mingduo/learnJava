@@ -79,11 +79,9 @@ public class IndexStepOne {
 
 
         FileInputFormat.setInputPaths(job,
-                new Path("F:\\idea\\myLearn\\learn\\learnJava" +
-                        "\\mrdata\\index\\input"));
+                new Path("mrdata/index/input"));
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn\\learnJava" +
-                        "\\mrdata\\index\\out-seq-1"));
+                new Path("mrdata/index/out-seq-1"));
 
         job.waitForCompletion(true);
 

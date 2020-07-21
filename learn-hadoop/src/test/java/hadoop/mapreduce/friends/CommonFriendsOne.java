@@ -92,11 +92,9 @@ public class CommonFriendsOne {
         job.setOutputValueClass(Text.class);
 
         FileInputFormat.setInputPaths(job,
-                new Path("F:\\idea\\myLearn\\learn" +
-                        "\\learnJava\\mrdata\\friends\\input"));
+                new Path("mrdata/friends/input"));
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn\\" +
-                        "learnJava\\mrdata\\friends\\out1"));
+                new Path("mrdata/friends/out1"));
 
         job.waitForCompletion(true);
     }

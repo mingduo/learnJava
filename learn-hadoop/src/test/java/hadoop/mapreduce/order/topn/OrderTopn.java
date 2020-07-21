@@ -98,11 +98,9 @@ public class OrderTopn {
         job.setOutputValueClass(NullWritable.class);
 
         FileInputFormat.setInputPaths(job,
-                new Path("F:\\idea\\myLearn\\" +
-                        "learn\\learnJava\\mrdata\\order\\input"));
+                new Path("mrdata/order/input"));
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn" +
-                        "\\learnJava\\mrdata\\order\\out1"));
+                new Path("mrdata/order/out1"));
 
         job.waitForCompletion(true);
     }

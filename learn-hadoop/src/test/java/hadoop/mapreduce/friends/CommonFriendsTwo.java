@@ -61,6 +61,7 @@ public class CommonFriendsTwo {
 
     public static void main(String[] args) throws Exception {
 
+        System.out.println(System.getProperty("user.dir"));
 
         Configuration conf = new Configuration();
 
@@ -78,11 +79,9 @@ public class CommonFriendsTwo {
         job.setOutputValueClass(Text.class);
 
         FileInputFormat.setInputPaths(job,
-                new Path("F:\\idea\\myLearn\\learn" +
-                        "\\learnJava\\mrdata\\friends\\out1"));
+                new Path("mrdata/friends/out1"));
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn\\" +
-                        "learnJava\\mrdata\\friends\\out2"));
+                new Path("mrdata/friends/out2"));
 
         job.waitForCompletion(true);
     }

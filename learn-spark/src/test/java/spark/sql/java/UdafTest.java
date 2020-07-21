@@ -40,7 +40,7 @@ public class UdafTest {
     public void test() {
         //注册函数
         spark.udf().register("myAverage", new MyAverage());
-        String path = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\";
+        String path = "mrdata/spark/sql";
 
 
         Dataset<Row> df = spark.read().json(path + "inputJson");

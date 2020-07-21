@@ -45,8 +45,8 @@ public class JobSubmitter {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
-        FileInputFormat.setInputPaths(job, new Path("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\url\\input"));
-        FileOutputFormat.setOutputPath(job, new Path("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\url\\output"));
+        FileInputFormat.setInputPaths(job, new Path("mrdata/url/input"));
+        FileOutputFormat.setOutputPath(job, new Path("mrdata/url/output"));
 
         job.waitForCompletion(true);
 

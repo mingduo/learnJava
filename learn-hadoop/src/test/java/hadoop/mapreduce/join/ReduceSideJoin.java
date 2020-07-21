@@ -121,11 +121,9 @@ public class ReduceSideJoin {
 
         FileInputFormat.setInputPaths(job,
                 new Path
-                        ("F:\\idea\\myLearn\\learn\\learnJava" +
-                                "\\mrdata\\join\\input"));
+                        ("mrdata/join/input"));
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn\\" +
-                        "learnJava\\mrdata\\join\\out"));
+                new Path("mrdata/join/out"));
 
         job.waitForCompletion(true);
     }

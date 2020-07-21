@@ -33,9 +33,9 @@ public class JobSubmitter {
 
 
         FileInputFormat.setInputPaths(job, new Path(
-                "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\flow\\input"));
+                "mrdata/flow/input"));
         FileOutputFormat.setOutputPath(job, new Path(
-                "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\flow\\output"));
+                "mrdata/flow/output"));
 
         job.waitForCompletion(true);
 

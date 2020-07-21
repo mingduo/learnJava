@@ -25,7 +25,7 @@ public class JavaWordCount {
         //创建sparkContext
         JavaSparkContext jsc = new JavaSparkContext(conf);
         //指定以后从哪里读取数据
-        JavaRDD<String> lines = jsc.textFile("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\wc\\input");
+        JavaRDD<String> lines = jsc.textFile("mrdata/spark/wc/input");
 
         //切分压平
         JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
@@ -79,7 +79,7 @@ public class JavaWordCount {
 
             }
         });
-        String outPath = "F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\wc\\out";
+        String outPath = "mrdata/spark/wc/out";
         result.saveAsTextFile(outPath);
         //释放资源
         jsc.stop();

@@ -47,7 +47,7 @@ public class HiveSpark {
                 .getOrCreate();
 
         spark.sql("CREATE  TABLE IF NOT EXISTS src (key INT, value STRING) USING hive");
-        spark.sql("LOAD DATA LOCAL INPATH 'F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\hive\\input\\xx' INTO TABLE src");
+        spark.sql("LOAD DATA LOCAL INPATH 'mrdata/spark/sql/input/aa.txt' INTO TABLE src");
 
 // Queries are expressed in HiveQL
         spark.sql("SELECT * FROM src").show();

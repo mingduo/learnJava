@@ -70,11 +70,9 @@ public class PageCountStep1 {
         job.setOutputValueClass(IntWritable.class);
 
         FileInputFormat.setInputPaths(job,
-                new Path("F:\\idea\\myLearn\\learn\\learnJava" +
-                        "\\mrdata\\url\\input"));
+                new Path("mrdata/url/"));
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn\\learnJava" +
-                        "\\mrdata\\url\\countout"));
+                new Path("mrdata/url/countout"));
 
         job.setNumReduceTasks(3);
 

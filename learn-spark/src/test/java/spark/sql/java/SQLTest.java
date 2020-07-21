@@ -36,7 +36,7 @@ public class SQLTest {
                 .getOrCreate();
 
         JavaRDD<Row> rowRDD = spark.read()
-                .textFile("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\input")
+                .textFile("mrdata/spark/sql/input")
                 .javaRDD()
                 .map(line -> {
                     String[] parts = line.split(",");
@@ -81,7 +81,7 @@ public class SQLTest {
                 .getOrCreate();
 
         JavaRDD<Row> rowRDD = spark.read()
-                .textFile("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\input")
+                .textFile("mrdata/spark/sql/input")
                 .javaRDD()
                 .map(line -> {
                     String[] parts = line.split(",");
@@ -123,7 +123,7 @@ public class SQLTest {
                 .getOrCreate();
 
         JavaRDD<Row> rowRDD = spark.read()
-                .textFile("F:\\idea\\myLearn\\learn\\learnJava\\mrdata\\spark\\sql\\ip")
+                .textFile("mrdata/spark/sql/ip")
                 .javaRDD()
                 .map(line -> {
                     String[] fileds = line.split("[|]");
