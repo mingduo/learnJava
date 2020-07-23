@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.jdk8.optionAndLocateDate;
+package jdk8.optionAndLocateDate;
 
 import java.text.DateFormat;
 import java.text.ParseException;

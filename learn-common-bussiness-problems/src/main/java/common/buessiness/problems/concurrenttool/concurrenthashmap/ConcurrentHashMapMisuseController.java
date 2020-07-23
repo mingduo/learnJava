@@ -61,8 +61,9 @@ public class ConcurrentHashMapMisuseController {
             });
         });
         //等待所有任务完成
-        forkJoinPool.awaitTermination(1, TimeUnit.SECONDS);
         forkJoinPool.shutdown();
+        forkJoinPool.awaitTermination(1, TimeUnit.HOURS);
+
         //最后元素个数会是1000吗？
         log.info("finish size:{}", concurrentHashMap.size());
 

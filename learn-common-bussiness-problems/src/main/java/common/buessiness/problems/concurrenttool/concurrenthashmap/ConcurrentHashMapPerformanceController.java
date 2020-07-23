@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -41,7 +38,7 @@ public class ConcurrentHashMapPerformanceController {
 
 
     private Map<String, Long> normaluse() throws InterruptedException {
-        ConcurrentHashMap<String, Long> data = new ConcurrentHashMap<>(ITEM_COUNT);
+        ConcurrentMap<String, Long> data = new ConcurrentHashMap<>(ITEM_COUNT);
         ForkJoinPool forkJoinPool = new ForkJoinPool(THREAD_COUNT);
 
         forkJoinPool.execute(() -> {

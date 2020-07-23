@@ -1,6 +1,6 @@
-package com.ais.brm.study.brmTest.jdk8.optionAndLocateDate;
+package jdk8.optionAndLocateDate;
 
-import com.ais.brm.study.brmTest.jdk8.optionAndLocateDate.Employee.Status;
+import jdk8.optionAndLocateDate.Employee.Status;
 import org.junit.Test;
 
 import java.util.*;
