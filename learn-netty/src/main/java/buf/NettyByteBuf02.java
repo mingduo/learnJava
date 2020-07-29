@@ -12,7 +12,7 @@ public class NettyByteBuf02 {
 
     public static void main(String[] args) {
         //创建ByteBuf
-        ByteBuf buf = Unpooled.copiedBuffer("hello,World!", CharsetUtil.UTF_8);
+        ByteBuf buf = Unpooled.copiedBuffer("我hello,World!", CharsetUtil.UTF_8);
         //使用相关的方法
         if (buf.hasArray()) {// true
             byte[] bytes = buf.array();

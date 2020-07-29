@@ -1,4 +1,4 @@
-## 判等问题：程序里如何确定你就是你？
+## 8 判等问题：程序里如何确定你就是你？
 - 注意equals和==的区别：intandstringequal
 - 实现一个equals没有这么简单：equalitymethod
 - hashCode和equals要配对实现：equalitymethod
