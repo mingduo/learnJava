@@ -1,5 +1,6 @@
 package common.buessiness.problems.utils;
 
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.EncodedResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
@@ -15,6 +16,22 @@ public interface SystemPropertySourceUtils {
 
     static void loadProperties(Resource resource) {
         EncodedResource encodedResource = new EncodedResource(resource, "utf-8");
+        try {
+            Properties properties = PropertiesLoaderUtils.loadProperties(encodedResource);
+            properties.forEach((k, v) ->
+                    System.setProperty(k.toString(), v.toString())
+            );
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    static void loadProperties(String location) {
+        DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
+        EncodedResource encodedResource = new EncodedResource(resourceLoader.getResource(location), "utf-8");
         try {
             Properties properties = PropertiesLoaderUtils.loadProperties(encodedResource);
             properties.forEach((k, v) ->
