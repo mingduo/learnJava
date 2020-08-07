@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-package netty.echo;
+package netty.source.echo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

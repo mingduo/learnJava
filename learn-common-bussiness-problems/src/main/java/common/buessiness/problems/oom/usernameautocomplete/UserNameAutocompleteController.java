@@ -45,6 +45,9 @@ public class UserNameAutocompleteController {
                 .mapToObj(i -> new UserOOMEntity(i, randomName()))
                 .collect(Collectors.toList());
         userEntityRepository.saveAll(users);
+
+       // wrong();
+        right();
     }
 
 
