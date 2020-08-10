@@ -18,19 +18,36 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
 /**
  * @author : weizc
  * @since 2020/8/7
  */
 @Slf4j
-public class NettyDubboClient {
+public class NettyDubboClient implements AutoCloseable {
 
 
     boolean initizalied;
-    static NettyDubboClientHandler client;
+    NettyDubboClientHandler client;
     ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    NioEventLoopGroup workGroup = new NioEventLoopGroup(8);
 
-     AtomicInteger count = new AtomicInteger();
+    AtomicInteger count = new AtomicInteger();
+
+
+    {
+        if (workGroup != null) {
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                close();
+            }));
+        }
+    }
+
+    @Override
+    public void close() {
+        log.info("关闭 客户端连接");
+        workGroup.shutdownGracefully();
+    }
 
     /**
      * 设置 jdkDynamic代理 调用
@@ -47,7 +64,6 @@ public class NettyDubboClient {
 
         client = new NettyDubboClientHandler();
 
-        NioEventLoopGroup workGroup = new NioEventLoopGroup(8);
 
         try {
             Bootstrap bootstrap = new Bootstrap();
@@ -67,7 +83,7 @@ public class NettyDubboClient {
                     });
 
             bootstrap.connect("localhost", 7777).sync();
-            System.out.println("客户端开始连接服务~~");
+            log.info("客户端开始连接服务~~");
 
             initizalied = true;
 
@@ -92,16 +108,15 @@ public class NettyDubboClient {
                     }
                 }
             }
-        /*    if (client == null) {
-                initClient(7777);
-            }*/
 
             if (args.length == 1 && args[0] instanceof String) {
                 String param = (String) args[0];
                 //设置要发给服务器端的信息
                 //providerName 协议头 args[0] 就是客户端调用api hello(???), 参数
-                client.setParam(param);
-                return executorService.submit(client).get();
+                synchronized (this) {
+                    client.setParam(param);
+                    return executorService.submit(client).get();
+                }
             }
             return null;
         }

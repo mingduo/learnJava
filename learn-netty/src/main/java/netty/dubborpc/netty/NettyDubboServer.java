@@ -21,6 +21,8 @@ public class NettyDubboServer {
         startServer0(hostname, inetPort);
     }
 
+    //编写一个方法，完成对NettyServer的初始化和启动
+
     private static void startServer0(String hostname, int inetPort) {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
         NioEventLoopGroup workGroup = new NioEventLoopGroup(8);

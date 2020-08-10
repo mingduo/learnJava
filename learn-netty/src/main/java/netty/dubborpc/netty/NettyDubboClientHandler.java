@@ -16,8 +16,9 @@ public class NettyDubboClientHandler extends SimpleChannelInboundHandler<String>
 
     @Setter
     private String param;
-    private String result;
-    ChannelHandlerContext ctx;
+    private String result; //返回的结果
+    ChannelHandlerContext ctx;//客户端调用方法时，传入的参数
+
 
     @Override
     protected synchronized void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
@@ -29,7 +30,7 @@ public class NettyDubboClientHandler extends SimpleChannelInboundHandler<String>
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("NettyDubboClientHandler#channelActive");
-        this.ctx = ctx;
+        this.ctx = ctx; //因为我们在其它方法会使用到 ctx
     }
 
     @Override
@@ -41,7 +42,7 @@ public class NettyDubboClientHandler extends SimpleChannelInboundHandler<String>
 
     /**
      * 加了synchronized
-     *
+     * 被代理对象调用, 发送数据给服务器，-> wait -> 等待被唤醒(channelRead) -> 返回结果 (3)-》5
      * @return
      * @throws Exception
      */
