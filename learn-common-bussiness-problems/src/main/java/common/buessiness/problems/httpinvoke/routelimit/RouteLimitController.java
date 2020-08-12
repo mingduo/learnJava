@@ -112,22 +112,22 @@ public class RouteLimitController {
     }
 
 
-        //模拟10次请求  closeableHttpClient 默认并发数2个
-        @GetMapping("wrong")
-        public int wrong ( @RequestParam(defaultValue = "10") int count) throws InterruptedException {
-            return sendRequest(count, () -> client1);
-        }
-
-
-        @GetMapping("right")
-        public int right ( @RequestParam(defaultValue = "10") int count) throws InterruptedException {
-            return sendRequest2(count, () -> client2);
-
-        }
-
-        @GetMapping("server")
-        public int server () throws InterruptedException {
-            TimeUnit.SECONDS.sleep(1);
-            return 1;
-        }
+    //模拟10次请求  closeableHttpClient 默认并发数2个
+    @GetMapping("wrong")
+    public int wrong(@RequestParam(defaultValue = "10") int count) throws InterruptedException {
+        return sendRequest(count, () -> client1);
     }
+
+
+    @GetMapping("right")
+    public int right(@RequestParam(defaultValue = "10") int count) throws InterruptedException {
+        return sendRequest2(count, () -> client2);
+
+    }
+
+    @GetMapping("server")
+    public int server() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1);
+        return 1;
+    }
+}
