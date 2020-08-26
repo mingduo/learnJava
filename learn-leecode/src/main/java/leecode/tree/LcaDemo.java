@@ -34,7 +34,7 @@ public class LcaDemo {
         //输入: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
         TreeNode treeNode = lowestCommonAncestor(root, root.left, root.left);
         //输出: 3
-        System.out.println("LCA:"+treeNode);
+        System.out.println("LCA:" + treeNode);
     }
 
     /**
@@ -46,17 +46,18 @@ public class LcaDemo {
      * 3. 左右子树返回值均为null, p和q均不在树中, 返回null
      **/
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // LCA 问题
+
         if (root == null || p == null || q == null) {
             return null;
         }
         if (root == p || root == q) {
             return root;
         }
-        //左边树开始搜索
+
         TreeNode left = lowestCommonAncestor(root.left, p, q);
-        //右边树开始搜索
+
         TreeNode right = lowestCommonAncestor(root.right, p, q);
+
         if (left != null && right != null) {
             return root;
         } else if (left != null) {
@@ -64,7 +65,6 @@ public class LcaDemo {
         } else if (right != null) {
             return right;
         }
-
         return null;
     }
 
