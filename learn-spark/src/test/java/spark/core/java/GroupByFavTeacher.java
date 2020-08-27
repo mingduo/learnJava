@@ -46,7 +46,7 @@ public class GroupByFavTeacher {
             return Tuple2.apply(String.join("_", subject, teacher), 1);
         });
         //聚合 学科老师分组
-        JavaPairRDD<String, Integer> reduced = sbjectAndteacher.reduceByKey((m, n) -> m + n);
+        JavaPairRDD<String, Integer> reduced = sbjectAndteacher.reduceByKey(Integer::sum);
         //学科分组
         JavaPairRDD<String, Iterable<Tuple2<String, Integer>>> sbjectRDD = reduced.groupBy(t -> t._1.split("_")[0]);
 
@@ -55,7 +55,7 @@ public class GroupByFavTeacher {
             List<Tuple2<String, Integer>> tmp = new ArrayList<>();
             t.forEach(tmp::add);
             //list 里面排序 单一机器可能内存不足
-            Collections.sort(tmp, (o1, o2) -> o1._2 - o2._2);
+            tmp.sort(Comparator.comparingInt(o -> o._2));
             Collections.reverse(tmp);
             /**
              * It's because, List returned by subList() method
@@ -98,7 +98,7 @@ public class GroupByFavTeacher {
             return Tuple2.apply(String.join("_", subject, teacher), 1);
         });
         //聚合 学科老师分组
-        JavaPairRDD<String, Integer> reduced = sbjectAndteacher.reduceByKey((m, n) -> m + n);
+        JavaPairRDD<String, Integer> reduced = sbjectAndteacher.reduceByKey(Integer::sum);
 
 
         JavaPairRDD<String, Integer> cache = reduced.cache();
@@ -106,7 +106,7 @@ public class GroupByFavTeacher {
         for (String subject : subjects) {
             JavaPairRDD<String, Integer> filtered = cache.filter(t -> (Boolean) t._1.contains(subject));
             //排序
-            JavaPairRDD<Integer, String> sorted = filtered.mapToPair(t -> t.swap()).sortByKey(false);
+            JavaPairRDD<Integer, String> sorted = filtered.mapToPair(Tuple2::swap).sortByKey(false);
             //排序
             List<Tuple2<String, Integer>> result = sorted.mapToPair(Tuple2::swap).take(N);
             System.out.println("out => [" + result + "]");     //
@@ -141,7 +141,7 @@ public class GroupByFavTeacher {
 
         Partitioner subjectPartitioner = new SubjectPartitioner(subjects);
         //聚合 学科老师分组
-        JavaPairRDD<String, Integer> reduced = sbjectAndteacher.reduceByKey(subjectPartitioner, (m, n) -> m + n);
+        JavaPairRDD<String, Integer> reduced = sbjectAndteacher.reduceByKey(subjectPartitioner, Integer::sum);
         System.out.println("reduced => [" + reduced.collect() + "]");     //
 
         //cache到内存

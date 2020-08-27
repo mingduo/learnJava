@@ -42,10 +42,7 @@
             <artifactId>spark-core_2.11</artifactId>
             <version>${spark.version}</version>
             <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
+
                 <exclusion>
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
@@ -90,6 +87,12 @@
             <artifactId>mongo-spark-connector_2.11</artifactId>
             <version>2.2.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
