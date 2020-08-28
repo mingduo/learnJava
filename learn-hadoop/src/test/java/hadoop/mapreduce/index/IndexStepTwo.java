@@ -68,12 +68,10 @@ public class IndexStepTwo {
         job.setOutputValueClass(Text.class);
 
         FileInputFormat.setInputPaths(job,
-                new Path("F:\\idea\\myLearn\\learn" +
-                        "\\learnJava\\mrdata\\index\\out1"));
+                new Path("/mrdata/index/out1"));
 
         FileOutputFormat.setOutputPath(job,
-                new Path("F:\\idea\\myLearn\\learn\\" +
-                        "learnJava\\mrdata\\index\\out2"));
+                new Path("/mrdata/index/out2"));
 
         job.waitForCompletion(true);
 

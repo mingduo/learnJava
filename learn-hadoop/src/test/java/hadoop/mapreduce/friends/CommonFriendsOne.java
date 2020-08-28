@@ -13,6 +13,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class CommonFriendsOne {
 
@@ -53,7 +54,7 @@ public class CommonFriendsOne {
         protected void reduce(Text friend, Iterable<Text> users, Context context)
                 throws IOException, InterruptedException {
 
-            ArrayList<String> userList = new ArrayList<>();
+            List<String> userList = new ArrayList<>();
 
             for (Text user : users) {
                 userList.add(user.toString());

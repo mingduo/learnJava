@@ -1,6 +1,7 @@
 package leecode.juc;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -19,7 +20,7 @@ public class ProduceConsumerDemo {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
 
-        ProduceConsumerContainer container = new LockConditionContainer();
+        ProduceConsumerContainer container = new SynchronizedContainer();
 
         executorService.execute(() -> container.produce());
         executorService.execute(() -> container.consumer());
@@ -30,27 +31,29 @@ public class ProduceConsumerDemo {
     }
 
     static class SynchronizedContainer implements ProduceConsumerContainer {
-        LinkedList<Integer> data = new LinkedList<>();
-        Random r = new Random();
-        int max_cap = 5;
+
+        List<Integer> data = new LinkedList<>();
 
         @Override
         public void produce() {
+
             while (true) {
-                try {
-                    synchronized (this) {
-                        while (data.size() == max_cap) {
+                synchronized (this) {
+                    try {
+                        while (data.size() > 5) {
                             wait();
                         }
-                        Thread.sleep(1000);
-                        int i = r.nextInt(100);
 
-                        println("生产者正在生产数据:" + i);
-                        data.add(i);
-                        this.notifyAll();
+                        int value = ThreadLocalRandom.current().nextInt(10);
+                        println("生产者正在生产数据" + value);
+                        data.add(value);
+
+                        TimeUnit.SECONDS.sleep(1);
+
+                        notifyAll();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
             }
         }
@@ -58,19 +61,21 @@ public class ProduceConsumerDemo {
         @Override
         public void consumer() {
             while (true) {
-                try {
-                    synchronized (this) {
+                synchronized (this) {
+                    try {
                         while (data.isEmpty()) {
                             wait();
                         }
-                        Thread.sleep(1000);
-                        Integer value = data.poll();
 
-                        println("消费者正在消费数据:" + value);
-                        this.notifyAll();
+                        Integer value = data.remove(0);
+                        println("生产者正在消费数据" + value);
+
+                        TimeUnit.SECONDS.sleep(1);
+
+                        notifyAll();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
             }
         }
@@ -122,21 +127,22 @@ public class ProduceConsumerDemo {
 
 
     static class LockConditionContainer implements ProduceConsumerContainer {
-        Queue<Integer> queue=new LinkedList<>();
-        Lock lock=new ReentrantLock();
+        Queue<Integer> queue = new LinkedList<>();
+        Lock lock = new ReentrantLock();
         Condition isEmpty = lock.newCondition();
         Condition isFull = lock.newCondition();
-        int max_cap=5;
-        Random r=new Random();
+        int max_cap = 5;
+        Random r = new Random();
+
         @Override
         public void produce() {
             while (true) {
                 lock.lock();
                 try {
-                    while (queue.size()==max_cap){
+                    while (queue.size() == max_cap) {
                         isFull.await();
                     }
-                   int value= r.nextInt(100);
+                    int value = r.nextInt(100);
                     queue.offer(value);
 
                     Thread.sleep(1000);
@@ -145,7 +151,7 @@ public class ProduceConsumerDemo {
                     isEmpty.signalAll();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally {
+                } finally {
                     lock.unlock();
                 }
             }
@@ -156,7 +162,7 @@ public class ProduceConsumerDemo {
             while (true) {
                 lock.lock();
                 try {
-                    while (queue.isEmpty()){
+                    while (queue.isEmpty()) {
                         isEmpty.await();
                     }
                     Thread.sleep(1000);
@@ -165,7 +171,7 @@ public class ProduceConsumerDemo {
                     isFull.signalAll();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally {
+                } finally {
                     lock.unlock();
                 }
             }

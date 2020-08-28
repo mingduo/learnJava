@@ -38,7 +38,7 @@ public class BalancedTreeDemo {
             return level;
         }
         level++;
-        max=max>level?max:level;
+        max= Math.max(max, level);
 
         int left = level(root.left, level,max);
         int right = level(root.right, level,max);
