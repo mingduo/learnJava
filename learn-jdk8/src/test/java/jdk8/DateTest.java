@@ -129,6 +129,7 @@ public class DateTest {
         LocalDate nextTue = date.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
         System.out.println(nextTue.toString());
 
+
         LocalDate now = LocalDate.now();
         LocalDate nextDay = now.withMonth(Month.MAY.getValue()).with(TemporalAdjusters.firstInMonth(DayOfWeek.FRIDAY));
         System.out.println(nextDay.toString());
