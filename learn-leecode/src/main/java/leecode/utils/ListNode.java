@@ -2,8 +2,6 @@ package leecode.utils;
 
 import lombok.ToString;
 
-import java.util.List;
-
 @ToString
 public class ListNode {
     public int val;
@@ -18,6 +16,8 @@ public class ListNode {
         ListNode one = new ListNode(1);
         one.next=new ListNode(2);
         one.next.next=new ListNode(3);
+        one.next.next.next=new ListNode(4);
+
         return one;
     }
 }

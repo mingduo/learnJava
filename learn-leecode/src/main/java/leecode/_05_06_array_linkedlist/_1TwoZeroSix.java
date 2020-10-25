@@ -2,11 +2,6 @@ package leecode._05_06_array_linkedlist;
 
 import leecode.utils.ListNode;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 /**
  * @author weizc
  * <p>
@@ -16,7 +11,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class _1TwoZeroSix {
 
     /**
-     *
      * 输入: 1->2->3->4->5->NULL
      * 输出: 5->4->3->2->1->NULL
      * 方法一：迭代
@@ -35,15 +29,29 @@ public class _1TwoZeroSix {
      * @return
      */
     public static ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = null;
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
+        }
+        return newHead;
+    }
+
+    public static ListNode myReverseList(ListNode head) {
 
         ListNode prev = null;
-        ListNode cur=head;
-        while (cur != null) {
-            cur.next=prev;
-            prev=cur;
-            head=head.next;
+        while (head != null) {
+            ListNode cur = new ListNode(head.val);
+            cur.next = prev;
+            prev = cur;
+            head = head.next;
         }
-        return   prev;
+        return prev;
     }
 
     public static void main(String[] args) {
@@ -51,6 +59,9 @@ public class _1TwoZeroSix {
         System.out.println(node);
 
         ListNode reverseNode = reverseList(node);
+        System.out.println(reverseNode);
+
+        reverseNode = myReverseList(ListNode.buildNode());
         System.out.println(reverseNode);
     }
 
