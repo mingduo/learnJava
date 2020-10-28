@@ -1,5 +1,7 @@
 package leecode.tree;
 
+import leecode.utils.TreeNode;
+
 /**
  * @author : weizc
  * @since 2020/8/25
@@ -36,8 +38,8 @@ public class MergedTreeDemo {
      * @param args
      */
     public static void main(String[] args) {
-        TreeNode treeA = TreeNodeUtils.createInstanceTreeNode();
-        TreeNode treeB = TreeNodeUtils.createInstanceTreeNode();
+        TreeNode treeA = TreeNode.createInstanceTreeNode();
+        TreeNode treeB = TreeNode.createInstanceTreeNode();
 
         System.out.println(mergeTree(treeA, treeB));
 

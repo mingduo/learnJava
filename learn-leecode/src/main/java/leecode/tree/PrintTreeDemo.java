@@ -1,5 +1,7 @@
 package leecode.tree;
 
+import leecode.utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -30,7 +32,7 @@ public class PrintTreeDemo {
      * @param args
      */
     public static void main(String[] args) {
-        TreeNode root = TreeNodeUtils.createInstanceTreeNode();
+        TreeNode root = TreeNode.createInstanceTreeNode();
 
         System.out.println(root);
 

@@ -1,5 +1,7 @@
 package leecode.tree;
 
+import leecode.utils.TreeNode;
+
 /**
  * 
  *  
@@ -9,7 +11,7 @@ package leecode.tree;
 public class ForEachTreeDemo {
 
     public static void main(String[] args) {
-        TreeNodeUtils.createInstanceTreeNode();
+        TreeNode.createInstanceTreeNode();
 
     }
 

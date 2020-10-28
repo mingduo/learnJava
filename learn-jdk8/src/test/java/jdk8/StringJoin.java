@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.jdk8;
+package jdk8;
 
 import org.junit.Test;
 

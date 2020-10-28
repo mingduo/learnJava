@@ -1,5 +1,7 @@
 package leecode.tree;
 
+import leecode.utils.TreeNode;
+
 /**
  * @author : weizc
  * @apiNode:
@@ -27,7 +29,7 @@ public class LcaDemo {
      * @param args
      */
     public static void main(String[] args) {
-        TreeNode root = TreeNodeUtils.createInstanceTreeNode();
+        TreeNode root = TreeNode.createInstanceTreeNode();
 
         System.out.println(root);
 

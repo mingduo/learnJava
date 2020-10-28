@@ -1,5 +1,7 @@
 package leecode.tree;
 
+import leecode.utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

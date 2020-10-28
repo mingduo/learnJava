@@ -1,5 +1,7 @@
 package leecode.tree;
 
+import leecode.utils.TreeNode;
+
 /**
  * @author : weizc
  * @since 2020/8/26
@@ -9,7 +11,7 @@ public class InvertTreeDemo {
     public static void main(String[] args) {
 
         //root = [3,5,1,6,2,0,8,null,null,7,4]
-        TreeNode treeNode = TreeNodeUtils.createInstanceTreeNode();
+        TreeNode treeNode = TreeNode.createInstanceTreeNode();
 
 
         System.out.println(treeNode);

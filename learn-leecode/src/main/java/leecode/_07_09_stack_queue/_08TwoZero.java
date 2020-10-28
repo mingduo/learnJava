@@ -1,7 +1,11 @@
 package leecode._07_09_stack_queue;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 /**
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
@@ -37,7 +41,7 @@ import java.util.Map;
  */
 public class _08TwoZero {
 
-   static Map<String, String> mappings = new HashMap<String, String>(4) {
+    static Map<String, String> mappings = new HashMap<String, String>(4) {
         {
             //('，')'，'{'，'}'，'['，']' 
             put("(", ")");
@@ -45,16 +49,17 @@ public class _08TwoZero {
             put("[", "]");
         }
     };
-    public static boolean isValid(String s) {
+
+    public static boolean isMyValid(String s) {
 
         String[] values = s.split("");
         boolean isContinued = false;
-        if(values.length%2==1){
+        if (values.length % 2 == 1) {
             return false;
         }
-        for (int i = 0; i < values.length/2;  i ++) {
+        for (int i = 0; i < values.length / 2; i++) {
             String key = values[i];
-            String value = values[values.length - i -1];
+            String value = values[values.length - i - 1];
             if (mappings.containsKey(key)
                     && value.equals(mappings.get(key))) {
                 isContinued = true;
@@ -66,12 +71,32 @@ public class _08TwoZero {
         return isContinued;
     }
 
+    //stack
+    public static boolean isValid(String s) {
+        BiMap<String, String> biMap = HashBiMap.create(mappings).inverse();
+        Stack<String> stack = new Stack<>();
+        for (String value : s.split("")) {
+            if (biMap.containsKey(value)) {
+                if (stack.empty() || !biMap.get(value).equals(stack.pop())) {
+                    return false;
+                }
+            } else {
+                stack.push(value);
+            }
+        }
+        return stack.empty();
+    }
+
     public static void main(String[] args) {
+        System.out.println(isMyValid("{[]}"));
+        System.out.println(isMyValid("()"));
+        System.out.println(isMyValid("([)]"));
+
+        System.out.println("=============");
+
         System.out.println(isValid("{[]}"));
         System.out.println(isValid("()"));
         System.out.println(isValid("([)]"));
-
-
 
     }
 }

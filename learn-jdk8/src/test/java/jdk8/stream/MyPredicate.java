@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.jdk8.stream;
+package   jdk8.stream;
 
 @FunctionalInterface
 public interface MyPredicate<T> {

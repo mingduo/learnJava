@@ -1,4 +1,4 @@
-package com.ais.brm.study.brmTest.jdk8;
+package jdk8;
 
 import java.util.Arrays;
 import java.util.List;
