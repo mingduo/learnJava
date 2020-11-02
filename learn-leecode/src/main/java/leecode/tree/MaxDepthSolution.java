@@ -33,22 +33,33 @@ public class MaxDepthSolution {
     }
 
     public static int dfsmaxDepth(TreeNode root) {
-        return dfsmaxDepth(root,0);
+        return dfsmaxDepth(root, 0);
     }
 
     private static int dfsmaxDepth(TreeNode root, int level) {
-        if(root==null){
+        if (root == null) {
             return level;
         }
         //#visited
         //process node
         level++;
-        System.out.println("node:"+root.val+",leve:"+level);
+        System.out.println("node:" + root.val + ",level:" + level);
         //for each
         int left = dfsmaxDepth(root.left, level);
         int right = dfsmaxDepth(root.right, level);
 
-        return Math.max(left,right);
+        return Math.max(left, right);
+    }
+
+
+    private static int dfsmaxDepth2(TreeNode root, int level) {
+        if (root == null) {
+            return level;
+        }
+        return Stream.of(root.left, root.right)
+                .map(t -> dfsmaxDepth2(t, level + 1))
+                .max(Integer::compareTo).get();
+
     }
 
     public static void main(String[] args) {
@@ -56,6 +67,8 @@ public class MaxDepthSolution {
         System.out.println("maxDepth:" + bfsmaxDepth(node));
 
         System.out.println("maxDepth:" + dfsmaxDepth(node));
+
+        System.out.println("maxDepth:" + dfsmaxDepth2(node, 0));
 
     }
 }
