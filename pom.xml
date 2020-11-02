@@ -53,6 +53,9 @@
         <module>learn-elasticsearch</module>
         <module>learn-zookeeper</module>
 
+
+        <module>learn-otter</module>
+
         <module>learn-common-bussiness-problems</module>
     </modules>
 
