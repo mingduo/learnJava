@@ -82,21 +82,26 @@ public class _30_TwoTwo {
         }
     }
 
-    /**
-     * 数学归纳法
-     *
-     * @param subList
-     * @param list
-     */
-    private static void generateParenthesisByMath(String subList, List<String> list, int n) {
-        //todo
-
-    }
-
 
     public static void main(String[] args) {
-        System.out.println(generateParenthesis(3));
+        List<Integer> list = new ArrayList<>();
+        generateN(3, 3, list, "");
 
-        System.out.println(generateParenthesisByTrim(2));
+        System.out.println(list);
     }
+
+    private static void generateN(int left, int right, List<Integer> list, String value) {
+        if (0 == left && right == 0) {
+            list.add(Integer.parseInt(value));
+            return;
+        }
+        if (left > 0) {
+            generateN(left - 1, right, list, value + "1");
+        }
+        if (left<right ) {
+            generateN(left, right - 1, list, value + "2");
+        }
+    }
+
+
 }

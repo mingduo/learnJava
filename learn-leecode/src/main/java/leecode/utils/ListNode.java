@@ -13,10 +13,10 @@ public class ListNode {
 
 
     public static ListNode buildNode(){
-        ListNode one = new ListNode(1);
+        ListNode one = new ListNode(3);
         one.next=new ListNode(2);
-        one.next.next=new ListNode(3);
-        one.next.next.next=new ListNode(4);
+        one.next.next=new ListNode(0);
+        one.next.next.next=new ListNode(-4);
 
         return one;
     }

@@ -44,12 +44,15 @@ public class _1TwoZeroSix {
 
     public static ListNode myReverseList(ListNode head) {
 
-        ListNode prev = null;
-        while (head != null) {
-            ListNode cur = new ListNode(head.val);
-            cur.next = prev;
-            prev = cur;
-            head = head.next;
+        if(head==null){
+            return null;
+        }
+        ListNode prev=null;
+        while (head!=null){
+            ListNode cur=new ListNode(head.val);
+            cur.next=prev;
+            prev=cur;
+            head=head.next;
         }
         return prev;
     }

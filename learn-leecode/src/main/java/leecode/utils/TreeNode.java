@@ -33,4 +33,16 @@ public class TreeNode {
         root.left.right.right = new TreeNode(4);
         return root;
     }
+
+
+    public static TreeNode createLineInstanceTreeNode(){
+        TreeNode root = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+
+        root.right.right = new TreeNode(4);
+
+        root.right.right.right = new TreeNode(5);
+        return root;
+    }
 }

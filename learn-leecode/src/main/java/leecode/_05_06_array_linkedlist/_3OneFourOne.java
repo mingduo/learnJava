@@ -34,21 +34,22 @@ public class _3OneFourOne {
      * @param head
      * @return
      */
-    public boolean hasCycleBySet(ListNode head) {
-        HashSet<ListNode> set = new HashSet<>();
+    public static boolean hasCycleBySet(ListNode head) {
+        HashSet<Integer> set = new HashSet<>();
         while (head!=null){
-            if(set.contains(head)){
-                return false;
-            }else {
-                set.add(head);
-            }
 
+            boolean add = set.add(head.val);
+            if(!add){
+                return false;
+            }
             head=head.next;
+
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
+        System.out.println(hasCycleBySet(ListNode.buildNode()));
 
     }
 }

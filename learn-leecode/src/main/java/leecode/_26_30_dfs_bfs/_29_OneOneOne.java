@@ -3,6 +3,7 @@ package leecode._26_30_dfs_bfs;
 
 import leecode.utils.TreeNode;
 
+import java.util.Objects;
 import java.util.stream.Stream;
 
 /**
@@ -22,6 +23,7 @@ public class _29_OneOneOne {
         }
 
         return Stream.of(root.left,root.right)
+                .filter(Objects::nonNull)
                 .mapToInt(_29_OneOneOne::minDepth)
                 .boxed()
                 .min(Integer::compare)
@@ -38,6 +40,8 @@ public class _29_OneOneOne {
 
         System.out.println(minDepth(node));
 
+        TreeNode lineNode = TreeNode.createLineInstanceTreeNode();
+        System.out.println(minDepth(lineNode));
 
     }
 }

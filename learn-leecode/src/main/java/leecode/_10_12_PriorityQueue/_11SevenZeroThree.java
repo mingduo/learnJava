@@ -46,8 +46,10 @@ public class _11SevenZeroThree {
             if(q.size()<k){
                 q.offer(val);
             }else {
-                q.poll();
-                q.offer(val);
+                if(q.peek()<val) {
+                    q.poll();
+                    q.offer(val);
+                }
             }
             return q.peek();
     }

@@ -31,7 +31,7 @@ public interface TreeNodeUtils {
     }
 
 
-    public static void main(String[] args) {
+     static void main(String[] args) {
 
         TreeNode root = createInstanceTreeNode();
         fontSearch(root, 0);
@@ -42,6 +42,19 @@ public interface TreeNodeUtils {
 
 
         System.out.println(binaryTreePaths(root));
+
+
+        System.out.println("====二叉树遍历前序====");
+
+        fontSearch(root);
+
+        System.out.println("====二叉树遍历中序====");
+
+        midSearch(root);
+
+        System.out.println("====二叉树遍历后序====");
+
+        postSearch(root);
 
     }
 
@@ -103,8 +116,41 @@ public interface TreeNodeUtils {
         }
     }
 
+    // 前序遍历：根结点 ---> 左子树 ---> 右子树
+    static void fontSearch(TreeNode node) {
+        if (node != null) {
+            System.out.println("当前节点值为:" + node.val);
+            fontSearch(node.left);
+            fontSearch(node.right);
+        }
+    }
+
     //中序遍历：左子树---> 根结点 ---> 右子树
     static void midSearch(TreeNode node) {
+        if(node!=null){
 
+            midSearch(node.left);
+
+            System.out.println("当前节点值为:" + node.val);
+
+
+            midSearch(node.right);
+        }
+    }
+
+    /**
+     *
+     * @param node
+     */
+    static void postSearch(TreeNode node) {
+        if(node!=null){
+
+            postSearch(node.left);
+            postSearch(node.right);
+
+            System.out.println("当前节点值为:" + node.val);
+
+
+        }
     }
 }
