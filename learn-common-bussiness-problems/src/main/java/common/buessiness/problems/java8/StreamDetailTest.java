@@ -1,5 +1,7 @@
 package common.buessiness.problems.java8;
 
+import common.buessiness.problems.java8.collector.MostPopularCollector;
+import common.buessiness.problems.java8.collector.MostPopularCollector2;
 import common.buessiness.problems.utils.PrintlnUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
@@ -11,8 +13,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -166,10 +170,12 @@ public class StreamDetailTest {
                 .getClass());
 
         System.out.println("//使用toMap获取订单ID+下单用户名的Map");
-        System.out.println(orders.stream().collect(Collectors.toMap(Order::getId, Order::getCustomerName)));
+        System.out.println(orders.stream()
+                .collect(Collectors.toMap(Order::getId, Order::getCustomerName)));
 
         System.out.println("//使用toMap获取下单用户名+最近一次下单时间的Map");
-        System.out.println(orders.stream().collect(Collectors.toMap(Order::getCustomerName, Order::getPlacedAt, (x, y) -> x.isAfter(y) ? x : y)));
+        System.out.println(orders.stream()
+                .collect(Collectors.toMap(Order::getCustomerName, Order::getPlacedAt, (x, y) -> x.isAfter(y) ? x : y)));
 
 
         System.out.println("//订单平均购买的商品数量");
@@ -186,12 +192,15 @@ public class StreamDetailTest {
     public void groupBy() {
         System.out.println("//按照用户名分组，统计下单数量");
 
-        System.out.println(orders.stream().collect(Collectors.groupingBy(Order::getCustomerName, Collectors.counting()))
+        System.out.println(orders.stream().collect(Collectors
+                .groupingBy(Order::getCustomerName, Collectors.counting()))
                 .entrySet().stream().sorted(Map.Entry.<String, Long>comparingByValue().reversed()).collect(toList()));
 
 
         System.out.println("//按照用户名分组,统计订单总金额");
-        System.out.println(orders.stream().collect(Collectors.groupingBy(Order::getCustomerName, Collectors.summingDouble(Order::getTotalPrice)))
+        System.out.println(orders.stream().collect(Collectors
+                .groupingBy(Order::getCustomerName,
+                        Collectors.summingDouble(Order::getTotalPrice)))
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
@@ -199,7 +208,8 @@ public class StreamDetailTest {
 
         System.out.println("//按照用户名分组,统计商品采购数量");
         System.out.println(orders.stream().collect(Collectors.groupingBy(Order::getCustomerName,
-                Collectors.summingInt(t -> t.getOrderItemList().stream().mapToInt(OrderItem::getProductQuantity).sum())))
+                Collectors.summingInt(t -> t.getOrderItemList()
+                        .stream().mapToInt(OrderItem::getProductQuantity).sum())))
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
@@ -209,8 +219,8 @@ public class StreamDetailTest {
 
         System.out.println(orders.stream()
                 .flatMap(t -> t.getOrderItemList().stream())
-                .collect(Collectors.groupingBy(OrderItem::getProductName, Collectors.summingInt(OrderItem::getProductQuantity))
-
+                .collect(Collectors.groupingBy(OrderItem::getProductName,
+                        Collectors.summingInt(OrderItem::getProductQuantity))
                 ).entrySet().stream()
                 //min(Map.Entry.comparingByValue())
                 // replace
@@ -227,7 +237,7 @@ public class StreamDetailTest {
                 .collect(Collectors.groupingBy(OrderItem::getProductName, Collectors.summingInt(OrderItem::getProductQuantity)))
                 .entrySet()
                 .stream()
-                .max(Map.Entry.<String, Integer>comparingByValue()).orElse(null));
+                .max(Map.Entry.comparingByValue()).orElse(null));
 
         System.out.println("//按照用户名分组，选用户下的总金额最大的订单");
 
@@ -236,6 +246,7 @@ public class StreamDetailTest {
                 .forEach((k, v) -> System.out.println(k + "#" + v.get().getTotalPrice() + "@" + v.get().getPlacedAt()));
 
         PrintlnUtils.println();
+
         orders.stream().collect(Collectors.groupingBy(Order::getCustomerName,
                 Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Order::getTotalPrice)), Optional::get)))
                 .forEach((k, v) -> System.out.println(k + "#" + v.getTotalPrice() + "@" + v.getPlacedAt()));
@@ -243,16 +254,91 @@ public class StreamDetailTest {
         System.out.println("//根据下单年月分组统计订单ID列表");
 
         System.out.println(orders.stream()
-                .collect(Collectors.groupingBy(t->t.getPlacedAt().format(DateTimeFormatter.ofPattern("yyyy-MM"))
-                ,Collectors.mapping(Order::getId,Collectors.toList()))));
+                .collect(Collectors.groupingBy(t -> t.getPlacedAt().format(DateTimeFormatter.ofPattern("yyyy-MM"))
+                        , Collectors.mapping(Order::getId, Collectors.toList()))));
 
 
         System.out.println("//根据下单年月+用户名两次分组，统计订单ID列表");
 
         System.out.println(orders.stream()
-                .collect(Collectors.groupingBy(t->t.getPlacedAt().format(DateTimeFormatter.ofPattern("yyyy-MM")),
+                .collect(Collectors.groupingBy(t -> t.getPlacedAt().format(DateTimeFormatter.ofPattern("yyyy-MM")),
                         Collectors.groupingBy(Order::getCustomerName,
-                                Collectors.mapping(Order::getId,Collectors.toList())))));
+                                Collectors.mapping(Order::getId, Collectors.toList())))));
+
+
+    }
+
+    @Test
+    public void partitioningBy() {
+        //先来看一下所有下单的用户
+        orders.stream().map(Order::getCustomerName).forEach(System.out::println);
+        //根据是否有下单记录进行分区
+        System.out.println(orders.stream()
+                .collect(Collectors.partitioningBy(customer -> orders.stream()
+                        .mapToLong(Order::getCustomerId)
+                        .anyMatch(id -> customer.getId() == id)
+                )));
+    }
+
+    @Test
+    public void peek() {
+        IntStream.rangeClosed(1, 10)
+                .peek(i -> {
+                    System.out.println("第一次peek");
+                    System.out.println(i);
+                })
+                .filter(i -> i > 5)
+                .peek(i -> {
+                    System.out.println("第二次peek");
+                    System.out.println(i);
+                })
+                .filter(i -> i % 2 == 0)
+                .forEach(i -> {
+                    System.out.println("最终结果");
+                    System.out.println(i);
+                });
+        //        orders.stream()
+//                .filter(order -> order.getTotalPrice() > 40)
+//                .peek(order -> System.out.println(order.toString()))
+//                .map(Order::getCustomerName)
+//                .collect(toList());
+    }
+
+
+    @Test
+    public void customCollector() { //自定义收集器
+        Integer[] ints=new Integer[]{1, 1, 2, 2, 2, 3, 4, 5, 5};
+        System.out.println(Stream.of(ints).collect(Collectors.groupingBy(Function.identity(),
+                Collectors.counting())).entrySet()
+                .stream()
+                .sorted(Map.Entry.<Integer, Long>comparingByValue().reversed())
+                .skip(1)
+                .map(Map.Entry::getValue)
+                .findFirst().get());
+
+        //最受欢迎收集器
+        Assert.assertThat(Stream.of(ints).collect(new MostPopularCollector<>()).get(),
+                CoreMatchers.is(2));
+
+        Assert.assertThat(Stream.of('a', 'b', 'c', 'c', 'c', 'd')
+                .collect(new MostPopularCollector<>()).get(),
+                CoreMatchers.is('c'));
+
+        Assert.assertThat(Stream.concat(Stream.concat(IntStream.rangeClosed(1, 1000).boxed(), IntStream.rangeClosed(1, 1000).boxed()), Stream.of(2))
+                .parallel().collect(new MostPopularCollector<>()).get(),
+                CoreMatchers.is(2));
+
+
+        Assert.assertThat(Stream.of(ints).collect(new MostPopularCollector2<>()).get(),
+                CoreMatchers.is(2));
+
+        Assert.assertThat(Stream.of('a', 'b', 'c', 'c', 'c', 'd')
+                .collect(new MostPopularCollector2<>()).get(),
+                CoreMatchers.is('c'));
+
+        Assert.assertThat(Stream.concat(Stream.concat(IntStream.rangeClosed(1, 1000).boxed(), IntStream.rangeClosed(1, 1000).boxed()), Stream.of(2))
+                .parallel().collect(new MostPopularCollector2<>()).get(),
+                CoreMatchers.is(2));
 
 
     }

@@ -45,7 +45,7 @@
         <module>learn-commons-collections</module>
         <module>learn-mq</module>
 
-
+        <module>learn-design-pattern</module>
         <module>learn-easy-rule</module>
 
         <module>learn-proxy</module>
@@ -55,6 +55,7 @@
 
 
         <module>learn-otter</module>
+        <module>learn-datax</module>
         <module>learn-new-ti</module>
         <module>learn-common-bussiness-problems</module>
     </modules>
