@@ -60,9 +60,16 @@ public class One2NMainHistoryDataEventProcessor extends AbstractEventProcessor i
         eventData.setTableName(tableName + "_shard_" + getShardNum(new BigInteger(groupId)));
         removeVirtualColums(eventData);
         addColumn(eventData, groupId);
+        replaceJSONColumn(eventData);
         return true;
 
 
+    }
+
+    private void replaceJSONColumn(EventData eventData) {
+        EventColumn eventColumn = getColumn(eventData, "history_data");
+        String value = eventColumn.getColumnValue();
+        eventColumn.setColumnValue(JSON.toJSONString(JSON.parse(value)));
     }
 
     private void removeVirtualColums(EventData eventData) {
